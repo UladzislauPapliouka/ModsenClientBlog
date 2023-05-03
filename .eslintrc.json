@@ -4,9 +4,9 @@
         "es2021": true
     },
     "extends": [
-//        "plugin:react/recommended",
         "airbnb",
         "eslint:recommended",
+        "plugin:react/recommended",
         "standard-with-typescript",
         "plugin:@typescript-eslint/recommended",
         "prettier"
@@ -18,15 +18,23 @@
         "ecmaFeatures": {
             "jsx": true
         },
+        "tsconfigRootDir": ".",
+        "project": "./tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
-//        "react",
-        "@typescript-eslint", "simple-import-sort", "prettier"
+        "react",
+        "@typescript-eslint",
+        "simple-import-sort",
+        "prettier"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "react/jsx-filename-extension": [
+            2,
+            { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+        ]
     },
     "settings": {
         "import/resolver": {
