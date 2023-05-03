@@ -1,0 +1,15 @@
+{
+  "name": "ModsenClientBlog",
+  "version": "0.0.1",
+  "description": "Modsen client blog",
+  "main": "index.tsx",
+  "repository": "https://github.com/UladzislauPapliouka/ModsenClientBlog",
+  "author": "Uladzislau Papliouka",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^8.0.3"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
