@@ -1,5 +1,5 @@
 {
-  "name": "ModsenClientBlog",
+  "name": "modsen-client-blog",
   "version": "0.0.1",
   "description": "Modsen client blog",
   "main": "index.tsx",
