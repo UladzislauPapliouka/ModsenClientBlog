@@ -5,8 +5,10 @@
     },
     "extends": [
         "airbnb",
+        "next/core-web-vitals",
         "eslint:recommended",
         "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
         "standard-with-typescript",
         "plugin:@typescript-eslint/recommended",
         "prettier"

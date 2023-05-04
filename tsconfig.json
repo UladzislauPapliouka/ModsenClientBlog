@@ -1,25 +1,59 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["./*"],
-      "@constants/*": ["constants/*"],
-      "@constants": ["constants/"],
-      "@assets/*": ["assets/*"],
-      "@assets": ["assets/"],
-      "@components/*": ["components/*"],
-      "@components": ["components/"],
-      "@containers/*": ["containers/*"],
-      "@containers": ["containers/"],
-      "@services/*": ["services/*"],
-      "@services/": ["services/"],
-      "@typing/*": ["types/*"],
-      "@typing/": ["types/"],
-      "@store/*": ["store/*"],
-      "@store": ["store/"]
+      "@/*": [
+        "./*"
+      ],
+      "@constants/*": [
+        "constants/*"
+      ],
+      "@constants": [
+        "constants/"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@assets": [
+        "assets/"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@components": [
+        "components/"
+      ],
+      "@containers/*": [
+        "containers/*"
+      ],
+      "@containers": [
+        "containers/"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@services/": [
+        "services/"
+      ],
+      "@typing/*": [
+        "types/*"
+      ],
+      "@typing/": [
+        "types/"
+      ],
+      "@store/*": [
+        "store/*"
+      ],
+      "@store": [
+        "store/"
+      ]
     },
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -31,7 +65,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "noEmit": true,
+    "incremental": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
