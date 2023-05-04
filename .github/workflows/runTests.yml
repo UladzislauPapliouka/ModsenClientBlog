@@ -18,3 +18,13 @@ jobs:
         run: |
           yarn eslint
           yarn prettier
+  cypress-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: Cypress test
+        run: |
+          yarn test:cy
