@@ -1,0 +1,21 @@
+@import '@styles/_variables.scss';
+.button {
+  padding: 16px 48px;
+  border: none;
+  color: $black;
+  &:hover {
+    cursor: pointer;
+  }
+  &.primary {
+    background-color: $yellow;
+    &:hover {
+      background-color: $yellowHover;
+    }
+  }
+  &.secondary {
+    background-color: $light;
+    &:hover {
+      background-color: $lightGrey;
+    }
+  }
+}
