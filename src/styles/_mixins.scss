@@ -1,0 +1,17 @@
+@mixin font($fontSize, $lineHeight, $fontFamily: Sen) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  font-family: $fontFamily;
+}
+@mixin flex(
+  $justifyContent: flex-start,
+  $alignItems: flex-start,
+  $flexDirection: row,
+  $gap: 0
+) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  gap: $gap;
+}

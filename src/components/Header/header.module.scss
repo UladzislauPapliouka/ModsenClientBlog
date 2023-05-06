@@ -1,0 +1,7 @@
+@import '@styles/_mixins.scss';
+.header {
+  @include flex(space-between, center);
+  div:last-child {
+    @include flex(space-between, center, null, 24px);
+  }
+}

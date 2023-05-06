@@ -3,7 +3,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -12,7 +12,26 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./*"],
+      "@constants/*": ["constants/*"],
+      "@constants": ["constants/"],
+      "@assets/*": ["assets/*"],
+      "@assets": ["assets/"],
+      "@components/*": ["components/*"],
+      "@components": ["components/"],
+      "@containers/*": ["containers/*"],
+      "@containers": ["containers/"],
+      "@services/*": ["services/*"],
+      "@services/": ["services/"],
+      "@typing/*": ["types/*"],
+      "@typing/": ["types/"],
+      "@store/*": ["store/*"],
+      "@store": ["store/"],
+      "@styles/*": ["styles/*"],
+      "@styles": ["styles/"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

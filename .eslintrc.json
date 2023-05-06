@@ -21,7 +21,7 @@
             "jsx": true
         },
         "tsconfigRootDir": ".",
-        "project": "./tsconfig.json",
+        "project": "./src/tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
@@ -36,7 +36,15 @@
         "react/jsx-filename-extension": [
             2,
             { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-        ]
+        ],
+        "import/extensions": "off",
+        "react/function-component-definition": ["error", {
+            "namedComponents":  "arrow-function",
+            "unnamedComponents":  "arrow-function"
+        }],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "react/jsx-props-no-spreading": "off",
+        "no-shadow": "off"
     },
     "settings": {
         "import/resolver": {
