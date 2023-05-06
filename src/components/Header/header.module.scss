@@ -1,5 +1,8 @@
 @import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
 .header {
+  background-color: $black;
+  color: $light;
   @include flex(space-between, center);
   div:last-child {
     @include flex(space-between, center, null, 24px);
