@@ -5,9 +5,11 @@ import Link from '@components/Link';
 import Button from '@components/Button';
 import Typography from '@components/Typography';
 import Header from '@components/Header';
+import Footer from '@components/Footer';
+import styles from './_app.module.scss';
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <>
+  <div className={styles.app}>
     <Header>
       <Link href="/">Home</Link>
       <Link href="/blog">Blog</Link>
@@ -18,6 +20,7 @@ const App = ({ Component, pageProps }: AppProps) => (
       </Button>
     </Header>
     <Component {...pageProps} />
-  </>
+    <Footer />
+  </div>
 );
 export default App;

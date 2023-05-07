@@ -62,11 +62,13 @@
     "test:cy": "start-server-and-test dev:test http://localhost:6060 cy:run"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@types/react": "^18.2.1",
     "@types/react-dom": "^18.2.2",
     "next": "^13.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "yup": "^1.1.1"
   }
 }

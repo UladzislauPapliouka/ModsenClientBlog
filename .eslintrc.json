@@ -45,7 +45,10 @@
         }],
         "@typescript-eslint/explicit-function-return-type": "off",
         "react/jsx-props-no-spreading": "off",
-        "no-shadow": "off"
+        "no-shadow": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/require-default-props": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off"
     },
     "settings": {
         "import/resolver": {
