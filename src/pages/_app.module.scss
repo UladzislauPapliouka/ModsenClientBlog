@@ -1,8 +1,8 @@
-@import "@styles/_mixins.scss";
-.app{
-  @include flex(space-between,null,column,0px);
+@import '@styles/_mixins.scss';
+.app {
+  @include flex(space-between, null, column, 0px);
   min-height: 100vh;
-  &  > div:nth-child(2){
+  & > div:nth-child(2) {
     flex-grow: 1;
   }
 }

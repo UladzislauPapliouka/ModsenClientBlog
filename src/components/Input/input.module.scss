@@ -1,5 +1,5 @@
-@import "@styles/_variables";
-@import "@styles/_mixins";
+@import '@styles/_variables';
+@import '@styles/_mixins';
 .wrapper {
   position: relative;
   .input {
@@ -12,14 +12,14 @@
   }
   &.error {
     color: red;
-    .input{
+    .input {
       border: 2px solid red;
       color: inherit;
       &::placeholder {
         color: inherit;
       }
     }
-    & >label {
+    & > label {
       position: absolute;
       bottom: -20px;
       left: 0;

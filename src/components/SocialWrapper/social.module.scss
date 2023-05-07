@@ -1,5 +1,5 @@
-@import "@styles/_mixins";
+@import '@styles/_mixins';
 .wrapper {
-  @include flex(space-between,null,null,16px);
+  @include flex(space-between, null, null, 16px);
   width: fit-content;
 }

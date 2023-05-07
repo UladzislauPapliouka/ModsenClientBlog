@@ -1,22 +1,22 @@
-@import "@styles/_variables";
-@import "@styles/_mixins";
+@import '@styles/_variables';
+@import '@styles/_mixins';
 .footer {
   background-color: $black;
   color: $light;
   .subscribeBlock {
-    background-color: rgba($light,0.05);
+    background-color: rgba($light, 0.05);
     padding: 80px 64px;
-    @include flex(space-between, center,null,20px);
+    @include flex(space-between, center, null, 20px);
     & > span {
       flex-grow: 2;
     }
   }
   .socialBlock {
-    @include flex(space-between, center,null);
+    @include flex(space-between, center, null);
     & > div > svg > path {
-      fill:$greyText
+      fill: $greyText;
     }
-    &> span{
+    & > span {
       max-width: 300px;
     }
   }
