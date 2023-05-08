@@ -1,12 +1,13 @@
-@import "@styles/_variables";
+@import '@styles/_variables';
 
 .link {
   text-decoration: none;
   color: inherit;
   position: relative;
-  &:hover, &.active  {
-    &:after{
-      content: "";
+  &:hover,
+  &.active {
+    &:after {
+      content: '';
       position: absolute;
       width: 100%;
       border: 1px solid $light;
