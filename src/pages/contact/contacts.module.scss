@@ -1,0 +1,40 @@
+@import "@styles/_mixins";
+@import "@styles/_variables";
+.page{
+  @include flex(flex-start, center,column);
+  & > * {
+    width: 100%;
+  }
+  padding: 128px 336px 0 336px;
+  & > span {
+    text-align: center;
+  }
+  .scheduleBlock {
+    background-color: $purple;
+    padding: 48px 64px;
+    @include flex(center,flex-start,row, 42px);
+    color: $lightGrey;
+    & > div {
+      width: 100%;
+      @include flex(flex-start, flex-start,column);
+      & > hr {
+        width: 100%;
+      }
+      &>*{
+        margin-bottom: 16px;
+      }
+    }
+  }
+  .contactForm{
+    margin-top: 32px;
+    @include flex(flex-start, center,column);
+    & > * {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    &> *:last-child {
+      margin-bottom: 70px;
+    }
+
+  }
+}
