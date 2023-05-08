@@ -5,7 +5,7 @@
   .input {
     background-color: transparent;
     border: 2px solid $darkGrey;
-    color: $light;
+    color: inherit;
     padding: 14px 25px;
     width: inherit;
     @include font(16px, 28px, Sen);
