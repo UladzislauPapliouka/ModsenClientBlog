@@ -1,7 +1,7 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
 .page {
-  .pageTitle{
+  .pageTitle {
     @include flex(flex-start, center, column);
     & > * {
       width: 100%;

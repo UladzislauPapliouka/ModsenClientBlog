@@ -1,10 +1,10 @@
 @import '@styles/_variables.scss';
 
 .container {
- &.variant1{
-   padding: 18px 80px 18px 80px;
- }
-  &.variant2{
+  &.variant1 {
+    padding: 18px 80px 18px 80px;
+  }
+  &.variant2 {
     padding: 128px 336px 0 336px;
   }
 }

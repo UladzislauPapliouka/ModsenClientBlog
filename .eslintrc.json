@@ -48,7 +48,11 @@
         "no-shadow": "off",
         "jsx-a11y/label-has-associated-control": "off",
         "react/require-default-props": "off",
-        "@typescript-eslint/strict-boolean-expressions": "off"
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "react/prop-types": "off",
+        "@typescript-eslint/ban-ts-comment":"off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/click-events-have-key-events": "off"
     },
     "settings": {
         "import/resolver": {
