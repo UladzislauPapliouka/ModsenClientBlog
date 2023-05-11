@@ -3,6 +3,11 @@
 .footer {
   background-color: $black;
   color: $light;
+  & > div:first-child{
+    @media screen and (max-width: $mobileBreakpoint) {
+      display: none;
+    }
+  }
   .subscribeBlock {
     background-color: rgba($light, 0.05);
     padding: 80px 64px;
@@ -10,9 +15,19 @@
     & > span {
       flex-grow: 2;
     }
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(space-between, center, column, 20px);
+      padding: 10px;
+      & > span {
+        text-align: center;
+      }
+    }
   }
   .socialBlock {
     @include flex(space-between, center, null);
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(space-between, center, column, 20px);
+    }
     & > div > svg > path {
       fill: $greyText;
     }

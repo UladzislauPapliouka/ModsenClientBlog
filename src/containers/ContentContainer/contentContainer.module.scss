@@ -1,8 +1,12 @@
 @import '@styles/_variables.scss';
+@import '@styles/_mixins.scss';
 
 .container {
   &.variant1 {
     padding: 18px 80px 18px 80px;
+    @media screen and (max-width: $mobileBreakpoint) {
+      padding: 18px;
+    }
   }
   &.variant2 {
     padding: 128px 336px 0 336px;
