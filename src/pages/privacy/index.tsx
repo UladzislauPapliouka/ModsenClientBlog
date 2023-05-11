@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@components/Typography';
+import ContentContainer from '@containers/ContentContainer';
 import styles from './privecy.module.scss';
 
 const HomePage = (): JSX.Element => (
@@ -8,7 +9,7 @@ const HomePage = (): JSX.Element => (
       <Typography variant="head1">Privacy Policy</Typography>
       <Typography variant="body1">Last Updated on 27th January 2022</Typography>
     </div>
-    <div className={styles.privacyInfo}>
+    <ContentContainer className={styles.privacyInfo}>
       <Typography variant="head1">Lorem ipsum dolor sit amet</Typography>
       <Typography variant="body1">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -56,7 +57,7 @@ const HomePage = (): JSX.Element => (
         dictum fusce ut placerat orci nulla. Neque convallis a cras semper
         auctor neque vitae tempus quam.
       </Typography>
-    </div>
+    </ContentContainer>
   </div>
 );
 export default HomePage;

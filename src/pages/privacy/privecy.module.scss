@@ -10,7 +10,6 @@
 }
 .privacyInfo {
   @include flex(center, center, column);
-  padding: 128px 336px;
   & > span:nth-child(2) {
     margin: 32px 0 32px 0;
   }

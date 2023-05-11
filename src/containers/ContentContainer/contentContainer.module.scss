@@ -10,5 +10,9 @@
   }
   &.variant2 {
     padding: 128px 336px 0 336px;
+    @media screen and (max-width: $mobileBreakpoint) {
+      padding: 28px 36px 0 36px;
+    }
   }
+
 }

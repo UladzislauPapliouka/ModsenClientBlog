@@ -3,7 +3,7 @@
 .footer {
   background-color: $black;
   color: $light;
-  & > div:first-child{
+  & > div:first-child {
     @media screen and (max-width: $mobileBreakpoint) {
       display: none;
     }

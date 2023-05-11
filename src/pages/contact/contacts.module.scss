@@ -15,6 +15,10 @@
     background-color: $purple;
     padding: 48px 64px;
     @include flex(center, flex-start, row, 42px);
+    @media screen and (max-width: $mobileBreakpoint) {
+      padding: 24px 32px;
+      @include flex(center, flex-start, column, 42px);
+    }
     color: $lightGrey;
     & > div {
       width: 100%;
