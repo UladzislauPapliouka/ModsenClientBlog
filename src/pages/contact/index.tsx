@@ -7,6 +7,9 @@ import ContentContainer from '@containers/ContentContainer';
 import { string, type ValidationError } from 'yup';
 import emailjs from '@emailjs/browser';
 import process from 'process';
+import TextArea from '@components/TextArea';
+import CustomSelect from '@components/CustomSelect';
+import Subjects from '@constants/subjects';
 import styles from './contacts.module.scss';
 
 const HomePage = (): JSX.Element => {
@@ -14,6 +17,7 @@ const HomePage = (): JSX.Element => {
     name: '',
     email: '',
     message: '',
+    subject: Subjects.query,
   });
   const [errorMessage, setErrorMessage] = useState('');
   const setName = (event: SyntheticEvent<HTMLInputElement>) => {
@@ -22,8 +26,11 @@ const HomePage = (): JSX.Element => {
   const setEmail = (event: SyntheticEvent<HTMLInputElement>) => {
     setFormData({ ...formData, email: event.currentTarget.value });
   };
-  const setMessage = (event: SyntheticEvent<HTMLInputElement>) => {
+  const setMessage = (event: SyntheticEvent<HTMLTextAreaElement>) => {
     setFormData({ ...formData, message: event.currentTarget.value });
+  };
+  const setSubject = (value: string) => {
+    setFormData({ ...formData, subject: value as Subjects });
   };
   const emailSchema = string().test(
     'is-email',
@@ -50,6 +57,7 @@ const HomePage = (): JSX.Element => {
           email: formData.email,
           name: formData.name,
           message: formData.message,
+          subject: formData.subject,
         },
         process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
       )
@@ -100,8 +108,12 @@ const HomePage = (): JSX.Element => {
             value={formData.email}
             placeholder="Your Email"
           />
-          <Input placeholder="Query Related" />
-          <Input
+          <CustomSelect
+            selected={formData.subject}
+            options={Object.values(Subjects)}
+            onChangeSelected={setSubject}
+          />
+          <TextArea
             onChange={setMessage}
             value={formData.message}
             placeholder="Message"
