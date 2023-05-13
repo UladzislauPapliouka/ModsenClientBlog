@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
+
 import styles from './privecy.module.scss';
 
 const HomePage = (): JSX.Element => (

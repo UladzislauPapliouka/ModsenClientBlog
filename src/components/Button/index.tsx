@@ -1,5 +1,7 @@
 import React from 'react';
+
 import type IButtonProps from '@components/Button/types';
+
 import styles from './button.module.scss';
 
 const Button = ({

@@ -1,17 +1,19 @@
 import React, { type SyntheticEvent, useState } from 'react';
-import Header from '@components/Header';
-import Link from '@components/Link';
-import ContentContainer from '@containers/ContentContainer';
-import Button from '@components/Button';
-import Typography from '@components/Typography';
-import SocialWrapper from '@components/SocialWrapper';
-import Input from '@components/Input';
-import { string, type ValidationError } from 'yup';
 import emailjs from '@emailjs/browser';
+import { string, type ValidationError } from 'yup';
+
+import Button from '@components/Button';
+import socialLink from '@components/Footer/footer.config';
+import Header from '@components/Header';
+import Input from '@components/Input';
+import Link from '@components/Link';
+import SocialWrapper from '@components/SocialWrapper';
+import Typography from '@components/Typography';
+import EnvVariables from '@constants/envVariables';
 import Routes from '@constants/routes';
 import emailSchema from '@constants/shemes';
-import EnvVariables from '@constants/envVariables';
-import socialLink from '@components/Footer/footer.config';
+import ContentContainer from '@containers/ContentContainer';
+
 import styles from './footer.module.scss';
 
 const Footer = () => {

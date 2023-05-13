@@ -1,12 +1,14 @@
-import '../styles/global.scss';
 import React from 'react';
 import { type AppProps } from 'next/app';
-import Link from '@components/Link';
+
 import Button from '@components/Button';
-import Typography from '@components/Typography';
-import Header from '@components/Header';
 import Footer from '@components/Footer';
+import Header from '@components/Header';
+import Link from '@components/Link';
+import Typography from '@components/Typography';
 import Routes from '@constants/routes';
+
+import '../styles/global.scss';
 import styles from './_app.module.scss';
 
 const App = ({ Component, pageProps }: AppProps) => (

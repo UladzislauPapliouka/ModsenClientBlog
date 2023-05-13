@@ -1,16 +1,18 @@
 import React, { type SyntheticEvent, useState } from 'react';
-import Typography from '@components/Typography';
-import Input from '@components/Input';
-import Button from '@components/Button';
-import { Map, Marker } from 'pigeon-maps';
-import ContentContainer from '@containers/ContentContainer';
-import { string, type ValidationError } from 'yup';
 import emailjs from '@emailjs/browser';
+import { Map, Marker } from 'pigeon-maps';
 import process from 'process';
-import TextArea from '@components/TextArea';
+import { string, type ValidationError } from 'yup';
+
+import Button from '@components/Button';
 import CustomSelect from '@components/CustomSelect';
-import Subjects from '@constants/subjects';
+import Input from '@components/Input';
+import TextArea from '@components/TextArea';
+import Typography from '@components/Typography';
 import EnvVariables from '@constants/envVariables';
+import Subjects from '@constants/subjects';
+import ContentContainer from '@containers/ContentContainer';
+
 import styles from './contacts.module.scss';
 
 const HomePage = (): JSX.Element => {

@@ -6,7 +6,9 @@ import React, {
   useRef,
 } from 'react';
 import ReactDOM from 'react-dom';
+
 import mobileBreakpoint from '@constants/breackpoints';
+
 import styles from './modal.module.scss';
 
 const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(

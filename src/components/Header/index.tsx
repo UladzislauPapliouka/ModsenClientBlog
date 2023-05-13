@@ -1,7 +1,9 @@
 import React, { type PropsWithChildren, useState } from 'react';
+
+import ModalFC from '@components/Modal';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
-import ModalFC from '@components/Modal';
+
 import styles from './header.module.scss';
 
 const Header = ({ children }: PropsWithChildren) => {

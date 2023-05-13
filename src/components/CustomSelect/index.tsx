@@ -4,6 +4,7 @@ import { CheckIcon } from '@assets/social';
 import SelectItemsList from '@components/SelectItemsList';
 
 import styles from './customSelect.module.scss';
+
 import { type ICustomSelectProps } from './types';
 
 const CustomSelect = <T extends { toString: () => string }>({

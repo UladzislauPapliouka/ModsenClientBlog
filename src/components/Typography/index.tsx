@@ -1,6 +1,8 @@
 import React from 'react';
-import type ITypographyProps from './types';
+
 import styles from './typography.module.scss';
+
+import type ITypographyProps from './types';
 
 const Typography = ({ children, variant, ...restProps }: ITypographyProps) => (
   <span

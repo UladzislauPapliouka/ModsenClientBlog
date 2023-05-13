@@ -1,4 +1,5 @@
 import React, { type DetailedHTMLProps, type HTMLAttributes } from 'react';
+
 import styles from './input.module.scss';
 
 const Input = ({

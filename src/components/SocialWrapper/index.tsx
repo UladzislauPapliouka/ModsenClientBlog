@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+
 import {
   FacebookIcon,
   InstagramIcon,
@@ -6,7 +8,7 @@ import {
   TwitterIcon,
 } from '@assets/social';
 import type ISocialProps from '@components/SocialWrapper/types';
-import Link from 'next/link';
+
 import styles from './social.module.scss';
 
 const SocialWrapper = ({

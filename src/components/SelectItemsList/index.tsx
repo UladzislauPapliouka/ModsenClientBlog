@@ -2,6 +2,7 @@ import React from 'react';
 import { v1 } from 'uuid';
 
 import styles from './selectItemsList.module.scss';
+
 import { type ISelectListProps } from './types';
 
 const SelectItemsList = <T extends { toString: () => string }>({

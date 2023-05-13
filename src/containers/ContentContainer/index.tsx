@@ -1,6 +1,8 @@
 import React from 'react';
-import type IContainerProps from './types';
+
 import styles from './contentContainer.module.scss';
+
+import type IContainerProps from './types';
 
 const ContentContainer = ({
   children,
