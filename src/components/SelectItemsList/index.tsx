@@ -18,9 +18,7 @@ const SelectItemsList = <T extends { toString: () => string }>({
       onClick={handleWrapperClick}>
       {options.map((option) => {
         const handleSelect = () => {
-          ((option: T) => {
-            handleChangeSelected(option);
-          })(option);
+          handleChangeSelected(option);
         };
 
         return (
