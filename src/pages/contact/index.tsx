@@ -10,6 +10,7 @@ import process from 'process';
 import TextArea from '@components/TextArea';
 import CustomSelect from '@components/CustomSelect';
 import Subjects from '@constants/subjects';
+import EnvVariables from '@constants/envVariables';
 import styles from './contacts.module.scss';
 
 const HomePage = (): JSX.Element => {
@@ -51,15 +52,15 @@ const HomePage = (): JSX.Element => {
     }
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID2 as string,
+        EnvVariables.NEXT_PUBLIC_SERVICE_ID,
+        EnvVariables.NEXT_PUBLIC_TEMPLATE_ID2,
         {
           email: formData.email,
           name: formData.name,
           message: formData.message,
           subject: formData.subject,
         },
-        process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
+        EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
       )
       .then(null, (err) => {
         setErrorMessage(err);

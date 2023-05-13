@@ -11,6 +11,7 @@ import emailjs from '@emailjs/browser';
 import * as process from 'process';
 import Routes from '@constants/routes';
 import emailSchema from '@constants/shemes';
+import EnvVariables from '@constants/envVariables';
 import styles from './footer.module.scss';
 
 const Footer = () => {
@@ -32,10 +33,10 @@ const Footer = () => {
     setIsPending(true);
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
+        EnvVariables.NEXT_PUBLIC_SERVICE_ID,
+        EnvVariables.NEXT_PUBLIC_TEMPLATE_ID,
         { email },
-        process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
+        EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
       )
       .then(
         () => {
