@@ -1,0 +1,13 @@
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px;
+  .message{
+    font-size: 40px;
+  }
+  .stack{
+    font-size: 20px;
+  }
+}

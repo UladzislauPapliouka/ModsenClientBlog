@@ -34,7 +34,7 @@
   .contactForm {
     margin-top: 32px;
     color: $black;
-    @include flex(flex-start, center, column,8px);
+    @include flex(flex-start, center, column, 8px);
     & > * {
       width: 100%;
       margin-bottom: 16px;
