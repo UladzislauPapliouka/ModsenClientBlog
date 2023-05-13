@@ -1,7 +1,7 @@
 const Routes: Record<string, string> = {
   Home: '/',
   Blog: '/blog',
-  'About us': '/about',
+  'About Us': '/about',
   'Contact Us': '/contacts',
   'Privacy Policy': '/privacy',
 };

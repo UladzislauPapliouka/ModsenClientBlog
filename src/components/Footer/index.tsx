@@ -11,6 +11,7 @@ import emailjs from '@emailjs/browser';
 import Routes from '@constants/routes';
 import emailSchema from '@constants/shemes';
 import EnvVariables from '@constants/envVariables';
+import socialLink from '@components/Footer/footer.config';
 import styles from './footer.module.scss';
 
 const Footer = () => {
@@ -82,7 +83,7 @@ const Footer = () => {
         <Typography variant="body1">
           Finstreet 118 2561 Fintown Hello@finsweet.com 020 7993 2905
         </Typography>
-        <SocialWrapper />
+        <SocialWrapper links={socialLink} />
       </ContentContainer>
     </div>
   );

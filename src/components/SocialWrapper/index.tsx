@@ -5,14 +5,42 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@assets/social';
+import type ISocialProps from '@components/SocialWrapper/types';
+import Link from 'next/link';
 import styles from './social.module.scss';
 
-const SocialWrapper = () => (
+const SocialWrapper = ({
+  links: { twitter, facebook, linkedin, instagram },
+}: ISocialProps) => (
   <div className={styles.wrapper}>
-    <FacebookIcon />
-    <TwitterIcon />
-    <InstagramIcon />
-    <LinkedInIcon />
+    {facebook && (
+      <Link
+        target="_blank"
+        href={facebook}>
+        <FacebookIcon />
+      </Link>
+    )}
+    {twitter && (
+      <Link
+        target="_blank"
+        href={twitter}>
+        <TwitterIcon />
+      </Link>
+    )}
+    {instagram && (
+      <Link
+        target="_blank"
+        href={instagram}>
+        <InstagramIcon />
+      </Link>
+    )}
+    {linkedin && (
+      <Link
+        target="_blank"
+        href={linkedin}>
+        <LinkedInIcon />
+      </Link>
+    )}
   </div>
 );
 export default SocialWrapper;
