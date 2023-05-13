@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { type AppProps } from 'next/app';
 
 import Button from '@components/Button';
@@ -23,6 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => (
       </Button>
     </Header>
     <Component {...pageProps} />
+    <Toaster />
     <Footer />
   </div>
 );

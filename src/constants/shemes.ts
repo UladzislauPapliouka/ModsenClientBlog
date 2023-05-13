@@ -1,7 +1,7 @@
-import { string } from 'yup';
+import { object, string } from 'yup';
 
 const emailSchema = string()
-  .required()
+  .required('Please enter your email')
   .test(
     'is-email',
     (d) => `Incorrect email`,
@@ -13,5 +13,11 @@ const emailSchema = string()
       return isEmail;
     },
   );
+
+export const nameSchema = string()
+  .required('Please enter your name')
+  .min(3)
+  .max(12);
+export const messageSchema = string().max(150);
 
 export default emailSchema;

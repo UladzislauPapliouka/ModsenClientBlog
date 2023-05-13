@@ -1,8 +1,7 @@
 import React, { type SyntheticEvent, useState } from 'react';
+import toast from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
-import { Map, Marker } from 'pigeon-maps';
-import process from 'process';
-import { string, type ValidationError } from 'yup';
+import { Map, Marker, ZoomControl } from 'pigeon-maps';
 
 import Button from '@components/Button';
 import CustomSelect from '@components/CustomSelect';
@@ -10,6 +9,7 @@ import Input from '@components/Input';
 import TextArea from '@components/TextArea';
 import Typography from '@components/Typography';
 import EnvVariables from '@constants/envVariables';
+import emailSchema, { messageSchema, nameSchema } from '@constants/shemes';
 import Subjects from '@constants/subjects';
 import ContentContainer from '@containers/ContentContainer';
 
@@ -23,17 +23,41 @@ const HomePage = (): JSX.Element => {
     subject: Subjects.query,
   });
 
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessages, setErrorMessages] = useState<
+    Record<string, string | undefined>
+  >({
+    name: '',
+    email: '',
+    message: '',
+    subject: '',
+  });
+
+  const [isPending, setIsPending] = useState(false);
+
+  const setNameError = (message: string) => {
+    setErrorMessages({ ...errorMessages, name: message });
+  };
 
   const setName = (event: SyntheticEvent<HTMLInputElement>) => {
+    setNameError('');
     setFormData({ ...formData, name: event.currentTarget.value });
   };
 
+  const setEmailError = (message: string) => {
+    setErrorMessages({ ...errorMessages, email: message });
+  };
+
   const setEmail = (event: SyntheticEvent<HTMLInputElement>) => {
+    setEmailError('');
     setFormData({ ...formData, email: event.currentTarget.value });
   };
 
+  const setMessageError = (message: string) => {
+    setErrorMessages({ ...errorMessages, message });
+  };
+
   const setMessage = (event: SyntheticEvent<HTMLTextAreaElement>) => {
+    setMessageError('');
     setFormData({ ...formData, message: event.currentTarget.value });
   };
 
@@ -41,26 +65,16 @@ const HomePage = (): JSX.Element => {
     setFormData({ ...formData, subject: value as Subjects });
   };
 
-  const emailSchema = string().test(
-    'is-email',
-    (d) => `Incorrect email`,
-    (value) => {
-      const isEmail = !!value!.match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      );
-
-      return isEmail;
-    },
-  );
-
   const handleClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     try {
-      emailSchema.validateSync(formData.email);
+      nameSchema.validateSync(formData.name, { abortEarly: false });
+      messageSchema.validateSync(formData.message, { abortEarly: false });
+      emailSchema.validateSync(formData.email, { abortEarly: false });
     } catch (e) {
-      const error = e as ValidationError;
-
-      setErrorMessage(error.errors[0]);
+      return;
     }
+
+    setIsPending(true);
     emailjs
       .send(
         EnvVariables.NEXT_PUBLIC_SERVICE_ID,
@@ -73,9 +87,17 @@ const HomePage = (): JSX.Element => {
         },
         EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
       )
-      .then(null, (err) => {
-        setErrorMessage(err);
-      });
+      .then(
+        () => {
+          toast.success('Success');
+          setIsPending(false);
+        },
+        (err) => {
+          setIsPending(false);
+          toast.error('Error');
+          setErrorMessages(err);
+        },
+      );
   };
 
   return (
@@ -111,12 +133,13 @@ const HomePage = (): JSX.Element => {
         </div>
         <div className={styles.contactForm}>
           <Input
+            errorMessage={errorMessages.name}
             onChange={setName}
             value={formData.name}
             placeholder="Full Name"
           />
           <Input
-            errorMessage={errorMessage}
+            errorMessage={errorMessages.email}
             onChange={setEmail}
             value={formData.email}
             placeholder="Your Email"
@@ -127,21 +150,24 @@ const HomePage = (): JSX.Element => {
             onChangeSelected={setSubject}
           />
           <TextArea
+            errorMessage={errorMessages.message}
             onChange={setMessage}
             value={formData.message}
             placeholder="Message"
           />
-          <Button onClick={handleClick}>
+          <Button
+            disabled={isPending}
+            onClick={handleClick}>
             <Typography variant="head4">Send Message</Typography>
           </Button>
         </div>
       </ContentContainer>
 
       <Map
-        mouseEvents={false}
         height={400}
         defaultCenter={[55.1904, 30.2049]}
         defaultZoom={5}>
+        <ZoomControl />
         <Marker
           width={50}
           anchor={[55.1904, 30.2049]}

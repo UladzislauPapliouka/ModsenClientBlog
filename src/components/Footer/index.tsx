@@ -1,4 +1,5 @@
 import React, { type SyntheticEvent, useState } from 'react';
+import toast from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import { string, type ValidationError } from 'yup';
 
@@ -50,11 +51,13 @@ const Footer = () => {
         () => {
           setIsPending(false);
           setEmail('');
+          toast.success(`Success`);
         },
         (err) => {
           setErrorMessage(err);
           setIsPending(false);
           setEmail('');
+          toast.success(`Error`);
         },
       );
   };
