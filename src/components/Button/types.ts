@@ -6,5 +6,6 @@ interface IButtonProps
     HTMLButtonElement
   > {
   variant?: 'primary' | 'secondary';
+  disabled?: boolean;
 }
 export default IButtonProps;

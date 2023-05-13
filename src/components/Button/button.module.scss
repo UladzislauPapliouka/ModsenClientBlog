@@ -3,6 +3,13 @@
   padding: 16px 48px;
   border: none;
   color: $black;
+  &:disabled {
+    background-color: $mediumGrey !important;
+    cursor: not-allowed !important;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
   &:hover {
     cursor: pointer;
   }

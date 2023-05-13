@@ -11,13 +11,7 @@ import styles from './modal.module.scss';
 const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
   ({ children, handleClose }) => {
     const backRef = useRef(null);
-    const onBackgroundClickHandler = ({
-      target,
-    }: SyntheticEvent<HTMLDivElement>) => {
-      if (backRef.current === target) {
-        handleClose();
-      }
-    };
+
     const closeModalWithResize = useCallback(() => {
       if (window.innerWidth >= 1040) {
         handleClose();
@@ -30,6 +24,13 @@ const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
         window.onresize = () => null;
       };
     }, [closeModalWithResize]);
+    const onBackgroundClickHandler = ({
+      target,
+    }: SyntheticEvent<HTMLDivElement>) => {
+      if (backRef.current === target) {
+        handleClose();
+      }
+    };
     const modalContainer = (
       <div
         ref={backRef}

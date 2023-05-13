@@ -10,21 +10,13 @@ import { string, type ValidationError } from 'yup';
 import emailjs from '@emailjs/browser';
 import * as process from 'process';
 import Routes from '@constants/routes';
+import emailSchema from '@constants/shemes';
 import styles from './footer.module.scss';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const emailSchema = string().test(
-    'is-email',
-    (d) => `Incorrect email`,
-    (value) => {
-      const isEmail = !!value!.match(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      );
-      return isEmail;
-    },
-  );
+  const [isPending, setIsPending] = useState(false);
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     setErrorMessage('');
     setEmail(event.currentTarget.value);
@@ -35,7 +27,9 @@ const Footer = () => {
     } catch (e) {
       const error = e as ValidationError;
       setErrorMessage(error.errors[0]);
+      return;
     }
+    setIsPending(true);
     emailjs
       .send(
         process.env.NEXT_PUBLIC_SERVICE_ID as string,
@@ -43,9 +37,17 @@ const Footer = () => {
         { email },
         process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
       )
-      .then(null, (err) => {
-        setErrorMessage(err);
-      });
+      .then(
+        () => {
+          setIsPending(false);
+          setEmail('');
+        },
+        (err) => {
+          setErrorMessage(err);
+          setIsPending(false);
+          setEmail('');
+        },
+      );
   };
   return (
     <div className={styles.footer}>
@@ -67,7 +69,9 @@ const Footer = () => {
             value={email}
             onChange={handleChange}
           />
-          <Button onClick={handleClick}>
+          <Button
+            disabled={isPending}
+            onClick={handleClick}>
             <Typography variant="head4">Subscribe</Typography>
           </Button>
         </div>
