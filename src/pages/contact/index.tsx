@@ -22,19 +22,25 @@ const HomePage = (): JSX.Element => {
     message: '',
     subject: Subjects.query,
   });
+
   const [errorMessage, setErrorMessage] = useState('');
+
   const setName = (event: SyntheticEvent<HTMLInputElement>) => {
     setFormData({ ...formData, name: event.currentTarget.value });
   };
+
   const setEmail = (event: SyntheticEvent<HTMLInputElement>) => {
     setFormData({ ...formData, email: event.currentTarget.value });
   };
+
   const setMessage = (event: SyntheticEvent<HTMLTextAreaElement>) => {
     setFormData({ ...formData, message: event.currentTarget.value });
   };
+
   const setSubject = (value: string) => {
     setFormData({ ...formData, subject: value as Subjects });
   };
+
   const emailSchema = string().test(
     'is-email',
     (d) => `Incorrect email`,
@@ -42,14 +48,17 @@ const HomePage = (): JSX.Element => {
       const isEmail = !!value!.match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       );
+
       return isEmail;
     },
   );
+
   const handleClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     try {
       emailSchema.validateSync(formData.email);
     } catch (e) {
       const error = e as ValidationError;
+
       setErrorMessage(error.errors[0]);
     }
     emailjs
@@ -68,6 +77,7 @@ const HomePage = (): JSX.Element => {
         setErrorMessage(err);
       });
   };
+
   return (
     <div className={styles.page}>
       <ContentContainer
@@ -148,4 +158,5 @@ const HomePage = (): JSX.Element => {
     </div>
   );
 };
+
 export default HomePage;

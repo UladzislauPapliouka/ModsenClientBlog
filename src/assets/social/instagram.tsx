@@ -21,4 +21,5 @@ const InstagramIcon = () => (
     />
   </svg>
 );
+
 export default InstagramIcon;

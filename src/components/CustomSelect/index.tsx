@@ -32,10 +32,12 @@ const CustomSelect = <T extends { toString: () => string }>({
   const toggleSelect = () => {
     setIsActive(!isActive);
   };
+
   const handleChangeSelected = (value: T) => {
     toggleSelect();
     onChangeSelected(value);
   };
+
   return (
     <div
       className={styles.wrapper}

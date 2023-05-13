@@ -62,4 +62,5 @@ const HomePage = (): JSX.Element => (
     </ContentContainer>
   </div>
 );
+
 export default HomePage;

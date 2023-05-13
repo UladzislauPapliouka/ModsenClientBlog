@@ -10,6 +10,7 @@ const Link = ({
   ...restProps
 }: PropsWithChildren<LinkProps>) => {
   const router = useRouter();
+
   return (
     <NextLink
       href={href}
@@ -19,4 +20,5 @@ const Link = ({
     </NextLink>
   );
 };
+
 export default Link;

@@ -15,4 +15,5 @@ const CheckIcon = () => (
     />
   </svg>
 );
+
 export default CheckIcon;

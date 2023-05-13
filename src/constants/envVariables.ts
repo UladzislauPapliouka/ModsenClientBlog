@@ -4,4 +4,5 @@ const EnvVariables = {
   NEXT_PUBLIC_TEMPLATE_ID2: process.env.NEXT_PUBLIC_TEMPLATE_ID2 as string,
   NEXT_PUBLIC_PUBLIC_KEY: process.env.NEXT_PUBLIC_PUBLIC_KEY as string,
 };
+
 export default EnvVariables;

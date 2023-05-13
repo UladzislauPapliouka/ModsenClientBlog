@@ -26,4 +26,5 @@ const App = ({ Component, pageProps }: AppProps) => (
     <Footer />
   </div>
 );
+
 export default App;

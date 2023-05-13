@@ -11,4 +11,5 @@ const Typography = ({ children, variant, ...restProps }: ITypographyProps) => (
     {children}
   </span>
 );
+
 export default Typography;

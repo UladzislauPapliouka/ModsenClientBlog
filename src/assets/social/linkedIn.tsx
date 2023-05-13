@@ -13,4 +13,5 @@ const LinkedInIcon = () => (
     />
   </svg>
 );
+
 export default LinkedInIcon;

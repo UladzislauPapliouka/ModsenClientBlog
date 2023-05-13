@@ -23,6 +23,7 @@ const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
 
     useLayoutEffect(() => {
       window.onresize = closeModalWithResize;
+
       return () => {
         window.onresize = () => null;
       };
@@ -34,6 +35,7 @@ const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
         handleClose();
       }
     };
+
     const modalContainer = (
       <div
         ref={backRef}
@@ -50,6 +52,7 @@ const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
     );
   },
 );
+
 ModalFC.displayName = 'Modal';
 
 export default ModalFC;

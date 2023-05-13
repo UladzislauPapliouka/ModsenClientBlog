@@ -18,18 +18,24 @@ import styles from './footer.module.scss';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+
   const [errorMessage, setErrorMessage] = useState('');
+
   const [isPending, setIsPending] = useState(false);
+
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     setErrorMessage('');
     setEmail(event.currentTarget.value);
   };
+
   const handleClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     try {
       emailSchema.validateSync(email);
     } catch (e) {
       const error = e as ValidationError;
+
       setErrorMessage(error.errors[0]);
+
       return;
     }
     setIsPending(true);
@@ -52,6 +58,7 @@ const Footer = () => {
         },
       );
   };
+
   return (
     <div className={styles.footer}>
       <Header>

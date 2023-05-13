@@ -16,4 +16,5 @@ const ContentContainer = ({
     {children}
   </div>
 );
+
 export default ContentContainer;

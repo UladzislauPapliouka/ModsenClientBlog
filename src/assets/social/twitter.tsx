@@ -13,4 +13,5 @@ const TwitterIcon = () => (
     />
   </svg>
 );
+
 export default TwitterIcon;

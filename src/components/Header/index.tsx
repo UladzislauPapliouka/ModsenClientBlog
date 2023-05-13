@@ -8,9 +8,11 @@ import styles from './header.module.scss';
 
 const Header = ({ children }: PropsWithChildren) => {
   const [isActive, setIsActive] = useState(false);
+
   const toggleIsActive = () => {
     setIsActive(!isActive);
   };
+
   return (
     <ContentContainer
       className={`${styles.header} ${isActive && styles.active}`}>
@@ -35,4 +37,5 @@ const Header = ({ children }: PropsWithChildren) => {
     </ContentContainer>
   );
 };
+
 export default Header;
