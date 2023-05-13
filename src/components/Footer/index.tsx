@@ -9,6 +9,7 @@ import Input from '@components/Input';
 import { string, type ValidationError } from 'yup';
 import emailjs from '@emailjs/browser';
 import * as process from 'process';
+import Routes from '@constants/routes';
 import styles from './footer.module.scss';
 
 const Footer = () => {
@@ -49,11 +50,11 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <Header>
-        <Link href="/">Home</Link>
-        <Link href="/blog">Blog</Link>
-        <Link href="/about">About Us</Link>
-        <Link href="/contact">Contact Us</Link>
-        <Link href="/privacy">Privacy Policy</Link>
+        <Link href={Routes.HOME}>Home</Link>
+        <Link href={Routes.BLOG}>Blog</Link>
+        <Link href={Routes.ABOUT}>About Us</Link>
+        <Link href={Routes.CONTACTS}>Contact Us</Link>
+        <Link href={Routes.PRIVACY}>Privacy Policy</Link>
       </Header>
       <ContentContainer>
         <div className={styles.subscribeBlock}>
