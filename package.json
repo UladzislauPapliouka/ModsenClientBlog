@@ -50,8 +50,8 @@
     "webpack-merge": "^5.8.0"
   },
   "scripts": {
-    "eslint": "next lint ./src --fix",
-    "prettier": "prettier ./src --write",
+    "eslint": "next lint . --fix",
+    "prettier": "prettier . --write",
     "prepare": "husky install",
     "dev": "next dev",
     "dev:test": "next dev -p 6060",

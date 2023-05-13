@@ -3,4 +3,5 @@
 *.d.ts
 *.config.*
 /cypress
+/.next
 fileTransformer.js

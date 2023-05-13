@@ -1,6 +1,6 @@
-@import "@styles/_mixins";
-@import "@styles/_variables";
-.wrapper{
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.wrapper {
   position: relative;
   background-color: $light;
   padding: 14px 25px;
@@ -15,9 +15,9 @@
   }
   & > * {
     pointer-events: none;
-}
+  }
   & > .selected {
-    @include flex(space-between,center)
+    @include flex(space-between, center);
   }
 }
 .selectArrow {
