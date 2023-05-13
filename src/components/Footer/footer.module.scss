@@ -28,7 +28,7 @@
     @media screen and (max-width: $mobileBreakpoint) {
       @include flex(space-between, center, column, 20px);
     }
-    & > div > a> svg > path {
+    & > div > a > svg > path {
       fill: $greyText;
     }
     & > span {
