@@ -13,16 +13,7 @@ const CustomSelect = <T extends { toString: () => string }>({
 }: ICustomSelectProps<T>) => {
   const [isActive, setIsActive] = useState(false);
 
-  const toggleSelect = () => {
-    setIsActive(!isActive);
-  };
-
   const selectRef = useRef(null);
-
-  const handleChangeSelected = (value: T) => {
-    toggleSelect();
-    onChangeSelected(value);
-  };
 
   useLayoutEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -37,7 +28,13 @@ const CustomSelect = <T extends { toString: () => string }>({
       document.removeEventListener('click', handleClick);
     };
   }, [selectRef]);
-
+  const toggleSelect = () => {
+    setIsActive(!isActive);
+  };
+  const handleChangeSelected = (value: T) => {
+    toggleSelect();
+    onChangeSelected(value);
+  };
   return (
     <div
       className={styles.wrapper}
