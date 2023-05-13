@@ -6,14 +6,15 @@ import styles from './header.module.scss';
 
 const Header = ({ children }: PropsWithChildren) => {
   const [isActive, setIsActive] = useState(false);
+  const toggleIsActive = () => {
+    setIsActive(!isActive);
+  };
   return (
     <ContentContainer
       className={`${styles.header} ${isActive && styles.active}`}>
       <Typography variant="head4">Modsen Client Blog</Typography>
       <div
-        onClick={() => {
-          setIsActive(!isActive);
-        }}
+        onClick={toggleIsActive}
         className={`${styles.menu} ${isActive && styles.active}`}>
         <div className={`${styles.menuLine} ${styles.number1}`} />
         <div className={`${styles.menuLine} ${styles.number2}`} />
@@ -21,15 +22,10 @@ const Header = ({ children }: PropsWithChildren) => {
       </div>
       <div className={styles.navItems}>{children}</div>
       {isActive && (
-        <ModalFC
-          handleClose={() => {
-            setIsActive(!isActive);
-          }}>
+        <ModalFC handleClose={toggleIsActive}>
           <div
             className={styles.navItemsMobile}
-            onClick={() => {
-              setIsActive(!isActive);
-            }}>
+            onClick={toggleIsActive}>
             {children}
           </div>
         </ModalFC>
