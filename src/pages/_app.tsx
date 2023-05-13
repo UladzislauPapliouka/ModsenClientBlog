@@ -12,10 +12,10 @@ import styles from './_app.module.scss';
 const App = ({ Component, pageProps }: AppProps) => (
   <div className={styles.app}>
     <Header>
-      <Link href={Routes.HOME}>Home</Link>
-      <Link href={Routes.BLOG}>Blog</Link>
-      <Link href={Routes.ABOUT}>About Us</Link>
-      <Link href={Routes.CONTACTS}>Contact Us</Link>
+      <Link href={Routes.Home}>Home</Link>
+      <Link href={Routes.Blog}>Blog</Link>
+      <Link href={Routes['About Us']}>About Us</Link>
+      <Link href={Routes['Contact Us']}>Contact Us</Link>
       <Button variant="secondary">
         <Typography variant="head4">Video about us</Typography>
       </Button>
