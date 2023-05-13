@@ -52,9 +52,26 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": ["const", "let", "var", "for", "if", "case", "function","switch"], "next": "*"},
-      { "blankLine": "always", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]},
-      { "blankLine": "always", "prev": "*", "next": "return"}
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let",
+          "var",
+          "for",
+          "if",
+          "case",
+          "function",
+          "switch"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      },
+      { "blankLine": "always", "prev": "*", "next": "return" }
     ],
     "simple-import-sort/imports": [
       "error",
