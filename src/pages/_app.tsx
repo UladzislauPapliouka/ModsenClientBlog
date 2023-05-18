@@ -1,6 +1,7 @@
 import React from 'react';
 import { Toaster } from 'react-hot-toast';
 import { type AppProps } from 'next/app';
+import Head from 'next/head';
 
 import Button from '@components/Button';
 import ErrorBoundary from '@components/ErrorBoundaries';
@@ -18,6 +19,9 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <div className={styles.app}>
+      <Head>
+        <title>Modsen client blog</title>
+      </Head>
       <ErrorBoundary>
         <Header>
           <Link href={Routes.Home}>Home</Link>
