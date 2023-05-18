@@ -7,11 +7,12 @@ import styles from './button.module.scss';
 const Button = ({
   children,
   variant = 'primary',
+  type,
   ...restProps
 }: IButtonProps) => (
   <button
+    type={type}
     className={`${styles.button} ${styles[variant]}`}
-    type="button"
     {...restProps}>
     {children}
   </button>

@@ -1,12 +1,6 @@
-import { type DetailedHTMLProps, type HTMLAttributes } from 'react';
+import { type ButtonHTMLAttributes, type HTMLProps } from 'react';
 
-interface IButtonProps
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
-  disabled?: boolean;
-  type?: string;
 }
 export default IButtonProps;
