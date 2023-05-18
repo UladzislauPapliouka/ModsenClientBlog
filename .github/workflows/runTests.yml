@@ -2,7 +2,7 @@ name: Run eslint, prettier and test checking
 
 on:
   pull_request:
-    types: [ opened ]
+    types: [opened]
   push:
     branches:
       - develop
@@ -16,6 +16,8 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
+          yarn list --pattern eslint
+          yarn list --pattern prettier
       - name: ESLint and Prettier Check
         run: |
           yarn eslint
