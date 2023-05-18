@@ -19,6 +19,7 @@ const Header = ({ children }: PropsWithChildren) => {
       <Typography variant="head4">Modsen Client Blog</Typography>
       <div
         onClick={toggleIsActive}
+        data-cy="mobMenu"
         className={`${styles.menu} ${isActive && styles.active}`}>
         <div className={`${styles.menuLine} ${styles.number1}`} />
         <div className={`${styles.menuLine} ${styles.number2}`} />

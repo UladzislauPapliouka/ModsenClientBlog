@@ -8,6 +8,7 @@ const Input = ({
 }: DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   errorMessage?: string | undefined;
   value?: string | undefined;
+  name?: string;
 }) => (
   <div className={`${styles.wrapper} ${errorMessage && styles.error}`}>
     <input

@@ -7,5 +7,6 @@ interface IButtonProps
   > {
   variant?: 'primary' | 'secondary';
   disabled?: boolean;
+  type?: string;
 }
 export default IButtonProps;

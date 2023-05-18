@@ -11,7 +11,8 @@ const CustomSelect = <T extends { toString: () => string }>({
   options,
   selected,
   onChangeSelected,
-}: ICustomSelectProps<T>) => {
+  name,
+}: ICustomSelectProps<T> & { name?: string }) => {
   const [isActive, setIsActive] = useState(false);
 
   const selectRef = useRef(null);

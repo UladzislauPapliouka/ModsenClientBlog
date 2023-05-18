@@ -1,13 +1,14 @@
-.wrapper{
+@import "@styles/_variables";
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 80px;
-  .message{
+  padding: $gap80;
+  .message {
     font-size: 40px;
   }
-  .stack{
+  .stack {
     font-size: 20px;
   }
 }

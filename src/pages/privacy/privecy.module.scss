@@ -2,7 +2,7 @@
 @import '@styles/_mixins';
 .pageHead {
   @include flex(center, center, column);
-  padding: 80px 0;
+  padding: $gap80 0;
   background-color: $lightGrey;
   & > span:nth-child(2) {
     color: $mediumGrey;
@@ -11,9 +11,9 @@
 .privacyInfo {
   @include flex(center, center, column);
   & > span:nth-child(2) {
-    margin: 32px 0 32px 0;
+    margin: $gap32 0 $gap32 0;
   }
   & > span:nth-child(4) {
-    margin: 24px 0 24px 0;
+    margin: $gap24 0 $gap24 0;
   }
 }

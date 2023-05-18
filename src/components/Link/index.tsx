@@ -13,6 +13,7 @@ const Link = ({
 
   return (
     <NextLink
+      data-cy={`LINK_TO_${href as string}`}
       href={href}
       className={`${styles.link} ${router.pathname === href && styles.active}`}
       {...restProps}>

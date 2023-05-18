@@ -13,11 +13,11 @@
 
   .scheduleBlock {
     background-color: $purple;
-    padding: 48px 64px;
-    @include flex(center, flex-start, row, 42px);
+    padding: $gap48 $gap64;
+    @include flex(center, flex-start, row, $gap48);
     @media screen and (max-width: $mobileBreakpoint) {
-      padding: 24px 32px;
-      @include flex(center, flex-start, column, 42px);
+      padding: $gap24 $gap32;
+      @include flex(center, flex-start, column, $gap32);
     }
     color: $lightGrey;
     & > div {
@@ -27,20 +27,20 @@
         width: 100%;
       }
       & > * {
-        margin-bottom: 16px;
+        margin-bottom: $gap16;
       }
     }
   }
   .contactForm {
-    margin-top: 32px;
+    margin-top: $gap16;
     color: $black;
-    @include flex(flex-start, center, column, 8px);
+    @include flex(flex-start, center, column, $gap8);
     & > * {
       width: 100%;
-      margin-bottom: 16px;
+      margin-bottom: $gap16;
     }
     & > *:last-child {
-      margin-bottom: 70px;
+      margin-bottom: $gap80;
     }
   }
 }

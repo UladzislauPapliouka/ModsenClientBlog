@@ -11,7 +11,7 @@
   }
   @include flex(space-between, center);
   .navItems {
-    @include flex(space-between, center, null, 24px);
+    @include flex(space-between, center, null, $gap24);
     @media screen and (max-width: $mobileBreakpoint) {
       display: none;
     }
@@ -54,7 +54,7 @@
 }
 .navItemsMobile {
   background-color: $purple;
-  padding: 16px;
+  padding: $gap16;
   color: $light;
-  @include flex(center, center, column, 20px);
+  @include flex(center, center, column, $gap24);
 }

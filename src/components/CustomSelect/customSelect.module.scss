@@ -3,7 +3,7 @@
 .wrapper {
   position: relative;
   background-color: $light;
-  padding: 14px 25px;
+  padding: $gap16 $gap24;
   color: $black;
   border: 2px solid $darkGrey;
   @include font(16px, 28px, Sen);

@@ -1,4 +1,4 @@
-import { ErrorInfo, ReactNode } from 'react';
+import { type ErrorInfo, type ReactNode } from 'react';
 
 export interface IErrorBoundaryState {
   hasError: boolean;

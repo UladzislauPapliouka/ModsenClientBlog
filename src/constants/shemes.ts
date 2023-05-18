@@ -19,5 +19,10 @@ export const nameSchema = string()
   .min(3)
   .max(12);
 export const messageSchema = string().max(150);
+export const contactFormSchema = object({
+  name: nameSchema,
+  email: emailSchema,
+  message: messageSchema,
+});
 
 export default emailSchema;

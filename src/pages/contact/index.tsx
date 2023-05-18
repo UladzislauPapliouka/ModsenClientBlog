@@ -1,6 +1,8 @@
 import React, { type SyntheticEvent, useState } from 'react';
+import { Simulate } from 'react-dom/test-utils';
 import toast from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
+import { Formik } from 'formik';
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 
 import Button from '@components/Button';
@@ -9,96 +11,19 @@ import Input from '@components/Input';
 import TextArea from '@components/TextArea';
 import Typography from '@components/Typography';
 import EnvVariables from '@constants/envVariables';
-import emailSchema, { messageSchema, nameSchema } from '@constants/shemes';
+import emailSchema, {
+  contactFormSchema,
+  messageSchema,
+  nameSchema,
+} from '@constants/shemes';
 import Subjects from '@constants/subjects';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './contacts.module.scss';
+import submit = Simulate.submit;
 
 const HomePage = (): JSX.Element => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    subject: Subjects.query,
-  });
-
-  const [errorMessages, setErrorMessages] = useState<
-    Record<string, string | undefined>
-  >({
-    name: '',
-    email: '',
-    message: '',
-    subject: '',
-  });
-
-  const [isPending, setIsPending] = useState(false);
-
-  const setNameError = (message: string) => {
-    setErrorMessages({ ...errorMessages, name: message });
-  };
-
-  const setName = (event: SyntheticEvent<HTMLInputElement>) => {
-    setNameError('');
-    setFormData({ ...formData, name: event.currentTarget.value });
-  };
-
-  const setEmailError = (message: string) => {
-    setErrorMessages({ ...errorMessages, email: message });
-  };
-
-  const setEmail = (event: SyntheticEvent<HTMLInputElement>) => {
-    setEmailError('');
-    setFormData({ ...formData, email: event.currentTarget.value });
-  };
-
-  const setMessageError = (message: string) => {
-    setErrorMessages({ ...errorMessages, message });
-  };
-
-  const setMessage = (event: SyntheticEvent<HTMLTextAreaElement>) => {
-    setMessageError('');
-    setFormData({ ...formData, message: event.currentTarget.value });
-  };
-
-  const setSubject = (value: string) => {
-    setFormData({ ...formData, subject: value as Subjects });
-  };
-
-  const handleClick = (event: SyntheticEvent<HTMLButtonElement>) => {
-    try {
-      nameSchema.validateSync(formData.name, { abortEarly: false });
-      messageSchema.validateSync(formData.message, { abortEarly: false });
-      emailSchema.validateSync(formData.email, { abortEarly: false });
-    } catch (e) {
-      return;
-    }
-
-    setIsPending(true);
-    emailjs
-      .send(
-        EnvVariables.NEXT_PUBLIC_SERVICE_ID,
-        EnvVariables.NEXT_PUBLIC_TEMPLATE_ID2,
-        {
-          email: formData.email,
-          name: formData.name,
-          message: formData.message,
-          subject: formData.subject,
-        },
-        EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
-      )
-      .then(
-        () => {
-          toast.success('Success');
-          setIsPending(false);
-        },
-        (err) => {
-          setIsPending(false);
-          toast.error('Error');
-          setErrorMessages(err);
-        },
-      );
-  };
+  const [subject, setSubject] = useState(Subjects.query);
 
   return (
     <div className={styles.page}>
@@ -131,36 +56,86 @@ const HomePage = (): JSX.Element => {
             <Typography variant="body1">hello@finsweet.com</Typography>
           </div>
         </div>
-        <div className={styles.contactForm}>
-          <Input
-            errorMessage={errorMessages.name}
-            onChange={setName}
-            value={formData.name}
-            placeholder="Full Name"
-          />
-          <Input
-            errorMessage={errorMessages.email}
-            onChange={setEmail}
-            value={formData.email}
-            placeholder="Your Email"
-          />
-          <CustomSelect
-            selected={formData.subject}
-            options={Object.values(Subjects)}
-            onChangeSelected={setSubject}
-          />
-          <TextArea
-            errorMessage={errorMessages.message}
-            onChange={setMessage}
-            value={formData.message}
-            placeholder="Message"
-          />
-          <Button
-            disabled={isPending}
-            onClick={handleClick}>
-            <Typography variant="head4">Send Message</Typography>
-          </Button>
-        </div>
+        <Formik
+          initialValues={{
+            email: '',
+            name: '',
+            message: '',
+          }}
+          validationSchema={contactFormSchema}
+          onSubmit={(values, formikHelpers) => {
+            emailjs
+              .send(
+                EnvVariables.NEXT_PUBLIC_SERVICE_ID,
+                EnvVariables.NEXT_PUBLIC_TEMPLATE_ID2,
+                {
+                  email: values.email,
+                  name: values.name,
+                  message: values.message,
+                  subject,
+                },
+                EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
+              )
+              .then(
+                () => {
+                  formikHelpers.setSubmitting(false);
+                  formikHelpers.resetForm();
+                  toast.success('Success');
+                },
+                (err) => {
+                  formikHelpers.setSubmitting(false);
+                  formikHelpers.resetForm();
+                  toast.error(err);
+                },
+              );
+          }}>
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+          }) => (
+            <form
+              onSubmit={handleSubmit}
+              className={styles.contactForm}>
+              <Input
+                name="name"
+                errorMessage={errors.name}
+                onChange={handleChange}
+                value={values.name}
+                placeholder="Full Name"
+              />
+              <Input
+                name="email"
+                errorMessage={errors.email}
+                onChange={handleChange}
+                value={values.email}
+                placeholder="Your Email"
+              />
+              <CustomSelect
+                selected={subject}
+                options={Object.values(Subjects)}
+                onChangeSelected={setSubject}
+                name="subject"
+              />
+              <TextArea
+                errorMessage={errors.message}
+                onChange={handleChange}
+                value={values.message}
+                placeholder="Message"
+                name="message"
+              />
+              <Button
+                type="submit"
+                disabled={isSubmitting}>
+                <Typography variant="head4">Send Message</Typography>
+              </Button>
+            </form>
+          )}
+        </Formik>
       </ContentContainer>
 
       <Map

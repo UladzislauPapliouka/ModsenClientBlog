@@ -1,6 +1,6 @@
 @import '@styles/_variables.scss';
 .button {
-  padding: 16px 48px;
+  padding: $gap16 $gap48;
   border: none;
   color: $black;
   &:disabled {

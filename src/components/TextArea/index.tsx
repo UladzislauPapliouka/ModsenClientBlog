@@ -11,6 +11,7 @@ const TextArea = ({
 > & {
   errorMessage?: string | undefined;
   value?: string | undefined;
+  name?: string;
 }) => (
   <div className={`${styles.wrapper} ${errorMessage && styles.error}`}>
     <textarea
