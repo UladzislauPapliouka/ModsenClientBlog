@@ -72,6 +72,7 @@ const Footer = () => (
               Subscribe to our news letter to get latest updates and news
             </Typography>
             <Input
+              data-cy="FOOTER_INPUT"
               name="email"
               errorMessage={errors.email}
               onBlur={handleBlur}
@@ -81,6 +82,7 @@ const Footer = () => (
             />
             <Button
               type="submit"
+              data-cy="SUBSCRIBE_BUTTON"
               disabled={isSubmitting}>
               <Typography variant="head4">Subscribe</Typography>
             </Button>

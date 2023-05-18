@@ -103,6 +103,7 @@ const HomePage = (): JSX.Element => {
               className={styles.contactForm}>
               <Input
                 name="name"
+                data-cy="INPUT_NAME"
                 errorMessage={errors.name}
                 onChange={handleChange}
                 value={values.name}
@@ -110,6 +111,7 @@ const HomePage = (): JSX.Element => {
               />
               <Input
                 name="email"
+                data-cy="INPUT_EMAIL"
                 errorMessage={errors.email}
                 onChange={handleChange}
                 value={values.email}
@@ -122,6 +124,7 @@ const HomePage = (): JSX.Element => {
                 name="subject"
               />
               <TextArea
+                data-cy="INPUT_MESSAGE"
                 errorMessage={errors.message}
                 onChange={handleChange}
                 value={values.message}
@@ -130,6 +133,7 @@ const HomePage = (): JSX.Element => {
               />
               <Button
                 type="submit"
+                data-cy="CONTACT_BUTTON"
                 disabled={isSubmitting}>
                 <Typography variant="head4">Send Message</Typography>
               </Button>
