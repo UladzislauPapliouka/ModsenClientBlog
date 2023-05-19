@@ -1,5 +1,7 @@
 import React, { Component, type ErrorInfo } from 'react';
 
+import Typography from '@components/Typography';
+
 import styles from './errorBoudaries.module.scss';
 
 import { type IErrorBoundaryProps, type IErrorBoundaryState } from './types';
@@ -26,8 +28,10 @@ class ErrorBoundary extends Component<
 
     return state.hasError ? (
       <div className={styles.wrapper}>
-        <span className={styles.message}>{state.error?.message}</span>
-        <span className={styles.stack}>{state.errorInfo?.componentStack}</span>
+        <Typography variant="head5">{state.error?.message}</Typography>
+        <Typography variant="body1">
+          {state.errorInfo?.componentStack}
+        </Typography>
       </div>
     ) : (
       props.children

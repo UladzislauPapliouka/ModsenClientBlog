@@ -14,7 +14,7 @@
   &.error {
     color: red;
     .input {
-      border: 2px solid red;
+      border: 2px solid $red;
       color: inherit;
       &::placeholder {
         color: inherit;

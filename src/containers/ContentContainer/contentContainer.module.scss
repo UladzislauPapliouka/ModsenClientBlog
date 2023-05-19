@@ -3,15 +3,15 @@
 
 .container {
   &.variant1 {
-    padding: 18px 80px 18px 80px;
+    padding: $gap16 $gap80 $gap16 $gap80;
     @media screen and (max-width: $mobileBreakpoint) {
-      padding: 18px;
+      padding: $gap16;
     }
   }
   &.variant2 {
-    padding: 128px 336px 0 336px;
+    padding: $gap128 $gap336 0 $gap336;
     @media screen and (max-width: $mobileBreakpoint) {
-      padding: 28px 36px 0 36px;
+      padding: $gap24 $gap32 0 $gap32;
     }
   }
 }
