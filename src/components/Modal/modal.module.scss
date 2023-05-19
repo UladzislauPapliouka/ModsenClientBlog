@@ -1,0 +1,16 @@
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
+.modalContainer {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  @include flex(center, center);
+  position: fixed;
+  background-color: rgba($mediumGrey, 0.4);
+  cursor: pointer;
+  overflow: hidden;
+  &:empty {
+    display: none;
+  }
+}

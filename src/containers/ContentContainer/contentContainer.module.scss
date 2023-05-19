@@ -1,0 +1,17 @@
+@import '@styles/_variables.scss';
+@import '@styles/_mixins.scss';
+
+.container {
+  &.variant1 {
+    padding: $gap16 $gap80 $gap16 $gap80;
+    @media screen and (max-width: $mobileBreakpoint) {
+      padding: $gap16;
+    }
+  }
+  &.variant2 {
+    padding: $gap128 $gap336 0 $gap336;
+    @media screen and (max-width: $mobileBreakpoint) {
+      padding: $gap24 $gap32 0 $gap32;
+    }
+  }
+}

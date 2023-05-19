@@ -1,0 +1,60 @@
+@import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
+.header {
+  position: relative;
+  background-color: $black;
+  color: $light;
+  &.active {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+  @include flex(space-between, center);
+  .navItems {
+    @include flex(space-between, center, null, $gap24);
+    @media screen and (max-width: $mobileBreakpoint) {
+      display: none;
+    }
+  }
+
+  .menu {
+    display: none;
+    width: 30px;
+    aspect-ratio: 1;
+    position: relative;
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(space-between, null, column);
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &.active {
+      justify-content: center;
+      .menuLine {
+        position: absolute;
+      }
+      .number1 {
+        transform: rotateZ(45deg);
+      }
+      .number2 {
+        opacity: 0;
+        display: none;
+      }
+      .number3 {
+        transform: rotateZ(-45deg);
+      }
+    }
+    .menuLine {
+      width: 100%;
+      border: 2px solid $light;
+      background-color: $light;
+      transition: all 0.3s;
+    }
+  }
+}
+.navItemsMobile {
+  background-color: $purple;
+  padding: $gap16;
+  color: $light;
+  @include flex(center, center, column, $gap24);
+}

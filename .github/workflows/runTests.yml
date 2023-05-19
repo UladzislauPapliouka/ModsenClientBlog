@@ -1,0 +1,34 @@
+name: Run eslint, prettier and test checking
+
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn list --pattern eslint
+          yarn list --pattern prettier
+      - name: ESLint and Prettier Check
+        run: |
+          yarn eslint
+          yarn prettier
+  cypress-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: Cypress test
+        run: |
+          yarn test:cy

@@ -1,0 +1,26 @@
+$sen-regular: '../assets/fonts/Sen-Regular.ttf';
+$sen-bold: '../assets/fonts/Sen-Bold.ttf';
+$sen-extra-bold: '../assets/fonts/Sen-ExtraBold.ttf';
+
+@font-face {
+  src: url('#{$sen-regular}') format('truetype');
+  font-family: 'Sen';
+  font-weight: 400;
+}
+@font-face {
+  src: url('#{$sen-bold}') format('truetype');
+  font-family: 'SenBold';
+  font-weight: 700;
+}
+@font-face {
+  src: url('#{$sen-extra-bold}') format('truetype');
+  font-family: 'SenExtraBold';
+  font-weight: 800;
+}
+
+* {
+  font-family: Sen;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

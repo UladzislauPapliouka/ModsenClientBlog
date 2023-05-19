@@ -1,0 +1,29 @@
+@import '@styles/_variables';
+@import '@styles/_mixins';
+.wrapper {
+  position: relative;
+  .input {
+    background-color: transparent;
+    border: 2px solid $darkGrey;
+    color: inherit;
+    padding: $gap16 $gap24;
+    width: inherit;
+    @include font(16px, 28px, Sen);
+    outline: none;
+  }
+  &.error {
+    color: red;
+    .input {
+      border: 2px solid $red;
+      color: inherit;
+      &::placeholder {
+        color: inherit;
+      }
+    }
+    & > label {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+    }
+  }
+}

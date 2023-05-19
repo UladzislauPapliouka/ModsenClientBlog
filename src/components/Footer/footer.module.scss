@@ -1,0 +1,38 @@
+@import '@styles/_variables';
+@import '@styles/_mixins';
+.footer {
+  background-color: $black;
+  color: $light;
+  & > div:first-child {
+    @media screen and (max-width: $mobileBreakpoint) {
+      display: none;
+    }
+  }
+  .subscribeBlock {
+    background-color: rgba($light, 0.05);
+    padding: $gap80 $gap64;
+    @include flex(space-between, center, null, 20px);
+    & > span {
+      flex-grow: 2;
+    }
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(space-between, center, column, 20px);
+      padding: $gap16;
+      & > span {
+        text-align: center;
+      }
+    }
+  }
+  .socialBlock {
+    @include flex(space-between, center, null);
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(space-between, center, column, 20px);
+    }
+    & > div > a > svg > path {
+      fill: $greyText;
+    }
+    & > span {
+      max-width: 300px;
+    }
+  }
+}

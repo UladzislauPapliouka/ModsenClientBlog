@@ -1,0 +1,6 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.wrapper {
+  @include flex(space-between, null, null, $gap16);
+  width: fit-content;
+}

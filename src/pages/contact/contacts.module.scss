@@ -1,0 +1,46 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.page {
+  .pageTitle {
+    @include flex(flex-start, center, column);
+    & > * {
+      width: 100%;
+    }
+    & > span {
+      text-align: center;
+    }
+  }
+
+  .scheduleBlock {
+    background-color: $purple;
+    padding: $gap48 $gap64;
+    @include flex(center, flex-start, row, $gap48);
+    @media screen and (max-width: $mobileBreakpoint) {
+      padding: $gap24 $gap32;
+      @include flex(center, flex-start, column, $gap32);
+    }
+    color: $lightGrey;
+    & > div {
+      width: 100%;
+      @include flex(flex-start, flex-start, column);
+      & > hr {
+        width: 100%;
+      }
+      & > * {
+        margin-bottom: $gap16;
+      }
+    }
+  }
+  .contactForm {
+    margin-top: $gap16;
+    color: $black;
+    @include flex(flex-start, center, column, $gap8);
+    & > * {
+      width: 100%;
+      margin-bottom: $gap16;
+    }
+    & > *:last-child {
+      margin-bottom: $gap80;
+    }
+  }
+}

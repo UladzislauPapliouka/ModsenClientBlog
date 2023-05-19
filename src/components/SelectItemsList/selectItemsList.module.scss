@@ -1,0 +1,23 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.wrapper {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 4px);
+  left: 0;
+  @include flex(null, null, column);
+  .option {
+    width: 100%;
+    pointer-events: all;
+    box-sizing: border-box;
+    text-align: left;
+    padding: $gap16 $gap24;
+    background-color: $light;
+    z-index: $selectItemZIndex;
+    border: 2px solid $darkGrey;
+    &:hover {
+      background-color: $lightGrey;
+    }
+  }
+}

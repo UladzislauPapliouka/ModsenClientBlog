@@ -1,0 +1,30 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.wrapper {
+  position: relative;
+  background-color: $light;
+  padding: $gap16 $gap24;
+  color: $black;
+  border: 2px solid $darkGrey;
+  @include font(16px, 28px, Sen);
+  min-width: 160px;
+  width: 90%;
+  &:hover {
+    background-color: $lightGrey;
+    cursor: pointer;
+  }
+  & > * {
+    pointer-events: none;
+  }
+  & > .selected {
+    @include flex(space-between, center);
+  }
+}
+.selectArrow {
+  & > svg > path {
+    stroke: $black;
+  }
+  &.active {
+    transform: rotateZ(180deg);
+  }
+}

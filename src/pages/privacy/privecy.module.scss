@@ -1,0 +1,19 @@
+@import '@styles/_variables';
+@import '@styles/_mixins';
+.pageHead {
+  @include flex(center, center, column);
+  padding: $gap80 0;
+  background-color: $lightGrey;
+  & > span:nth-child(2) {
+    color: $mediumGrey;
+  }
+}
+.privacyInfo {
+  @include flex(center, center, column);
+  & > span:nth-child(2) {
+    margin: $gap32 0 $gap32 0;
+  }
+  & > span:nth-child(4) {
+    margin: $gap24 0 $gap24 0;
+  }
+}
