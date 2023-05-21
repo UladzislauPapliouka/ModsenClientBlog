@@ -1,0 +1,9 @@
+@import "@styles/_mixins";
+@import "@styles/_variables";
+.postImage{
+  width: 100%;
+  object-fit: cover;
+}
+.postText{
+  @include flex(center,center,column,$gap8)
+}

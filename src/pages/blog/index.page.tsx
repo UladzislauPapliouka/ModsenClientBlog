@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ContentContainer from '@containers/ContentContainer';
+const BlogPage = () => <div>Blog</div>;
 
-const HomePage = (): JSX.Element => <ContentContainer>BLOG</ContentContainer>;
-
-export default HomePage;
+export default BlogPage;
