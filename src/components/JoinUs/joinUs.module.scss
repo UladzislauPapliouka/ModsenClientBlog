@@ -1,0 +1,6 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.joinBlock {
+  @include flex(center, center, column, $gap16);
+  margin-bottom: $size128;
+}

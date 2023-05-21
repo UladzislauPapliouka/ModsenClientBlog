@@ -1,7 +1,7 @@
-@import "@styles/_mixins";
-@import "@styles/_variables";
-.label{
-  @include flex(center,center,null,$gap8);
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.label {
+  @include flex(center, center, null, $gap8);
   height: $size32;
   & > span {
     vertical-align: center;

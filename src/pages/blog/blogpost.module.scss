@@ -1,9 +1,16 @@
-@import "@styles/_mixins";
-@import "@styles/_variables";
-.postImage{
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.postImage {
   width: 100%;
   object-fit: cover;
 }
-.postText{
-  @include flex(center,center,column,$gap8)
+.postText {
+  @include flex(center, center, column, $gap8);
+}
+.postCards {
+  @include flex(space-between, flex-start, null, $gap8);
+  flex-wrap: wrap;
+}
+.devider {
+  margin-top: $size64;
 }

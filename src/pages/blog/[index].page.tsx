@@ -1,8 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import postImage from '@assets/images/photo-of-woman-wearing-eyeglasses-3184405.png';
 import BlogPostInfo from '@components/BlogPostInfo';
+import Button from '@components/Button';
+import JoinUs from '@components/JoinUs';
+import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 
@@ -66,6 +70,16 @@ const BlogPost = (): JSX.Element => (
         quisque non.{' '}
       </Typography>
     </ContentContainer>
+    <ContentContainer>
+      <Typography variant="head2">What to reed next</Typography>
+      <div className={styles.postCards}>
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </div>
+      <hr className={styles.devider} />
+    </ContentContainer>
+    <JoinUs />
   </div>
 );
 

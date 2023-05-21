@@ -1,13 +1,13 @@
-@import "@styles/_variables";
-@import "@styles/_mixins";
-.blogPostInfo{
-  @include flex(center,flex-start,column,$gap24);
-  @media screen and (max-width: $mobileBreakpoint){
-    @include flex(center,center,column,$gap24);
+@import '@styles/_variables';
+@import '@styles/_mixins';
+.blogPostInfo {
+  @include flex(center, flex-start, column, $gap24);
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(center, center, column, $gap24);
   }
-  .authorAndTime{
+  .authorAndTime {
     display: grid;
-    grid-template-areas: "i t1" "i t2";
+    grid-template-areas: 'i t1' 'i t2';
     align-items: center;
     column-gap: $gap16;
     & > img {
@@ -20,13 +20,13 @@
       color: $purple;
       grid-area: t1;
     }
-    .postedTime{
+    .postedTime {
       color: $mediumGrey;
       grid-area: t2;
     }
   }
-  .labels{
-    @include flex(center,center,row,$gap8);
+  .labels {
+    @include flex(center, center, row, $gap8);
     flex-wrap: wrap;
   }
 }
