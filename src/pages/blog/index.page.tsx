@@ -4,6 +4,7 @@ import Image from 'next/image';
 import img from '@assets/images/photo-of-woman-wearing-eyeglasses-3184405.png';
 import Button from '@components/Button';
 import JoinUs from '@components/JoinUs';
+import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 
@@ -44,6 +45,20 @@ const BlogPage = () => (
           src={img}
           alt="Featured"
         />
+      </div>
+    </ContentContainer>
+    <ContentContainer className={styles.allPosts}>
+      <Typography variant="head1">All posts</Typography>
+      <hr className={styles.devider} />
+      <div className={styles.postsContainer}>
+        <PostCard large />
+        <PostCard large />
+        <PostCard large />
+        <PostCard large />
+      </div>
+      <div className={styles.pagination}>
+        <Typography variant="head4">{'< Prev'}</Typography>
+        <Typography variant="head3">{'Next >'}</Typography>
       </div>
     </ContentContainer>
     <JoinUs />
