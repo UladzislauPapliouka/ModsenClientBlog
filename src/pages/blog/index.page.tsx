@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import img from '@assets/images/photo-of-woman-wearing-eyeglasses-3184405.png';
 import Button from '@components/Button';
+import Category from '@components/Category';
 import JoinUs from '@components/JoinUs';
 import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
@@ -59,6 +60,15 @@ const BlogPage = () => (
       <div className={styles.pagination}>
         <Typography variant="head4">{'< Prev'}</Typography>
         <Typography variant="head3">{'Next >'}</Typography>
+      </div>
+    </ContentContainer>
+    <ContentContainer className={styles.categories}>
+      <Typography variant="head1">All Categories</Typography>
+      <div className={styles.categoriesContainer}>
+        <Category label="business" />
+        <Category label="startup" />
+        <Category label="economy" />
+        <Category label="technology" />
       </div>
     </ContentContainer>
     <JoinUs />

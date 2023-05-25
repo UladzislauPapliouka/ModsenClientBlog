@@ -49,9 +49,8 @@
   margin-top: $size32;
 }
 
-
-.allPosts{
-  .postsContainer{
+.allPosts {
+  .postsContainer {
     margin-top: $size64;
     @include flex(flex-start, flex-start, column, $gap64);
     @media screen and (max-width: $mobileBreakpoint) {
@@ -61,11 +60,25 @@
   .pagination {
     width: 100%;
     margin-top: $gap80;
-    @include flex(center,center, null, $gap8);
-    & > span:first-child{
+    @include flex(center, center, null, $gap8);
+    & > span:first-child {
       color: $mediumGrey;
     }
   }
+}
 
+.categories{
+  .categoriesContainer{
+    margin-top: $gap48;
+    column-gap: $gap32;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: $size228;
+    @media screen and (max-width: $mobileBreakpoint) {
+      grid-template-rows: repeat(4,1fr);
+      row-gap: $gap32;
+      grid-template-columns: 1fr;
+    }
+  }
 
 }
