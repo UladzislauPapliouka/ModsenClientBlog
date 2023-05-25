@@ -11,18 +11,20 @@ const JoinUs = () => (
   <ContentContainer
     className={styles.joinBlock}
     variant="variant2">
-    <Typography variant="head3">
-      Join our team to be a part of our story
-    </Typography>
-    <Typography variant="body1">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt.
-    </Typography>
-    <Link href="/about">
-      <Button>
-        <Typography variant="head5">Join Now</Typography>
-      </Button>
-    </Link>
+    <div className={styles.wrapper}>
+      <Typography variant="head3">
+        Join our team to be a part of our story
+      </Typography>
+      <Typography variant="body1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt.
+      </Typography>
+      <Link href="/about">
+        <Button>
+          <Typography variant="head5">Join Now</Typography>
+        </Button>
+      </Link>
+    </div>
   </ContentContainer>
 );
 

@@ -1,6 +1,13 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
 .joinBlock {
-  @include flex(center, center, column, $gap16);
   margin-bottom: $size128;
+  @include flex(center, center);
+  .wrapper {
+    max-width: $size405;
+    @include flex(center, center, column, $gap16);
+    &>span{
+      text-align: center;
+    }
+  }
 }
