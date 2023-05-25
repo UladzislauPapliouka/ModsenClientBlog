@@ -1,0 +1,47 @@
+@import "@styles/_mixins";
+@import "@styles/_variables";
+.featuredPost{
+  background-color: $lavender;
+  @include flex(space-between,center);
+  padding-bottom: $gap80 !important;
+  padding-top: $gap80 !important;
+  .featuredInfo{
+    max-width: $size615;
+    @include flex(flex-start,flex-start,column,$gap16);
+    & > *:last-child{
+      margin-top: $gap16;
+    }
+    &>span > .author{
+      color: $purple;
+    }
+   .postText{
+      color: $mediumGrey;
+    }
+  }
+  .featuredImage{
+    width: $size505;
+    aspect-ratio: $aspectRatio1;
+    position: relative;
+    & > img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media screen and (max-width: $mobileBreakpoint){
+    @include flex(space-between,center,column-reverse);
+    .featuredImage{
+      width: 100%;
+      aspect-ratio: $aspectRatio1;
+      position: relative;
+      & > img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+  }
+    button{
+      width: 100%;
+    }
+}
+}

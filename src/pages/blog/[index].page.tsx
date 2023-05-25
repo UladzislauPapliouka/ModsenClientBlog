@@ -17,9 +17,10 @@ const BlogPost = (): JSX.Element => (
     <ContentContainer variant="variant2">
       <BlogPostInfo />
     </ContentContainer>
-    <ContentContainer variant="variant1">
+    <ContentContainer
+      className={styles.postImage}
+      variant="variant1">
       <Image
-        className={styles.postImage}
         src={postImage}
         alt="Post image"
       />

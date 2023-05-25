@@ -6,7 +6,7 @@
   .wrapper {
     max-width: $size405;
     @include flex(center, center, column, $gap16);
-    &>span{
+    & > span {
       text-align: center;
     }
   }
