@@ -1,17 +1,17 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
-.category{
-  padding:$gap32 ;
+.category {
+  padding: $gap32;
   border: 1px solid $mediumGrey;
-  @include flex(null,null,column,$gap16);
+  @include flex(null, null, column, $gap16);
   .iconContainer {
-    @include flex(center,center,column,$gap16);
+    @include flex(center, center, column, $gap16);
     width: $size48;
     aspect-ratio: 1;
     background-color: $lightYellow;
     border-radius: $size10;
   }
-  &:hover{
+  &:hover {
     background-color: $yellow;
     cursor: pointer;
   }

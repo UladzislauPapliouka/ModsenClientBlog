@@ -1,37 +1,42 @@
-import React from 'react';
+import React, { type FC } from 'react';
+import moment from 'moment';
 import Image from 'next/image';
 
-import avatar from '@assets/images/avatars/Image.png';
+import type IBlogPostInfo from '@components/BlogPostInfo/types';
 import Label from '@components/Label';
 import Typography from '@components/Typography';
 
 import styles from './blogPostInfo.module.scss';
 
-const BlogPostInfo = () => (
+const BlogPostInfo: FC<IBlogPostInfo> = ({
+  postedDate,
+  postTitle,
+  authorName,
+  authorAvatar,
+  category,
+}) => (
   <div className={styles.blogPostInfo}>
     <div className={styles.authorAndTime}>
-      <Image
-        src={avatar}
-        alt="Author image"
-      />
+      <div className={styles.imageContainer}>
+        <Image
+          src={authorAvatar}
+          alt="Author image"
+        />
+      </div>
       <Typography
         className={styles.authorName}
         variant="head3">
-        Andrew Jonson
+        {authorName}
       </Typography>
       <Typography
         className={styles.postedTime}
         variant="body1">
-        Posted on 27th January 2022
+        Posted on {`${moment(postedDate).format('Do MMMM YYYY')}`}
       </Typography>
     </div>
-    <Typography variant="head1">
-      Step-by-step guide to choosing great font pairs
-    </Typography>
+    <Typography variant="head1">{postTitle}</Typography>
     <div className={styles.labels}>
-      <Label label="startup" />
-      <Label label="economy" />
-      <Label label="technology" />
+      <Label label={category} />
     </div>
   </div>
 );

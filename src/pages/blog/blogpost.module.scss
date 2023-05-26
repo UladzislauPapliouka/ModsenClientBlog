@@ -1,14 +1,20 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
 .postImage {
-  width: 100%;
-  object-fit: cover;
+  @include flex(center,center);
+  & > img {
+   width: 100%;
+    height: auto;
+  }
 }
 .postText {
   @include flex(center, center, column, $gap8);
 }
 .postCards {
   @include flex(space-between, flex-start, null, $gap8);
+  @media screen and (max-width: $mobileBreakpoint){
+    @include flex(center, center, column, $gap32);
+  }
   flex-wrap: wrap;
 }
 .devider {

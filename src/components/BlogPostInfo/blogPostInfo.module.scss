@@ -10,10 +10,13 @@
     grid-template-areas: 'i t1' 'i t2';
     align-items: center;
     column-gap: $gap16;
-    & > img {
-      width: 48px;
-      aspect-ratio: 1;
-      border-radius: 80px;
+    & > .imageContainer {
+      & > img {
+        width: 48px;
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 80px;
+      }
       grid-area: i;
     }
     .authorName {
