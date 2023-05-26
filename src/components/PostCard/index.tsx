@@ -15,7 +15,7 @@ const PostCard = ({ large, post }: { large?: boolean; post: any }) =>
       <div className={styles.photoContainer}>
         <Image
           className={styles.postPhoto}
-          src={post.image && photo}
+          src={post.image}
           alt="Post photo"
         />
       </div>
@@ -23,17 +23,15 @@ const PostCard = ({ large, post }: { large?: boolean; post: any }) =>
         <Typography
           className={styles.postCategory}
           variant="body1">
-          BUSINESS
+          {post.category.toUpperCase()}
         </Typography>
-        <Typography variant="head3">
-          A UX Case Study Creating a Studious Environment for Students:
-        </Typography>
+        <Link href={`${routes.Blog}/${post.id}`}>
+          <Typography variant="head3">{post.title}</Typography>
+        </Link>
         <Typography
           className={styles.postText}
           variant="body1">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident.
+          {post.text[0][1]}
         </Typography>
       </div>
     </div>

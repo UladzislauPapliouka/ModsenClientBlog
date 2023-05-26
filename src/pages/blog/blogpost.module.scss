@@ -1,9 +1,9 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
 .postImage {
-  @include flex(center,center);
+  @include flex(center, center);
   & > img {
-   width: 100%;
+    width: 100%;
     height: auto;
   }
 }
@@ -12,7 +12,7 @@
 }
 .postCards {
   @include flex(space-between, flex-start, null, $gap8);
-  @media screen and (max-width: $mobileBreakpoint){
+  @media screen and (max-width: $mobileBreakpoint) {
     @include flex(center, center, column, $gap32);
   }
   flex-wrap: wrap;
