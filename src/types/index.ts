@@ -29,7 +29,7 @@ export interface IPost {
   date: Date;
   image: StaticImageData;
   views: number;
-  text: Array<[typographyVariants, string]>;
+  text: Array<[`${typographyVariants}`, string]>;
 }
 export interface IPostWithId extends IPost {
   id: string | number;
