@@ -17,8 +17,6 @@ import Routes from '@constants/routes';
 import { subscribeFormSchema } from '@constants/shemes';
 import ContentContainer from '@containers/ContentContainer';
 
-import './i18n';
-
 import styles from './footer.module.scss';
 
 const Footer = () => {
@@ -28,16 +26,16 @@ const Footer = () => {
 
   useEffect(() => {
     i18n.changeLanguage(router.locale === 'en' ? 'en' : 'ru').catch(() => null);
-  }, []);
+  }, [router.locale]);
 
   return (
     <div className={styles.footer}>
       <Header>
-        <Link href={Routes.Home}>{t('Home')}</Link>
-        <Link href={Routes.Blog}>{t('Blog')}</Link>
-        <Link href={Routes['About Us']}>{t('About Us')}</Link>
-        <Link href={Routes['Contact Us']}>{t('Contact Us')}</Link>
-        <Link href={Routes['Privacy Policy']}>{t('Privacy Policy')}</Link>
+        <Link href={Routes.Home}>{t('links.Home')}</Link>
+        <Link href={Routes.Blog}>{t('links.Blog')}</Link>
+        <Link href={Routes['About Us']}>{t('links.About Us')}</Link>
+        <Link href={Routes['Contact Us']}>{t('links.Contact Us')}</Link>
+        <Link href={Routes['Privacy Policy']}>{t('links.Privacy Policy')}</Link>
       </Header>
       <ContentContainer>
         <Formik
@@ -77,13 +75,15 @@ const Footer = () => {
             <form
               className={styles.subscribeBlock}
               onSubmit={handleSubmit}>
-              <Typography variant="head2">{t('Subscribe message')}</Typography>
+              <Typography variant="head2">
+                {t('footer.Subscribe message')}
+              </Typography>
               <Input
                 data-cy="FOOTER_INPUT"
                 name="email"
                 errorMessage={errors.email}
                 onBlur={handleBlur}
-                placeholder={t('Placeholder').toString()}
+                placeholder={t('footer.Placeholder').toString()}
                 value={values.email}
                 onChange={handleChange}
               />
@@ -91,7 +91,7 @@ const Footer = () => {
                 type="submit"
                 data-cy="SUBSCRIBE_BUTTON"
                 disabled={isSubmitting}>
-                <Typography variant="head4">{t('Subscribe')}</Typography>
+                <Typography variant="head4">{t('footer.Subscribe')}</Typography>
               </Button>
             </form>
           )}
