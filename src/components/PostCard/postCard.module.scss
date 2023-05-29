@@ -29,7 +29,7 @@
   @include flex(null, center, null, $gap32);
   .photoContainer {
     max-width: $size405;
-    aspect-ratio: 4/3;
+    aspect-ratio: $aspectRatio2;
     position: relative;
     .postPhoto {
       object-fit: cover;
