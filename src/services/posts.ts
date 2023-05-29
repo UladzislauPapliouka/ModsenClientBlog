@@ -1,12 +1,13 @@
 import { type IPost, type IPostWithId } from '@/types';
 import posts from '@constants/posts';
 
-const addPostId = (postId: string): IPostWithId => ({
+export const addPostId = (postId: string): IPostWithId => ({
   id: postId,
   ...posts[postId],
 });
 
-const getPostsWithId = (): IPostWithId[] => Object.keys(posts).map(addPostId);
+export const getPostsWithId = (): IPostWithId[] =>
+  Object.keys(posts).map(addPostId);
 
 export const getWhatToReadNext = ({ category, title }: IPost): IPostWithId[] =>
   getPostsWithId().filter(
