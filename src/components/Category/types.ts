@@ -1,3 +1,5 @@
+import { type Categories } from '@typing';
+
 export interface ICategoryProps {
-  label: 'startup' | 'business' | 'economy' | 'technology';
+  label: `${Categories}`;
 }

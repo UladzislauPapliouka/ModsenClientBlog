@@ -8,13 +8,13 @@ import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
 import posts from '@constants/posts';
 import ContentContainer from '@containers/ContentContainer';
+import { getWhatToReadNext } from '@services/posts';
 
 import styles from './blogpost.module.scss';
 
 const BlogPost = (): JSX.Element => {
   const router = useRouter();
 
-  console.log(router.query.postId);
   if (!router.query.postId) {
     return <div />;
   }
@@ -27,12 +27,9 @@ const BlogPost = (): JSX.Element => {
     );
   }
 
-  const { title, date, image, author, category, text } =
-    posts[router.query.postId as string];
+  const currentPost = posts[router.query.postId as string];
 
-  const recomendedPosts = Object.keys(posts)
-    .map((postId) => ({ id: postId, ...posts[postId] }))
-    .filter((post) => post.category === category && post.title !== title);
+  const { title, date, image, author, category, text } = currentPost;
 
   return (
     <div>
@@ -67,7 +64,7 @@ const BlogPost = (): JSX.Element => {
       <ContentContainer>
         <Typography variant="head2">What to read next</Typography>
         <div className={styles.postCards}>
-          {recomendedPosts.map((post) => (
+          {getWhatToReadNext(currentPost).map((post) => (
             <PostCard
               key={post.id}
               post={post}

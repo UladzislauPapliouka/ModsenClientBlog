@@ -12,10 +12,10 @@
     column-gap: $gap16;
     & > .imageContainer {
       & > img {
-        width: 48px;
+        width: $size48;
         height: auto;
         aspect-ratio: 1;
-        border-radius: 80px;
+        border-radius: $size80;
       }
       grid-area: i;
     }

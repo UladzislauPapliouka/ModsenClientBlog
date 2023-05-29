@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import Button from '@components/Button';
 import Typography from '@components/Typography';
+import routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './joinUs.module.scss';
@@ -19,7 +20,7 @@ const JoinUs = () => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt.
       </Typography>
-      <Link href="/about">
+      <Link href={routes['Contact Us']}>
         <Button>
           <Typography variant="head5">Join Now</Typography>
         </Button>

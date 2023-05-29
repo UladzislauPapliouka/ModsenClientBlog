@@ -1,18 +1,17 @@
 import React, { type FC } from 'react';
 import Image from 'next/image';
 
+import LabelsIcons from '@assets/labels';
 import { type ICategoryProps } from '@components/Category/types';
 import Typography from '@components/Typography';
 
 import styles from './category.module.scss';
 
-import images from './config';
-
 const Category: FC<ICategoryProps> = ({ label }) => (
   <div className={styles.category}>
     <div className={styles.iconContainer}>
       <Image
-        src={images[label]}
+        src={LabelsIcons[label]}
         alt="Category name"
       />
     </div>

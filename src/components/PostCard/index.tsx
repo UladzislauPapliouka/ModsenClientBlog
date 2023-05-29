@@ -2,14 +2,14 @@ import React from 'react';
 import moment from 'moment';
 import Image from 'next/image';
 
-import photo from '@assets/images/photo-of-woman-wearing-eyeglasses-3184405.png';
+import { type IPostWithId } from '@/types';
 import Link from '@components/Link';
 import Typography from '@components/Typography';
 import routes from '@constants/routes';
 
 import styles from './postCard.module.scss';
 
-const PostCard = ({ large, post }: { large?: boolean; post: any }) =>
+const PostCard = ({ large, post }: { large?: boolean; post: IPostWithId }) =>
   large ? (
     <div className={styles.largePostCard}>
       <div className={styles.photoContainer}>

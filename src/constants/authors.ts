@@ -6,8 +6,9 @@ import Guy from '@assets/images/avatars/GuyHawkins.png';
 import Jenny from '@assets/images/avatars/JennyWilson.png';
 import Leslie from '@assets/images/avatars/LeslieAlexander.png';
 import Robert from '@assets/images/avatars/RobertFox.png';
+import { type IAuthor } from '@typing';
 
-const Authors = {
+const Authors: Record<string | number, IAuthor> = {
   '1': {
     name: 'Andrew Jonson',
     avatar: Andrew,

@@ -1,27 +1,61 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import moment from 'moment';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-import img from '@assets/images/photo-of-woman-wearing-eyeglasses-3184405.png';
 import Button from '@components/Button';
 import Category from '@components/Category';
 import JoinUs from '@components/JoinUs';
 import Link from '@components/Link';
 import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
-import posts from '@constants/posts';
 import routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
+import { getFeaturedPost, getPagePosts } from '@services/posts';
 
 import styles from './blog.module.scss';
 
 const BlogPage = () => {
-  const featuredPost = Object.keys(posts)
-    .map((postId) => ({ id: postId, ...posts[postId] }))
-    .reduce((prev, curr) => (curr.views > prev.views ? curr : prev), {
-      id: '1',
-      ...posts['1'],
-    });
+  const featuredPost = getFeaturedPost();
+
+  const router = useRouter();
+
+  const goToNextPage = () => {
+    router
+      .push(
+        {
+          pathname: router.pathname,
+          query: {
+            page:
+              router.query.page &&
+              Number.parseInt(router.query.page as string, 10) > 1
+                ? Number.parseInt(router.query.page as string, 10) - 1
+                : 1,
+          },
+        },
+        undefined,
+        { shallow: true },
+      )
+      .catch(() => toast.error('Something went wrong...'));
+  };
+
+  const goToPrevPage = () => {
+    router
+      .push(
+        {
+          pathname: router.pathname,
+          query: {
+            page: router.query.page
+              ? Number.parseInt(router.query.page as string, 10) + 1
+              : 2,
+          },
+        },
+        undefined,
+        { shallow: true },
+      )
+      .catch(() => toast.error('Something went wrong...'));
+  };
 
   return (
     <div>
@@ -62,20 +96,27 @@ const BlogPage = () => {
         <Typography variant="head1">All posts</Typography>
         <hr className={styles.devider} />
         <div className={styles.postsContainer}>
-          {Object.keys(posts)
-            .map((postId) => ({ id: postId, ...posts[postId] }))
-            .slice(0, 3)
-            .map((post) => (
+          {getPagePosts(Number.parseInt(router.query.page as string, 10)).map(
+            (post) => (
               <PostCard
                 key={post.id}
                 large
                 post={post}
               />
-            ))}
+            ),
+          )}
         </div>
         <div className={styles.pagination}>
-          <Typography variant="head4">{'< Prev'}</Typography>
-          <Typography variant="head3">{'Next >'}</Typography>
+          <Typography
+            variant="head4"
+            onClick={goToNextPage}>
+            {'< Prev'}
+          </Typography>
+          <Typography
+            variant="head3"
+            onClick={goToPrevPage}>
+            {'Next >'}
+          </Typography>
         </div>
       </ContentContainer>
       <ContentContainer className={styles.categories}>

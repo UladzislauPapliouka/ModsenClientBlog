@@ -2,7 +2,7 @@
 @import '@styles/_variables';
 .category {
   padding: $gap32;
-  border: 1px solid $mediumGrey;
+  border: $borderSize1 solid $mediumGrey;
   @include flex(null, null, column, $gap16);
   .iconContainer {
     @include flex(center, center, column, $gap16);

@@ -4,11 +4,12 @@ import postImage1 from '@assets/images/photo-of-woman-looking-at-man-3183173.png
 import postImage from '@assets/images/photo-of-woman-wearing-eyeglasses-3184405.png';
 import postImage3 from '@assets/images/two-women-in-front-of-dry-erase-board-1181533.png';
 import Authors from '@constants/authors';
+import { Categories, type IPost } from '@typing';
 
-const posts: Record<string, any> = {
+const posts: Record<string | number, IPost> = {
   '1': {
     title: 'Step-by-step guide to choosing great font pairs',
-    category: 'startup',
+    category: Categories.STARTUP,
     author: Authors['1'],
     date: new Date(),
     image: postImage,
@@ -67,7 +68,7 @@ const posts: Record<string, any> = {
   },
   '2': {
     title: 'A UX Case Study Creating a Studious Environment for Students: ',
-    category: 'startup',
+    category: Categories.STARTUP,
     author: Authors['2'],
     date: new Date(),
     image: postImage1,
@@ -126,7 +127,7 @@ const posts: Record<string, any> = {
   },
   '3': {
     title: 'How to build rapport with your web design clients',
-    category: 'startup',
+    category: Categories.STARTUP,
     author: Authors['3'],
     date: new Date(),
     image: postImage2,
@@ -185,7 +186,7 @@ const posts: Record<string, any> = {
   },
   '4': {
     title: 'Font sizes in UI design: The complete guide to follow',
-    category: 'startup',
+    category: Categories.STARTUP,
     author: Authors['4'],
     date: new Date(),
     image: postImage3,
@@ -244,7 +245,7 @@ const posts: Record<string, any> = {
   },
   '5': {
     title: '8 Figma design systems you can download for free today',
-    category: 'business',
+    category: Categories.BUSINESS,
     author: Authors['7'],
     date: new Date(),
     image: postImage4,

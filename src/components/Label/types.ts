@@ -1,3 +1,5 @@
+import { type Categories } from '@typing';
+
 export interface ILabelProps {
-  label: 'startup' | 'business' | 'economy' | 'technology';
+  label: Categories;
 }

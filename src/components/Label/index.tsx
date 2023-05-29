@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import Image from 'next/image';
 
-import LabelsIcons from '@components/Label/config';
+import LabelsIcons from '@assets/labels';
 import { type ILabelProps } from '@components/Label/types';
 import Typography from '@components/Typography';
 

@@ -1,8 +1,7 @@
-import React, { type SyntheticEvent, useState } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import { Formik } from 'formik';
-import { string, type ValidationError } from 'yup';
 
 import Button from '@components/Button';
 import socialLink from '@components/Footer/footer.config';
@@ -13,7 +12,7 @@ import SocialWrapper from '@components/SocialWrapper';
 import Typography from '@components/Typography';
 import EnvVariables from '@constants/envVariables';
 import Routes from '@constants/routes';
-import emailSchema, { subscribeFormSchema } from '@constants/shemes';
+import { subscribeFormSchema } from '@constants/shemes';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './footer.module.scss';
@@ -63,7 +62,6 @@ const Footer = () => (
           handleBlur,
           isSubmitting,
           handleSubmit,
-          touched,
         }) => (
           <form
             className={styles.subscribeBlock}
