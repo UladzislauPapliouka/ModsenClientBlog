@@ -4,9 +4,14 @@ import styles from './typography.module.scss';
 
 import type ITypographyProps from './types';
 
-const Typography = ({ children, variant, ...restProps }: ITypographyProps) => (
+const Typography = ({
+  children,
+  variant,
+  className,
+  ...restProps
+}: ITypographyProps) => (
   <span
-    className={styles[variant]}
+    className={`${styles[variant]} ${className}`}
     {...restProps}>
     {children}
   </span>

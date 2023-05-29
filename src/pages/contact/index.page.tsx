@@ -1,5 +1,4 @@
-import React, { type SyntheticEvent, useState } from 'react';
-import { Simulate } from 'react-dom/test-utils';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import { Formik } from 'formik';
@@ -11,16 +10,11 @@ import Input from '@components/Input';
 import TextArea from '@components/TextArea';
 import Typography from '@components/Typography';
 import EnvVariables from '@constants/envVariables';
-import emailSchema, {
-  contactFormSchema,
-  messageSchema,
-  nameSchema,
-} from '@constants/shemes';
+import { contactFormSchema } from '@constants/shemes';
 import Subjects from '@constants/subjects';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './contacts.module.scss';
-import submit = Simulate.submit;
 
 const HomePage = (): JSX.Element => {
   const [subject, setSubject] = useState(Subjects.query);
@@ -89,15 +83,7 @@ const HomePage = (): JSX.Element => {
                 },
               );
           }}>
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
+          {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
             <form
               onSubmit={handleSubmit}
               className={styles.contactForm}>
