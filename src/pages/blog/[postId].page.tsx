@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -14,6 +15,8 @@ import styles from './blogpost.module.scss';
 
 const BlogPost = (): JSX.Element => {
   const router = useRouter();
+
+  const [t] = useTranslation();
 
   if (!router.query.postId) {
     return <div />;
@@ -62,7 +65,7 @@ const BlogPost = (): JSX.Element => {
         ))}
       </ContentContainer>
       <ContentContainer>
-        <Typography variant="head2">What to read next</Typography>
+        <Typography variant="head2">{t('posts.whatToRead')}</Typography>
         <div className={styles.postCards}>
           {getWhatToReadNext(currentPost).map((post) => (
             <PostCard

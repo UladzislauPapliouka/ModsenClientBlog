@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import Image from 'next/image';
 
@@ -9,8 +10,10 @@ import routes from '@constants/routes';
 
 import styles from './postCard.module.scss';
 
-const PostCard = ({ large, post }: { large?: boolean; post: IPostWithId }) =>
-  large ? (
+const PostCard = ({ large, post }: { large?: boolean; post: IPostWithId }) => {
+  const [t] = useTranslation();
+
+  return large ? (
     <div className={styles.largePostCard}>
       <div className={styles.photoContainer}>
         <Image
@@ -23,7 +26,7 @@ const PostCard = ({ large, post }: { large?: boolean; post: IPostWithId }) =>
         <Typography
           className={styles.postCategory}
           variant="body1">
-          {post.category.toUpperCase()}
+          {t(`categories.${post.category}.title`).toUpperCase()}
         </Typography>
         <Link href={`${routes.Blog}/${post.id}`}>
           <Typography variant="head3">{post.title}</Typography>
@@ -65,5 +68,6 @@ const PostCard = ({ large, post }: { large?: boolean; post: IPostWithId }) =>
       </Typography>
     </div>
   );
+};
 
 export default PostCard;

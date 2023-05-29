@@ -23,12 +23,12 @@ const HomePage = (): JSX.Element => {
 
   return (
     <div>
-      <div className={styles.pageHead}>
+      <ContentContainer className={styles.pageHead}>
         <Typography variant="head1">{t('privacyPolicy.pageTitle')}</Typography>
         <Typography variant="body1">
           {t('privacyPolicy.lastUpdate', { date })}
         </Typography>
-      </div>
+      </ContentContainer>
       <ContentContainer className={styles.privacyInfo}>
         <Typography variant="head1">{t('privacyPolicy.head1')}</Typography>
         <Typography variant="body1">{t('privacyPolicy.body1')}</Typography>

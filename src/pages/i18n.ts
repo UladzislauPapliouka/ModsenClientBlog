@@ -5,6 +5,29 @@ import i18n from 'i18next';
 const resources = {
   en: {
     translation: {
+      categories: {
+        business: {
+          title: 'Business',
+          text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+        },
+        startup: {
+          title: 'Startup',
+          text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+        },
+        economy: {
+          title: 'Economy',
+          text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+        },
+        technology: {
+          title: 'Technology',
+          text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+        },
+      },
+      joinUs: {
+        title: 'Join our team to be a part of our story',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+        buttonText: 'Join Us',
+      },
       links: {
         Home: 'Home',
         Blog: 'Blog',
@@ -77,10 +100,43 @@ const resources = {
         placeholderEmail: 'Your Email',
         placeholderMessage: 'Message',
       },
+      posts: {
+        featuredPost: 'FEATURED POST',
+        readMore: 'Read more',
+        whatToRead: 'What to read next',
+        allPosts: 'All Posts',
+        next: 'Next',
+        prev: 'Prev',
+        allCategories: 'All Categories',
+      },
     },
   },
   ru: {
     translation: {
+      categories: {
+        business: {
+          title: 'Бизнес',
+          text: 'Бизнес – это круту',
+        },
+        startup: {
+          title: 'Стартап',
+          text: 'Стартап - это современно',
+        },
+        economy: {
+          title: 'Экономика',
+          text: 'Экономь, но не скупись',
+        },
+        technology: {
+          title: 'Технологии',
+          text: 'На шаг впереди',
+        },
+      },
+      joinUs: {
+        title:
+          'Присоединяйтесь к нашей команде, чтобы стать частью нашей истории',
+        text: 'Таким образом, дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации дальнейших направлений развития проекта. Разнообразный и...',
+        buttonText: 'Присоедениться',
+      },
       links: {
         Home: 'Главная',
         Blog: 'Блог',
@@ -120,7 +176,7 @@ const resources = {
         contactsUs: 'Контакты',
         letsConversation: 'Начните общение',
         lowerText:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
+          'С другой стороны выбранный нами инновационный путь влечет за собой процесс внедрения и модернизации новых...',
         workingHours: 'Рабочие часы',
         workingDays: 'С понедельника по пятницу',
         workingText: 'Круглосуточная поддержка',
@@ -128,6 +184,15 @@ const resources = {
         placeholderName: 'Имя',
         placeholderEmail: 'Почта',
         placeholderMessage: 'Сообщение',
+      },
+      posts: {
+        featuredPost: 'Набирающий популярность',
+        readMore: 'Читать дальше',
+        whatToRead: 'Читать почитать ещё',
+        allPosts: 'Все посты',
+        next: 'Вперёд',
+        prev: 'Назад',
+        allCategories: 'Все категории',
       },
     },
   },

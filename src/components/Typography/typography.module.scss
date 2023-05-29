@@ -29,3 +29,6 @@
 .label {
   @include font(14px, 20px, SenBold, OpenBold);
 }
+.span{
+  word-break: break-all;
+}

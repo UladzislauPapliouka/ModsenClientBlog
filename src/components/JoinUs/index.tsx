@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
 import Button from '@components/Button';
@@ -8,25 +9,24 @@ import ContentContainer from '@containers/ContentContainer';
 
 import styles from './joinUs.module.scss';
 
-const JoinUs = () => (
-  <ContentContainer
-    className={styles.joinBlock}
-    variant="variant2">
-    <div className={styles.wrapper}>
-      <Typography variant="head3">
-        Join our team to be a part of our story
-      </Typography>
-      <Typography variant="body1">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt.
-      </Typography>
-      <Link href={routes['Contact Us']}>
-        <Button>
-          <Typography variant="head5">Join Now</Typography>
-        </Button>
-      </Link>
-    </div>
-  </ContentContainer>
-);
+const JoinUs = () => {
+  const [t] = useTranslation();
+
+  return (
+    <ContentContainer
+      className={styles.joinBlock}
+      variant="variant2">
+      <div className={styles.wrapper}>
+        <Typography variant="head3">{t('joinUs.title')}</Typography>
+        <Typography variant="body1">{t('joinUs.text')}</Typography>
+        <Link href={routes['Contact Us']}>
+          <Button>
+            <Typography variant="head5">{t('joinUs.buttonText')}</Typography>
+          </Button>
+        </Link>
+      </div>
+    </ContentContainer>
+  );
+};
 
 export default JoinUs;
