@@ -32,12 +32,12 @@ $open-regular: '../assets/fonts/open-sans.regular.ttf';
 }
 @font-face {
   src: url('#{$open-regular}') format('truetype');
-  font-family: 'Open';
+  font-family: 'OpenRegular';
   font-weight: 200;
 }
 
 * {
-  font-family: Sen, Open;
+  font-family: Sen, OpenRegular;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

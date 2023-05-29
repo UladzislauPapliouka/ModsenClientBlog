@@ -1,4 +1,4 @@
-@mixin font($fontSize, $lineHeight, $fontFamily1: Sen, $fontFamily2: Open) {
+@mixin font($fontSize, $lineHeight, $fontFamily1: Sen, $fontFamily2: OpenRegular) {
   font-size: $fontSize;
   line-height: $lineHeight;
   font-family: $fontFamily1, $fontFamily2;

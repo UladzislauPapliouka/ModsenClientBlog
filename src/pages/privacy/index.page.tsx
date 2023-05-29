@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 
-import { body1, body2, head1, head2 } from '@/pages/privacy/config';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 
+import 'moment/locale/ru';
+
 import styles from './privecy.module.scss';
 
-const HomePage = (): JSX.Element => (
-  <div>
-    <div className={styles.pageHead}>
-      <Typography variant="head1">Privacy Policy</Typography>
-      <Typography variant="body1">Last Updated on 27th January 2022</Typography>
+const HomePage = (): JSX.Element => {
+  const { t, i18n } = useTranslation();
+
+  const [date, setDate] = useState('');
+
+  useEffect(() => {
+    const localMoment = moment();
+
+    localMoment.locale(i18n.language);
+    setDate(localMoment.format('DD MMM YYYY'));
+  }, [i18n.language]);
+
+  return (
+    <div>
+      <div className={styles.pageHead}>
+        <Typography variant="head1">{t('privacyPolicy.pageTitle')}</Typography>
+        <Typography variant="body1">
+          {t('privacyPolicy.lastUpdate', { date })}
+        </Typography>
+      </div>
+      <ContentContainer className={styles.privacyInfo}>
+        <Typography variant="head1">{t('privacyPolicy.head1')}</Typography>
+        <Typography variant="body1">{t('privacyPolicy.body1')}</Typography>
+        <Typography variant="head2">{t('privacyPolicy.head2')}</Typography>
+        <Typography variant="body1">{t('privacyPolicy.body2')}</Typography>
+      </ContentContainer>
     </div>
-    <ContentContainer className={styles.privacyInfo}>
-      <Typography variant="head1">{head1}</Typography>
-      <Typography variant="body1">{body1}</Typography>
-      <Typography variant="head2">{head2}</Typography>
-      <Typography variant="body1">{body2}</Typography>
-    </ContentContainer>
-  </div>
-);
+  );
+};
 
 export default HomePage;
