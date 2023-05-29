@@ -64,6 +64,19 @@ const resources = {
         dictum fusce ut placerat orci nulla. Neque convallis a cras semper
         auctor neque vitae tempus quam.`,
       },
+      contacts: {
+        contactsUs: 'Contact US',
+        letsConversation: 'Let’s Start a Conversation',
+        lowerText:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
+        workingHours: 'Working hours',
+        workingDays: 'Monday to Friday',
+        workingText: 'Our Support Team is available 24/7',
+        buttonText: 'Send Message',
+        placeholderName: 'Full Name',
+        placeholderEmail: 'Your Email',
+        placeholderMessage: 'Message',
+      },
     },
   },
   ru: {
@@ -102,6 +115,19 @@ const resources = {
 Задача организации, в особенности же новая модель организационной деятельности способствует подготовке и реализации соответствующих условий активизации? Дорогие друзья, повышение уровня гражданского сознания играет важную роль в формировании дальнейших направлений развития проекта.
 
 Значимость этих проблем настолько очевидна, что сложившаяся структура...`,
+      },
+      contacts: {
+        contactsUs: 'Контакты',
+        letsConversation: 'Начните общение',
+        lowerText:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
+        workingHours: 'Рабочие часы',
+        workingDays: 'С понедельника по пятницу',
+        workingText: 'Круглосуточная поддержка',
+        buttonText: 'Отправить',
+        placeholderName: 'Имя',
+        placeholderEmail: 'Почта',
+        placeholderMessage: 'Сообщение',
       },
     },
   },

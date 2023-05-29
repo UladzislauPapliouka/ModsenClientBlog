@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import { Formik } from 'formik';
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
@@ -19,32 +20,32 @@ import styles from './contacts.module.scss';
 const HomePage = (): JSX.Element => {
   const [subject, setSubject] = useState(Subjects.query);
 
+  const [t, i18n] = useTranslation();
+
   return (
     <div className={styles.page}>
       <ContentContainer
         variant="variant2"
         className={styles.pageTitle}>
-        <Typography variant="head6">CONTACT US</Typography>
-        <Typography variant="head1">Let’s Start a Conversation</Typography>
-        <Typography variant="body1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim.
+        <Typography variant="head6">{t('contacts.contactsUs')}</Typography>
+        <Typography variant="head1">
+          {t('contacts.letsConversation')}
         </Typography>
+        <Typography variant="body1">{t('contacts.lowerText')}</Typography>
       </ContentContainer>
       <ContentContainer variant="variant2">
         <div className={styles.scheduleBlock}>
           <div>
-            <Typography variant="body2">Working hours</Typography>
-            <hr />
-            <Typography variant="head5">Monday to Friday</Typography>
-            <Typography variant="head5">9:00 AM to 8:00 PM</Typography>
-            <Typography variant="body1">
-              Our Support Team is available 24/7
+            <Typography variant="body2">
+              {t('contacts.workingHours')}
             </Typography>
+            <hr />
+            <Typography variant="head5">{t('contacts.workingDays')}</Typography>
+            <Typography variant="head5">9:00 AM to 8:00 PM</Typography>
+            <Typography variant="body1">{t('contacts.workingText')}</Typography>
           </div>
           <div>
-            <Typography variant="body2">Contact Us</Typography>
+            <Typography variant="body2">{t('contacts.contactsUs')}</Typography>
             <hr />
             <Typography variant="head5">020 7993 2905</Typography>
             <Typography variant="body1">hello@finsweet.com</Typography>
@@ -93,7 +94,7 @@ const HomePage = (): JSX.Element => {
                 errorMessage={errors.name}
                 onChange={handleChange}
                 value={values.name}
-                placeholder="Full Name"
+                placeholder={t('contacts.placeholderName').toString()}
               />
               <Input
                 name="email"
@@ -101,7 +102,7 @@ const HomePage = (): JSX.Element => {
                 errorMessage={errors.email}
                 onChange={handleChange}
                 value={values.email}
-                placeholder="Your Email"
+                placeholder={t('contacts.placeholderEmail').toString()}
               />
               <CustomSelect
                 selected={subject}
@@ -114,14 +115,16 @@ const HomePage = (): JSX.Element => {
                 errorMessage={errors.message}
                 onChange={handleChange}
                 value={values.message}
-                placeholder="Message"
+                placeholder={t('contacts.placeholderMessage').toString()}
                 name="message"
               />
               <Button
                 type="submit"
                 data-cy="CONTACT_BUTTON"
                 disabled={isSubmitting}>
-                <Typography variant="head4">Send Message</Typography>
+                <Typography variant="head4">
+                  {t('contacts.buttonText').toString()}
+                </Typography>
               </Button>
             </form>
           )}
