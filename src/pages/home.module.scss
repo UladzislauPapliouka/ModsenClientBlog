@@ -93,5 +93,38 @@
   }
 }
 .categories {
-  @include flex(center,center,column);
- }
+  @include flex(center, center, column);
+}
+
+.whyWeStartedBlock{
+  position: relative;
+  .whyInfo {
+    position: absolute;
+    padding: $gap80 $gap64;
+    @include flex(null,null,column,$gap24);
+    max-width: $size615;
+    background-color: $light;
+    right: $gap80;
+    bottom: 0;
+  }
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(center, center, column-reverse, $gap32);
+    .whyInfo {
+      padding: 0;
+      right: auto;
+      position: relative;
+      @include flex(center,center,column,$gap24);
+      max-width: $size615;
+      background-color: $light;
+    }
+    .teamImage{
+      width: 100%;
+      & > img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

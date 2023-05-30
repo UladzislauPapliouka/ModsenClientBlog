@@ -131,6 +131,17 @@ const resources = {
             '            aliquip ex ea commodo consequat.',
         },
         chooseCategory: 'Choose A Category',
+        whyWeStarted: {
+          why: 'WHY WE STARTED',
+          title:
+            ' It started out as a simple idea and evolved into our passion',
+          text:
+            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            '            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim\n' +
+            '            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '            aliquip.',
+          button: 'Discovery our story',
+        },
       },
     },
   },
@@ -239,6 +250,15 @@ const resources = {
             'Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существующих...',
         },
         chooseCategory: 'Выберите категорию',
+        whyWeStarted: {
+          why: 'ЗАЧЕМ НАЧИНАЛИ',
+          title: 'Это началось как простая идея и превратилось в нашу страсть',
+          text:
+            'Практический опыт показывает, что дальнейшее развитие различных форм деятельности способствует подготовке и реализации системы масштабного изменения ряда параметров.\n' +
+            '\n' +
+            'Задача организации,...',
+          button: 'Наша история',
+        },
       },
     },
   },

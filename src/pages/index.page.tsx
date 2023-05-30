@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import moment from 'moment/moment';
 import Image from 'next/image';
 
+import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
 import Button from '@components/Button';
 import CategoriesList from '@components/CategoriesList';
-import Category from '@components/Category';
 import JoinUs from '@components/JoinUs';
 import Link from '@components/Link';
 import PostCard from '@components/PostCard';
@@ -158,6 +158,28 @@ const HomePage = (): JSX.Element => {
       <ContentContainer className={styles.categories}>
         <Typography variant="head1"> {t('home.chooseCategory')}</Typography>
         <CategoriesList />
+      </ContentContainer>
+      <ContentContainer className={styles.whyWeStartedBlock}>
+        <div className={styles.whyInfo}>
+          <Typography variant="head6">{t('home.whyWeStarted.why')}</Typography>
+          <Typography variant="head2">
+            {t('home.whyWeStarted.title')}
+          </Typography>
+          <Typography variant="body1">{t('home.whyWeStarted.text')}</Typography>
+          <Link href={`${routes['About Us']}`}>
+            <Button>
+              <Typography variant="head5">
+                {t('home.whyWeStarted.button')} {'>'}
+              </Typography>
+            </Button>
+          </Link>
+        </div>
+        <figure className={styles.teamImage}>
+          <Image
+            src={image}
+            alt="Team"
+          />
+        </figure>
       </ContentContainer>
       <JoinUs />
     </div>
