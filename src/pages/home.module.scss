@@ -35,3 +35,41 @@
     }
   }
 }
+.postsBlock {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 2fr;
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(flex-start, flex-start, column, $gap32);
+  }
+  .featuredBlock {
+    @include flex(flex-start, flex-start, column, $gap32);
+    .featuredInfo {
+      .featuredImage {
+        width: 100%;
+        & > img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      padding: $gap32;
+      border: $borderSize1 solid $mediumGrey;
+      @include flex(flex-start, flex-start, column, $gap16);
+      .postInfo {
+        .author {
+          color: $purple;
+        }
+      }
+    }
+  }
+  .allPosts {
+    .title {
+      @include flex(space-between, center, row);
+      width: 100%;
+      & span:last-child {
+        color: $purple;
+      }
+    }
+    @include flex(flex-start, flex-start, column, $gap32);
+  }
+}
