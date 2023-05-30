@@ -1,13 +1,13 @@
-@import "@styles/_variables";
-@import "@styles/_mixins";
+@import '@styles/_variables';
+@import '@styles/_mixins';
 
-.mainPost{
+.mainPost {
   position: relative;
   max-height: 720px;
   min-height: 720px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
-  @include flex(flex-start,center);
-  .mainPostImage{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
+  @include flex(flex-start, center);
+  .mainPostImage {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,8 +26,8 @@
     position: relative;
     .lastPostInfo {
       max-width: $size815;
-      @include flex(flex-start,flex-start,column, $gap24);
-      .postInfo{
+      @include flex(flex-start, flex-start, column, $gap24);
+      .postInfo {
         .author {
           color: $yellow;
         }

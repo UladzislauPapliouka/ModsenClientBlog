@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import img from '@assets/images/man-in-black-suit-wearing-eye-glasses-sitting-on-gray-sofa-using-macbook-3772622.png';
 import Button from '@components/Button';
+import JoinUs from '@components/JoinUs';
 import Link from '@components/Link';
 import Typography from '@components/Typography';
 import routes from '@constants/routes';
@@ -66,6 +67,7 @@ const HomePage = (): JSX.Element => {
           <div className={styles.featuredImage} />
         </ContentContainer>
       </div>
+      <JoinUs />
     </div>
   );
 };
