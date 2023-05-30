@@ -4,6 +4,7 @@ import moment from 'moment/moment';
 import Image from 'next/image';
 
 import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
+import AuthorsList from '@components/AuthorsList';
 import Button from '@components/Button';
 import CategoriesList from '@components/CategoriesList';
 import JoinUs from '@components/JoinUs';
@@ -180,6 +181,10 @@ const HomePage = (): JSX.Element => {
             alt="Team"
           />
         </figure>
+      </ContentContainer>
+      <ContentContainer className={styles.authors}>
+        <Typography variant="head2">{t('home.listOfAuthors')}</Typography>
+        <AuthorsList />
       </ContentContainer>
       <JoinUs />
     </div>

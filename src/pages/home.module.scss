@@ -96,12 +96,12 @@
   @include flex(center, center, column);
 }
 
-.whyWeStartedBlock{
+.whyWeStartedBlock {
   position: relative;
   .whyInfo {
     position: absolute;
     padding: $gap80 $gap64;
-    @include flex(null,null,column,$gap24);
+    @include flex(null, null, column, $gap24);
     max-width: $size615;
     background-color: $light;
     right: $gap80;
@@ -114,11 +114,11 @@
       padding: 0;
       right: auto;
       position: relative;
-      @include flex(center,center,column,$gap24);
+      @include flex(center, center, column, $gap24);
       max-width: $size615;
       background-color: $light;
     }
-    .teamImage{
+    .teamImage {
       width: 100%;
       & > img {
         object-fit: cover;
@@ -127,4 +127,8 @@
       }
     }
   }
+}
+
+.authors{
+  @include flex(flex-start,center,column,$gap48)
 }

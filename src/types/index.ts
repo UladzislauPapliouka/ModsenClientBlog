@@ -21,6 +21,9 @@ export enum Categories {
 export interface IAuthor {
   name: string;
   avatar: StaticImageData;
+  social: ISocial;
+  company: string;
+  position: string;
 }
 export interface IPost {
   title: string;
@@ -33,4 +36,10 @@ export interface IPost {
 }
 export interface IPostWithId extends IPost {
   id: string | number;
+}
+export interface ISocial {
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
 }

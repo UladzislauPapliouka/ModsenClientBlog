@@ -12,34 +12,98 @@ const Authors: Record<string | number, IAuthor> = {
   '1': {
     name: 'Andrew Jonson',
     avatar: Andrew,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '2': {
     name: 'Floyd Miles',
     avatar: Floyd,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '3': {
     name: 'Dianne Russell',
     avatar: Dianne,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '4': {
     name: 'Jenny Wilson',
     avatar: Jenny,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '5': {
     name: 'Leslie Alexander',
     avatar: Leslie,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '6': {
     name: 'Guy Hawkins',
     avatar: Guy,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '7': {
     name: 'Eleanor Pena',
     avatar: Eleanor,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
   '8': {
     name: 'Robert Fox',
     avatar: Robert,
+    company: 'Company',
+    position: 'Content Write',
+    social: {
+      facebook: '1',
+      instagram: '1',
+      linkedin: '1',
+      twitter: '1',
+    },
   },
 };
 

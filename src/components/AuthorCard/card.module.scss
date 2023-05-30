@@ -1,0 +1,21 @@
+@import "@styles/_mixins";
+@import "@styles/_variables";
+.card{
+  background-color:$lightGrey ;
+  &:hover {
+    background-color: $lightYellow;
+  }
+  @include flex(center,center,column,$gap24);
+  padding: $gap48;
+  .avatar{
+    max-width: $size128;
+    width: 100%;
+    border-radius: $size405;
+    aspect-ratio: 1;
+    & > img {
+      width: 100%;
+      object-fit: cover;
+      height: auto;
+    }
+  }
+}
