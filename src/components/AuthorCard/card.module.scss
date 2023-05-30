@@ -1,13 +1,13 @@
-@import "@styles/_mixins";
-@import "@styles/_variables";
-.card{
-  background-color:$lightGrey ;
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.card {
+  background-color: $lightGrey;
   &:hover {
     background-color: $lightYellow;
   }
-  @include flex(center,center,column,$gap24);
+  @include flex(center, center, column, $gap24);
   padding: $gap48;
-  .avatar{
+  .avatar {
     max-width: $size128;
     width: 100%;
     border-radius: $size405;

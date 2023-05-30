@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import moment from 'moment/moment';
 import Image from 'next/image';
 
+import arrow from '@assets/Arrow 1.svg';
+import image1 from '@assets/images/avatars/AndrewJonson.png';
 import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
 import AuthorsList from '@components/AuthorsList';
 import Button from '@components/Button';
@@ -185,6 +187,52 @@ const HomePage = (): JSX.Element => {
       <ContentContainer className={styles.authors}>
         <Typography variant="head2">{t('home.listOfAuthors')}</Typography>
         <AuthorsList />
+      </ContentContainer>
+      <ContentContainer>
+        <div className={styles.testimonials}>
+          <div className={styles.constant}>
+            <Typography variant="head4">Testimonials</Typography>
+            <Typography variant="head2">
+              What people say about our blog
+            </Typography>
+            <Typography variant="body1">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor.
+            </Typography>
+          </div>
+          <div className={styles.comment}>
+            <Typography variant="head5">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Typography>
+            <div className={styles.lowBlock}>
+              <div className={styles.user}>
+                <Image
+                  src={image1}
+                  alt="Avatar"
+                />
+                <div className={styles.userInfo}>
+                  <Typography variant="head5">Jonathan Vallem</Typography>
+                  <Typography variant="body1">New york, USA</Typography>
+                </div>
+              </div>
+              <div className={styles.control}>
+                <div className={styles.back}>
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                  />
+                </div>
+                <div className={styles.next}>
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </ContentContainer>
       <JoinUs />
     </div>
