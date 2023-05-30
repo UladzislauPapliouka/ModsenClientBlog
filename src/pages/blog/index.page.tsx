@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Button from '@components/Button';
+import CategoriesList from '@components/CategoriesList';
 import Category from '@components/Category';
 import JoinUs from '@components/JoinUs';
 import Link from '@components/Link';
@@ -131,14 +132,9 @@ const BlogPage = () => {
           </Typography>
         </div>
       </ContentContainer>
-      <ContentContainer className={styles.categories}>
+      <ContentContainer>
         <Typography variant="head1"> {t('posts.allCategories')}</Typography>
-        <div className={styles.categoriesContainer}>
-          <Category label="business" />
-          <Category label="startup" />
-          <Category label="economy" />
-          <Category label="technology" />
-        </div>
+        <CategoriesList />
       </ContentContainer>
       <JoinUs />
     </div>

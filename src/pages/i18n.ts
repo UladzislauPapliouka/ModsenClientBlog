@@ -130,6 +130,7 @@ const resources = {
             '            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
             '            aliquip ex ea commodo consequat.',
         },
+        chooseCategory: 'Choose A Category',
       },
     },
   },
@@ -237,6 +238,7 @@ const resources = {
             '\n' +
             'Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существующих...',
         },
+        chooseCategory: 'Выберите категорию',
       },
     },
   },

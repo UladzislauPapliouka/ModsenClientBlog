@@ -4,6 +4,8 @@ import moment from 'moment/moment';
 import Image from 'next/image';
 
 import Button from '@components/Button';
+import CategoriesList from '@components/CategoriesList';
+import Category from '@components/Category';
 import JoinUs from '@components/JoinUs';
 import Link from '@components/Link';
 import PostCard from '@components/PostCard';
@@ -152,6 +154,10 @@ const HomePage = (): JSX.Element => {
             {t('home.aboutUs.missionText')}
           </Typography>
         </div>
+      </ContentContainer>
+      <ContentContainer className={styles.categories}>
+        <Typography variant="head1"> {t('home.chooseCategory')}</Typography>
+        <CategoriesList />
       </ContentContainer>
       <JoinUs />
     </div>

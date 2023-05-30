@@ -73,22 +73,25 @@
     @include flex(flex-start, flex-start, column, $gap32);
   }
 }
-.aboutUs{
+.aboutUs {
   background-color: $lightGrey;
-  @include flex(center,flex-start,row,$gap64);
+  @include flex(center, flex-start, row, $gap64);
   @media screen and (max-width: $mobileBreakpoint) {
     @include flex(flex-start, flex-start, column, $gap32);
   }
   padding-top: $gap96 !important;
   padding-bottom: $gap96 !important;
   & > div {
-    @include flex(flex-start,flex-start,column, $gap24);
+    @include flex(flex-start, flex-start, column, $gap24);
     max-width: $size615;
     & > a {
-      color:$purple;
+      color: $purple;
       &:after {
         display: none;
       }
     }
   }
 }
+.categories {
+  @include flex(center,center,column);
+ }
