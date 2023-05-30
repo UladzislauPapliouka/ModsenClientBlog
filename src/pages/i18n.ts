@@ -109,6 +109,11 @@ const resources = {
         prev: 'Prev',
         allCategories: 'All Categories',
       },
+      home: {
+        lastPost: {
+          postType: 'Posted on',
+        },
+      },
     },
   },
   ru: {
@@ -193,6 +198,11 @@ const resources = {
         next: 'Вперёд',
         prev: 'Назад',
         allCategories: 'Все категории',
+      },
+      home: {
+        lastPost: {
+          postType: 'Последний пост в категории',
+        },
       },
     },
   },

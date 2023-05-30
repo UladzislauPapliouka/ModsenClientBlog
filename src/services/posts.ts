@@ -38,3 +38,11 @@ export const getPagePosts = (page = 1) => {
 
   return postsArray.slice(currPos, currPos + 4);
 };
+export const getLastPost = (date: Date) => {
+  const postsArray = getPostsWithId();
+
+  return postsArray.reduce(
+    (prev, curr) => (prev.date >= curr.date ? prev : curr),
+    addPostId('1'),
+  );
+};
