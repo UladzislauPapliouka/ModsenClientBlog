@@ -108,10 +108,27 @@ const resources = {
         next: 'Next',
         prev: 'Prev',
         allCategories: 'All Categories',
+        viewAll: 'View all',
       },
       home: {
         lastPost: {
           postType: 'Posted on',
+        },
+        aboutUs: {
+          title: 'ABOUT US',
+          mission: 'OUR MISSION',
+          ourDescriptionTitle:
+            'We are a community of content writers who share their learnings',
+          ourDescriptionText:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            '            eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          missionTitle:
+            'We are a community of content writers who share their learnings\n',
+          missionText:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            '            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim\n' +
+            '            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '            aliquip ex ea commodo consequat.',
         },
       },
     },
@@ -198,10 +215,27 @@ const resources = {
         next: 'Вперёд',
         prev: 'Назад',
         allCategories: 'Все категории',
+        viewAll: 'Больше',
       },
       home: {
         lastPost: {
           postType: 'Последний пост в категории',
+        },
+        aboutUs: {
+          title: 'О НАС',
+          mission: 'НАША МИССИЯ',
+          ourDescriptionTitle:
+            'Мы сообщество авторов контента, которые делятся своими знаниями\n',
+          ourDescriptionText:
+            'Разнообразный и богатый опыт консультация с профессионалами из IT позволяет оценить значение модели развития.\n' +
+            '\n' +
+            'Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существующих...',
+          missionTitle:
+            'Мы сообщество авторов контента, которые делятся своими знаниями\n',
+          missionText:
+            'Разнообразный и богатый опыт консультация с профессионалами из IT позволяет оценить значение модели развития.\n' +
+            '\n' +
+            'Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существующих...',
         },
       },
     },

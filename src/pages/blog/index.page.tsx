@@ -113,7 +113,7 @@ const BlogPage = () => {
           ).map((post) => (
             <PostCard
               key={post.id}
-              large
+              variant="large"
               post={post}
             />
           ))}
