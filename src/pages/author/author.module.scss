@@ -1,0 +1,31 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.authorBock {
+  padding-bottom: $gap128 !important;
+  background-color: $lightGrey;
+  @include flex(center, center, null, $gap32);
+  position: relative;
+  .authorInfo {
+    @include flex(null, flex-start, column, $gap24);
+  }
+  //&:before{
+  //  content: '';
+  //  position: absolute;
+  //  background-color: $yellow;
+  //  bottom: 0;
+  //  height: $size24;
+  //  margin: inherit;
+  //  width:100%;
+  //  box-sizing: border-box;
+  //}
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(space-between, center, column, $gap32);
+  }
+}
+.posts {
+  margin-bottom: $gap128 !important;
+  @include flex(null, null, column, $gap64);
+  .list {
+    @include flex(null, null, column, $gap64);
+  }
+}

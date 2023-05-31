@@ -24,6 +24,7 @@ export interface IAuthor {
   social: ISocial;
   company: string;
   position: string;
+  description?: string;
 }
 export interface IPost {
   title: string;

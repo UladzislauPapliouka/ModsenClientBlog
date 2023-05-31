@@ -144,6 +144,10 @@ const resources = {
         },
         listOfAuthors: 'List of Authors',
       },
+      author: {
+        myPosts: 'My Posts',
+        hi: 'Hey there, I’m {{name}} and welcome to my Blog',
+      },
     },
   },
   ru: {
@@ -261,6 +265,10 @@ const resources = {
           button: 'Наша история',
         },
         listOfAuthors: 'Наши авторы',
+      },
+      author: {
+        myPosts: 'Мои публикации',
+        hi: 'Привет, Я {{name}}  добро пожаловать на мой блог ',
       },
     },
   },
