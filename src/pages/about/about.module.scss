@@ -1,0 +1,6 @@
+@import "@styles/_mixins";
+@import "@styles/_variables";
+
+.authors{
+  @include flex(center,center,column,$gap48)
+}
