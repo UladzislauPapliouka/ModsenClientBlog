@@ -148,6 +148,28 @@ const resources = {
         myPosts: 'My Posts',
         hi: 'Hey there, I’m {{name}} and welcome to my Blog',
       },
+      aboutUs: {
+        description: {
+          title1: 'Our team of creatives',
+          subtitle1:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            'eiusmod tempor incididunt.',
+          text1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat.`,
+          title2: 'Why we started this Blog',
+          subtitle2:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            'eiusmod tempor incididunt.',
+          text2: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat.`,
+        },
+      },
     },
   },
   ru: {
@@ -269,6 +291,22 @@ const resources = {
       author: {
         myPosts: 'Мои публикации',
         hi: 'Привет, Я {{name}}  добро пожаловать на мой блог ',
+      },
+      aboutUs: {
+        description: {
+          title1: 'Наша команда креативщиков',
+          subtitle1:
+            'Таким образом, выбранный нами инновационный путь напрямую зависит ',
+          text1: `Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.
+
+Не следует, однако, забывать о том, что постоянное`,
+          title2: 'Почему мы начали этот блог',
+          subtitle2:
+            'Таким образом, выбранный нами инновационный путь напрямую ',
+          text2: `Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.
+
+Не следует, однако, забывать о том, что постоянное информационно-техническое `,
+        },
       },
     },
   },

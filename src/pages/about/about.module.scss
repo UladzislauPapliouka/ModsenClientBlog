@@ -1,6 +1,32 @@
-@import "@styles/_mixins";
-@import "@styles/_variables";
+@import '@styles/_mixins';
+@import '@styles/_variables';
 
-.authors{
-  @include flex(center,center,column,$gap48)
+.authors {
+  @include flex(center, center, column, $gap48);
+}
+.description{
+  @include flex(null,null,column,$gap128);
+  .blockOne, .blockTwo {
+    @include flex(space-between,center,null,$gap64);
+    .content{
+        @include flex(null,null,column,$gap16);
+      max-width: $size505;
+    }
+    & > figure {
+      max-width: $size615;
+      height: auto;
+      & > img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .blockTwo{
+    flex-direction: row-reverse;
+  }
+  .blockTwo, .blockOne {
+    @media screen and (max-width: $mobileBreakpoint){
+      @include flex(null,null,column,$gap16);
+    }
+  }
 }
