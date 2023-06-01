@@ -80,62 +80,63 @@
   }
 }
 
-.mainBlock{
+.mainBlock {
   position: relative;
-  @include flex(center,center);
+  @include flex(center, center);
   padding-top: calc($gap128 * 2) !important;
-.header{
-  @include flex(space-between,center);
-  position: absolute;
-  top: 0;
-  left: $gap128;
-  width: $mobileBreakpoint;
-  .primaryInfo{
-    @include flex(null,null,column);
-    padding: $gap64;
-    max-width: $size615;
-    background-color:$light;
+  .header {
+    @include flex(space-between, center);
+    position: absolute;
+    top: 0;
     left: $gap128;
+    width: $mobileBreakpoint;
+    .primaryInfo {
+      @include flex(null, null, column);
+      padding: $gap64;
+      max-width: $size615;
+      background-color: $light;
+      left: $gap128;
+    }
+    .secondaryInfo {
+      max-width: $size405;
+      @include flex(center, center);
+    }
   }
-  .secondaryInfo{
-    max-width: $size405;
-    @include flex(center,center);
-  }
-  }
-  & figure{
-  width: 100%;
-    & >img {
+  & figure {
+    width: 100%;
+    & > img {
       width: 100%;
       object-fit: cover;
     }
-}
-  .stats{
+  }
+  .stats {
     background-color: $yellow;
     width: fit-content;
     padding: $gap32 $gap48;
     position: absolute;
     bottom: $gap48;
     left: $gap128;
-    @include flex(null,null,null,$gap64);
+    @include flex(null, null, null, $gap64);
     & div {
-      @include flex(center,center,column);
+      @include flex(center, center, column);
     }
   }
   @media screen and (max-width: $mobileBreakpoint) {
     @include flex(null, null, column, $gap32);
     padding-top: $gap32 !important;
-    .stats,.header{
+    .stats,
+    .header {
       position: relative;
       left: 0;
     }
-    .header{
+    .header {
       width: 100%;
       @include flex(center, center, column, $gap32);
-      .primaryInfo{
+      .primaryInfo {
         padding: 0;
       }
     }
-    .stats{
+    .stats {
       box-sizing: inherit;
       @include flex(center, center, column, $gap32);
       bottom: unset;

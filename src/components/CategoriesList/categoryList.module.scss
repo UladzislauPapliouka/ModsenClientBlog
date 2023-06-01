@@ -13,3 +13,6 @@
     grid-template-columns: 1fr;
   }
 }
+.smallCategoriesContainer {
+  @include flex(null,null,column,$gap24);
+}

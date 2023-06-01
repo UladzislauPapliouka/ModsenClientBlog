@@ -199,6 +199,13 @@ const resources = {
           },
         },
       },
+      category: {
+        blog: 'BLOG',
+        categories: 'Categories',
+        allTags: 'All Tags',
+        search: 'Search',
+        placeholder: 'Search for tags',
+      },
     },
   },
   ru: {
@@ -369,6 +376,13 @@ const resources = {
             value: '30K+',
           },
         },
+      },
+      category: {
+        blog: 'БЛОГ',
+        categories: 'Категории',
+        allTags: 'Все теги',
+        placeholder: 'Поиск по тегу',
+        search: 'Поиск',
       },
     },
   },
