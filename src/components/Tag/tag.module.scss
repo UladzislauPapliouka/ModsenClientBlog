@@ -1,9 +1,9 @@
-@import "@styles/_mixins";
-@import "@styles/_variables";
-.container{
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.container {
   padding: $gap8 $gap32;
-  color:$mediumGrey;
+  color: $mediumGrey;
   border: solid $mediumGrey $borderSize2;
-  @include flex(center,center);
+  @include flex(center, center);
   border-radius: $size64;
 }

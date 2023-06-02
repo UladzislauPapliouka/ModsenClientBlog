@@ -13,7 +13,7 @@
     padding: $gap80 $gap64;
     @include flex(space-between, center, null, 20px);
     & > span {
-      flex-grow: 2;
+      flex-grow: 2;max-width: $size815;
     }
     @media screen and (max-width: $mobileBreakpoint) {
       @include flex(space-between, center, column, 20px);

@@ -13,10 +13,9 @@
   .filter {
     max-width: $size350;
     @include flex(null, null, column, $gap64);
-    .tagsContainer{
+    .tagsContainer {
       @include flex(null, null, row, $gap16);
       flex-wrap: wrap;
     }
   }
 }
-
