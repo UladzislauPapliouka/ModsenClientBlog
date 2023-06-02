@@ -14,5 +14,5 @@
   }
 }
 .smallCategoriesContainer {
-  @include flex(null,null,column,$gap24);
+  @include flex(null, null, column, $gap24);
 }

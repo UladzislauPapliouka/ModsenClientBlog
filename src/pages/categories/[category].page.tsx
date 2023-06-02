@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
+import Tag from '@components/Tag';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 import { getPagePosts, getWhatToReadNext } from '@services/posts';
@@ -57,6 +58,14 @@ const BlogPost = (): JSX.Element => {
           <Typography variant="head2">{t('category.categories')}</Typography>
           <CategoriesList small />
           <Typography variant="head2">{t('category.allTags')}</Typography>
+          <div className={styles.tagsContainer}>
+            <Tag text="Business" />
+            <Tag text="Economy" />
+            <Tag text="Technologies" />
+            <Tag text="Startup" />
+            <Tag text="Life" />
+            <Tag text="Marketing" />
+          </div>
         </div>
       </ContentContainer>
     </div>

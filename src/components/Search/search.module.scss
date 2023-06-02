@@ -1,22 +1,22 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
 
-.container{
+.container {
   position: relative;
   border: $borderSize1 solid $mediumGrey;
-  @include flex(center,center);
-  border-radius:$size10 ;
-  & > input{
+  @include flex(center, center);
+  border-radius: $size10;
+  & > input {
     padding: $gap16 $gap24;
     height: 100%;
-    border-radius:$size10 ;
+    border-radius: $size10;
     border: none;
     outline: none;
-    @include font($size14,$size24,SenBold,OpenBold)
+    @include font($size14, $size24, SenBold, OpenBold);
   }
-  & >button {
+  & > button {
     height: 100%;
     padding: $gap16;
-    border-radius:$size10 ;
+    border-radius: $size10;
   }
 }
