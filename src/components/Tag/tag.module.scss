@@ -1,0 +1,14 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+.container {
+  padding: $gap8 $gap32;
+  color: $mediumGrey;
+  border: solid $mediumGrey $borderSize2;
+  @include flex(center, center);
+  border-radius: $size64;
+  &:hover, &.active {
+    background-color: $yellow;
+    border-color: $yellow;
+    color: $black;
+  }
+}

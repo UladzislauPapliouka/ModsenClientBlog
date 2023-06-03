@@ -16,3 +16,22 @@
     cursor: pointer;
   }
 }
+.smallCategory {
+  padding: $gap24;
+  border: $borderSize1 solid $mediumGrey;
+  @include flex(center, center, row, $gap16);
+  .iconContainer {
+    @include flex(center, center, column, $gap16);
+    width: $size48;
+    aspect-ratio: 1;
+    background-color: $lightYellow;
+    border-radius: $size10;
+  }
+  &:hover {
+    background-color: $yellow;
+    cursor: pointer;
+  }
+}
+.active {
+  background-color: $yellow;
+}
