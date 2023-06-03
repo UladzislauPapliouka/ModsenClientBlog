@@ -45,3 +45,11 @@ export interface ISocial {
   instagram?: string;
   linkedin?: string;
 }
+export enum Tags {
+  BUSINESS = 'Business',
+  EXPERIENCE = 'Experience',
+  SCREEN = 'Screen',
+  TECHNOLOGY = 'Technology',
+  MARKETING = 'Marketing',
+  LIFE = 'Life',
+}

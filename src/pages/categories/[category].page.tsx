@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Search from 'components/Search';
 import { useRouter } from 'next/router';
 
-import { Categories } from '@/types';
+import { Categories, Tags } from '@/types';
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
 import Tag from '@components/Tag';
@@ -73,12 +73,9 @@ const BlogPost = (): JSX.Element => {
           />
           <Typography variant="head2">{t('category.allTags')}</Typography>
           <div className={styles.tagsContainer}>
-            <Tag text="Business" />
-            <Tag text="Economy" />
-            <Tag text="Technologies" />
-            <Tag text="Startup" />
-            <Tag text="Life" />
-            <Tag text="Marketing" />
+            {Object.values(Tags).map((tag) => (
+              <Tag text={tag} />
+            ))}
           </div>
         </div>
       </ContentContainer>
