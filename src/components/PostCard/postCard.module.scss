@@ -59,3 +59,20 @@
     @include flex(null, center, column, $gap32);
   }
 }
+
+.smallPostCard {
+  padding: $gap32;
+  @include flex(flex-start, flex-start, column, $gap8);
+  .postInfo {
+    .authorName {
+      color: $purple;
+    }
+  }
+
+  & > a:after {
+    display: none;
+  }
+  &:hover {
+    background-color: $lightYellow;
+  }
+}

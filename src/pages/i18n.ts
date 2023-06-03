@@ -108,6 +108,103 @@ const resources = {
         next: 'Next',
         prev: 'Prev',
         allCategories: 'All Categories',
+        viewAll: 'View all',
+      },
+      home: {
+        lastPost: {
+          postType: 'Posted on',
+        },
+        aboutUs: {
+          title: 'ABOUT US',
+          mission: 'OUR MISSION',
+          ourDescriptionTitle:
+            'We are a community of content writers who share their learnings',
+          ourDescriptionText:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            '            eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          missionTitle:
+            'We are a community of content writers who share their learnings\n',
+          missionText:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            '            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim\n' +
+            '            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '            aliquip ex ea commodo consequat.',
+        },
+        chooseCategory: 'Choose A Category',
+        whyWeStarted: {
+          why: 'WHY WE STARTED',
+          title:
+            ' It started out as a simple idea and evolved into our passion',
+          text:
+            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            '            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim\n' +
+            '            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n' +
+            '            aliquip.',
+          button: 'Discovery our story',
+        },
+        listOfAuthors: 'List of Authors',
+      },
+      author: {
+        myPosts: 'My Posts',
+        hi: 'Hey there, I’m {{name}} and welcome to my Blog',
+      },
+      aboutUs: {
+        description: {
+          title1: 'Our team of creatives',
+          subtitle1:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            'eiusmod tempor incididunt.',
+          text1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat.`,
+          title2: 'Why we started this Blog',
+          subtitle2:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n' +
+            'eiusmod tempor incididunt.',
+          text2: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat.`,
+        },
+        mission: {
+          title1: 'Our mision',
+          subtitle1:
+            'Creating valuable content for creatives all around the world',
+          text1: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus.`,
+          title2: 'Our Vision',
+          subtitle2: 'A platform that empowers individuals to improve',
+          text2: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus.`,
+        },
+        mainBlock: {
+          primaryInfo: {
+            subtitle: 'ABOUT US',
+            title: 'We are a team of content writers who share their learnings',
+          },
+          secondaryInfo:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          stats1: {
+            title: 'Blog Published',
+            value: '12+',
+          },
+          stats2: {
+            title: 'Views of Finswest',
+            value: '18K+',
+          },
+          stats3: {
+            title: 'Total active users',
+            value: '30K+',
+          },
+        },
+      },
+      category: {
+        blog: 'BLOG',
+        categories: 'Categories',
+        allTags: 'All Tags',
+        search: 'Search',
+        placeholder: 'Search for tags',
       },
     },
   },
@@ -193,6 +290,99 @@ const resources = {
         next: 'Вперёд',
         prev: 'Назад',
         allCategories: 'Все категории',
+        viewAll: 'Больше',
+      },
+      home: {
+        lastPost: {
+          postType: 'Последний пост в категории',
+        },
+        aboutUs: {
+          title: 'О НАС',
+          mission: 'НАША МИССИЯ',
+          ourDescriptionTitle:
+            'Мы сообщество авторов контента, которые делятся своими знаниями\n',
+          ourDescriptionText:
+            'Разнообразный и богатый опыт консультация с профессионалами из IT позволяет оценить значение модели развития.\n' +
+            '\n' +
+            'Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существующих...',
+          missionTitle:
+            'Мы сообщество авторов контента, которые делятся своими знаниями\n',
+          missionText:
+            'Разнообразный и богатый опыт консультация с профессионалами из IT позволяет оценить значение модели развития.\n' +
+            '\n' +
+            'Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существующих...',
+        },
+        chooseCategory: 'Выберите категорию',
+        whyWeStarted: {
+          why: 'ЗАЧЕМ НАЧИНАЛИ',
+          title: 'Это началось как простая идея и превратилось в нашу страсть',
+          text:
+            'Практический опыт показывает, что дальнейшее развитие различных форм деятельности способствует подготовке и реализации системы масштабного изменения ряда параметров.\n' +
+            '\n' +
+            'Задача организации,...',
+          button: 'Наша история',
+        },
+        listOfAuthors: 'Наши авторы',
+      },
+      author: {
+        myPosts: 'Мои публикации',
+        hi: 'Привет, Я {{name}}  добро пожаловать на мой блог ',
+      },
+      aboutUs: {
+        description: {
+          title1: 'Наша команда креативщиков',
+          subtitle1:
+            'Таким образом, выбранный нами инновационный путь напрямую зависит ',
+          text1: `Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.
+
+Не следует, однако, забывать о том, что постоянное`,
+          title2: 'Почему мы начали этот блог',
+          subtitle2:
+            'Таким образом, выбранный нами инновационный путь напрямую ',
+          text2: `Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.
+
+Не следует, однако, забывать о том, что постоянное информационно-техническое `,
+        },
+        mission: {
+          title1: 'Наша миссия',
+          subtitle1: 'Создание ценного контента для креативщиков по всему миру',
+          text1: `Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.
+
+Не следует, однако, забывать о том, что постоянное`,
+          title2: 'Наше виденье',
+          subtitle2: 'Платформа, которая позволяет людям совершенствоваться',
+          text2: `Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.
+
+Не следует, однако, забывать о том, что постоянное информационно-техническое `,
+        },
+        mainBlock: {
+          primaryInfo: {
+            subtitle: 'О нас',
+            title:
+              'Мы команда авторов контента, которые делятся своими знаниями',
+          },
+          secondaryInfo:
+            'Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия. Таким образом, дальнейшее развитие различных форм деятельности способствует подготовке и реализации форм воздействия.',
+          stats1: {
+            title: 'Публикаций',
+            value: '12+',
+          },
+          stats2: {
+            title: 'Просмотров Finswest',
+            value: '18K+',
+          },
+          stats3: {
+            title: 'Всего активных пользователей',
+            value: '30K+',
+          },
+        },
+      },
+      category: {
+        blog: 'БЛОГ',
+        categories: 'Категории',
+        allTags: 'Все теги',
+        placeholder: 'Поиск по тегу',
+        search: 'Поиск',
       },
     },
   },

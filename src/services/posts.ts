@@ -1,4 +1,5 @@
 import { type IPost, type IPostWithId } from '@/types';
+import authors from '@constants/authors';
 import posts from '@constants/posts';
 
 export const addPostId = (postId: string): IPostWithId => ({
@@ -38,3 +39,13 @@ export const getPagePosts = (page = 1) => {
 
   return postsArray.slice(currPos, currPos + 4);
 };
+export const getLastPost = (date: Date) => {
+  const postsArray = getPostsWithId();
+
+  return postsArray.reduce(
+    (prev, curr) => (prev.date >= curr.date ? prev : curr),
+    addPostId('1'),
+  );
+};
+export const getAuthorsPosts = (authorId: string | number) =>
+  getPostsWithId().filter((post) => post.author === authors[authorId]);

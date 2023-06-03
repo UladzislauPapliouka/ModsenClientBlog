@@ -1,0 +1,23 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+
+.container {
+  position: relative;
+  border: $borderSize1 solid $mediumGrey;
+  @include flex(space-between, center);
+  border-radius: $size10;
+  & > input {
+    padding: $gap16 $gap24;
+    height: 100%;
+    border-radius: $size10;
+    flex-grow: 3;
+    border: none;
+    outline: none;
+    @include font($size14, $size24, SenBold, OpenBold);
+  }
+  & > button {
+    height: 100%;
+    padding: $gap16;
+    border-radius: $size10;
+  }
+}
