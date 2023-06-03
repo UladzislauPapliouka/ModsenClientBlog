@@ -185,15 +185,15 @@
     }
   }
   @media screen and (max-width: $mobileBreakpoint) {
-    @include flex(null,null,column,$gap32);
+    @include flex(null, null, column, $gap32);
     padding: $gap16 !important;
     .constant {
       @include flex(null, center, column);
     }
-    .comment{
+    .comment {
       gap: $gap32;
-      .lowBlock{
-        @include flex(null,center,column,$gap32);
+      .lowBlock {
+        @include flex(null, center, column, $gap32);
       }
     }
   }

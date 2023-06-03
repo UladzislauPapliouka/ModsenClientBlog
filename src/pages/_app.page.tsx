@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { type AppProps } from 'next/app';
+import { log } from 'next/dist/server/typescript/utils';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -43,6 +44,16 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Button variant="secondary">
             <Typography variant="head4">{t('links.Video')}</Typography>
           </Button>
+
+          <Typography
+            className={styles.locale}
+            variant="head5">
+            <Link
+              href={router.pathname}
+              locale={router.locale === 'en' ? 'ru' : 'en'}>
+              {router.locale?.toUpperCase()}
+            </Link>
+          </Typography>
         </Header>
         <Component {...pageProps} />
         <Toaster />
