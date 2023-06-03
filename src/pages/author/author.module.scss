@@ -8,16 +8,6 @@
   .authorInfo {
     @include flex(null, flex-start, column, $gap24);
   }
-  //&:before{
-  //  content: '';
-  //  position: absolute;
-  //  background-color: $yellow;
-  //  bottom: 0;
-  //  height: $size24;
-  //  margin: inherit;
-  //  width:100%;
-  //  box-sizing: border-box;
-  //}
   @media screen and (max-width: $mobileBreakpoint) {
     @include flex(space-between, center, column, $gap32);
   }

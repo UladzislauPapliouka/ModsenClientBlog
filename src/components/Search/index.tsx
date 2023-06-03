@@ -1,4 +1,5 @@
 import React, {
+  type FC,
   type KeyboardEvent,
   type SyntheticEvent,
   useCallback,
@@ -7,20 +8,13 @@ import React, {
 import { useTranslation } from 'react-i18next';
 
 import Button from '@components/Button';
+import type ISearch from '@components/Search/types';
 import SelectItemsList from '@components/SelectItemsList';
 import Typography from '@components/Typography';
 
 import styles from './search.module.scss';
 
-const Search = ({
-  onChoose,
-  variants,
-  placeholder,
-}: {
-  placeholder: string;
-  onChoose: (tagName: string) => void;
-  variants?: string[];
-}) => {
+const Search: FC<ISearch> = ({ onChoose, variants, placeholder }) => {
   const [t] = useTranslation();
 
   const [isAutoComplete, setIsAutocomplete] = useState(false);
