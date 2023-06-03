@@ -21,11 +21,13 @@ const PostCard: FC<IPostcard> = ({ variant, post }) => {
             className={styles.postInfo}
             variant="body2">
             By{' '}
-            <Typography
-              className={styles.authorName}
-              variant="body2">
-              {post.author.name}
-            </Typography>{' '}
+            <Link href={`${routes.author}/${post.author.id}`}>
+              <Typography
+                className={styles.authorName}
+                variant="body2">
+                {post.author.name}
+              </Typography>
+            </Link>{' '}
             | {moment(post.date).format('MMM DD, YYYY')}
           </Typography>
           <Link href={`${routes.Blog}/${post.id}`}>
@@ -76,11 +78,13 @@ const PostCard: FC<IPostcard> = ({ variant, post }) => {
             className={styles.postInfo}
             variant="body2">
             By{' '}
-            <Typography
-              className={styles.authorName}
-              variant="body2">
-              {post.author.name}
-            </Typography>{' '}
+            <Link href={`${routes.author}/${post.author.id}`}>
+              <Typography
+                className={styles.authorName}
+                variant="body2">
+                {post.author.name}
+              </Typography>
+            </Link>{' '}
             | {moment(post.date).format('MMM DD, YYYY')}
           </Typography>
           <Link href={`${routes.Blog}/${post.id}`}>

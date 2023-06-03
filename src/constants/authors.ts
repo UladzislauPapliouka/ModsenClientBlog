@@ -20,6 +20,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '1',
   },
   '2': {
     name: 'Floyd Miles',
@@ -32,6 +33,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '2',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non blandit massa enim nec. Scelerisque viverra mauris in aliquam sem. At risus viverra adipiscing at in tellus.',
   },
@@ -46,6 +48,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '3',
   },
   '4': {
     name: 'Jenny Wilson',
@@ -58,6 +61,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '4',
   },
   '5': {
     name: 'Leslie Alexander',
@@ -70,6 +74,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '6',
   },
   '6': {
     name: 'Guy Hawkins',
@@ -82,6 +87,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '6',
   },
   '7': {
     name: 'Eleanor Pena',
@@ -94,6 +100,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '7',
   },
   '8': {
     name: 'Robert Fox',
@@ -106,6 +113,7 @@ const Authors: Record<string | number, IAuthor> = {
       linkedin: '1',
       twitter: '1',
     },
+    id: '8',
   },
 };
 

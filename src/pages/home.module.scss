@@ -6,6 +6,7 @@
   max-height: $size680;
   min-height: $size680;
   background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
+
   @include flex(flex-start, center);
   .mainPostImage {
     position: absolute;
@@ -181,5 +182,10 @@
         }
       }
     }
+  }
+}
+.page {
+  & a:after {
+    display: none;
   }
 }

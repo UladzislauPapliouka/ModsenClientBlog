@@ -25,6 +25,7 @@ export interface IAuthor {
   company: string;
   position: string;
   description?: string;
+  id: string | number;
 }
 export interface IPost {
   title: string;

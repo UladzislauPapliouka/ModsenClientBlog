@@ -40,8 +40,7 @@ const BlogPost = (): JSX.Element => {
         <BlogPostInfo
           postedDate={date}
           postTitle={title}
-          authorAvatar={author.avatar}
-          authorName={author.name}
+          author={author}
           category={category}
         />
       </ContentContainer>

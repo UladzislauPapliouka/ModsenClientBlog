@@ -1,10 +1,7 @@
-import { type StaticImageData } from 'next/image';
-
-import { type Categories } from '@typing';
+import { type Categories, type IAuthor } from '@typing';
 
 interface IBlogPostInfo {
-  authorAvatar: StaticImageData;
-  authorName: string;
+  author: IAuthor;
   postedDate: Date | string;
   postTitle: string;
   category: Categories;

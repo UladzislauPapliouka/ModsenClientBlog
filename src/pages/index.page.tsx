@@ -38,7 +38,7 @@ const HomePage = (): JSX.Element => {
   }, [i18n.language]);
 
   return (
-    <div>
+    <div className={styles.page}>
       <div className={styles.mainPost}>
         <figure className={styles.mainPostImage}>
           <Image
@@ -59,7 +59,9 @@ const HomePage = (): JSX.Element => {
               <Typography
                 className={styles.author}
                 variant="body1">
-                {lastPost.author.name}
+                <Link href={`${routes.author}/${lastPost.author.id}`}>
+                  {lastPost.author.name}
+                </Link>
               </Typography>{' '}
               | {dateFeatured}
             </Typography>
@@ -93,11 +95,13 @@ const HomePage = (): JSX.Element => {
               className={styles.postInfo}
               variant="body2">
               By{' '}
-              <Typography
-                className={styles.author}
-                variant="body2">
-                {featuredPost.author.name}
-              </Typography>{' '}
+              <Link href={`${routes.author}/${featuredPost.author.id}`}>
+                <Typography
+                  className={styles.author}
+                  variant="body2">
+                  {featuredPost.author.name}
+                </Typography>
+              </Link>{' '}
               | {date}
             </Typography>
             <Typography variant="head2">{featuredPost.title}</Typography>
