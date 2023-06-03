@@ -61,7 +61,7 @@ const HomePage = (): JSX.Element => {
                 variant="body1">
                 {lastPost.author.name}
               </Typography>{' '}
-              | {date}
+              | {dateFeatured}
             </Typography>
             <Typography
               className={styles.postText}

@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import Image from 'next/image';
 
-import { type IPostWithId } from '@/types';
 import Link from '@components/Link';
+import type IPostcard from '@components/PostCard/types';
 import Typography from '@components/Typography';
 import routes from '@constants/routes';
 
 import styles from './postCard.module.scss';
 
-const PostCard = ({
-  variant,
-  post,
-}: {
-  variant?: 'large' | 'small';
-  post: IPostWithId;
-}) => {
+const PostCard: FC<IPostcard> = ({ variant, post }) => {
   const [t] = useTranslation();
 
   switch (variant) {
