@@ -13,6 +13,12 @@
   @media screen and (max-width: $mobileBreakpoint) {
     @include flex(stretch, null, column-reverse, $gap32);
   }
+  .postsContainer {
+    @include flex(flex-start, flex-start, column, $gap16);
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(flex-start, center, column, $gap16);
+    }
+  }
   .filter {
     max-width: $size350;
     @include flex(null, null, column, $gap64);

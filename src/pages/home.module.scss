@@ -3,8 +3,8 @@
 
 .mainPost {
   position: relative;
-  max-height: 720px;
-  min-height: 720px;
+  max-height: $size680;
+  min-height: $size680;
   background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
   @include flex(flex-start, center);
   .mainPostImage {
@@ -13,7 +13,7 @@
     left: 0;
     z-index: -1;
     width: 100%;
-    height: 720px;
+    height: $size680;
     & > img {
       width: 100%;
       height: 100%;
