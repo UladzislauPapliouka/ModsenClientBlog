@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import Search from 'components/Search';
 import { useRouter } from 'next/router';
 
-import { type Categories } from '@/types';
+import { Categories } from '@/types';
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
 import Tag from '@components/Tag';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
-import { getPagePosts, getWhatToReadNext } from '@services/posts';
+import { getPagePosts } from '@services/posts';
 
 import styles from './category.module.scss';
 
@@ -20,6 +20,16 @@ const BlogPost = (): JSX.Element => {
 
   if (!router.query.category) {
     return <div />;
+  }
+
+  if (
+    !Object.values(Categories).includes(router.query.category as Categories)
+  ) {
+    return (
+      <ContentContainer>
+        <Typography variant="head1">{`We don't have such category`}</Typography>
+      </ContentContainer>
+    );
   }
 
   return (

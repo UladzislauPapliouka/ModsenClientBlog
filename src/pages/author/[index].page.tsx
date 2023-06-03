@@ -7,6 +7,7 @@ import PostCard from '@components/PostCard';
 import SocialWrapper from '@components/SocialWrapper';
 import Typography from '@components/Typography';
 import authors from '@constants/authors';
+import posts from '@constants/posts';
 import ContentContainer from '@containers/ContentContainer';
 import { getAuthorsPosts } from '@services/posts';
 
@@ -22,6 +23,14 @@ const HomePage = (): JSX.Element => {
   const postsByAuthor = getAuthorsPosts(router.query.index as string);
 
   if (!author) return <div />;
+
+  if (!author) {
+    return (
+      <ContentContainer>
+        <Typography variant="head1">{`We don't know him`}</Typography>
+      </ContentContainer>
+    );
+  }
 
   return (
     <div>
