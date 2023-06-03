@@ -1,4 +1,5 @@
 import React, { type FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
 import LabelsIcons from '@assets/labels';
@@ -7,21 +8,31 @@ import Typography from '@components/Typography';
 
 import styles from './category.module.scss';
 
-const Category: FC<ICategoryProps> = ({ label }) => (
-  <div className={styles.category}>
-    <div className={styles.iconContainer}>
-      <Image
-        src={LabelsIcons[label]}
-        alt="Category name"
-      />
+const Category: FC<ICategoryProps> = ({ label, small, active }) => {
+  const [t] = useTranslation();
+
+  return small ? (
+    <div className={`${styles.smallCategory} ${active && styles.active}`}>
+      <div className={styles.iconContainer}>
+        <Image
+          src={LabelsIcons[label]}
+          alt="Category name"
+        />
+      </div>
+      <Typography variant="head3">{t(`categories.${label}.title`)}</Typography>
     </div>
-    <Typography variant="head3">
-      {label.charAt(0).toUpperCase() + label.slice(1)}
-    </Typography>
-    <Typography variant="body2">
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    </Typography>
-  </div>
-);
+  ) : (
+    <div className={`${styles.category} ${active && styles.active}`}>
+      <div className={styles.iconContainer}>
+        <Image
+          src={LabelsIcons[label]}
+          alt="Category name"
+        />
+      </div>
+      <Typography variant="head3">{t(`categories.${label}.title`)}</Typography>
+      <Typography variant="body2">{t(`categories.${label}.text`)}</Typography>
+    </div>
+  );
+};
 
 export default Category;

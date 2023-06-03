@@ -11,7 +11,7 @@ const Typography = ({
   ...restProps
 }: ITypographyProps) => (
   <span
-    className={`${styles[variant]} ${className}`}
+    className={`${styles.span} ${styles[variant]} ${className}`}
     {...restProps}>
     {children}
   </span>

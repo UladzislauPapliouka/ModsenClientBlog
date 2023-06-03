@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Button from '@components/Button';
+import CategoriesList from '@components/CategoriesList';
 import Category from '@components/Category';
 import JoinUs from '@components/JoinUs';
 import Link from '@components/Link';
@@ -21,6 +23,15 @@ const BlogPage = () => {
 
   const router = useRouter();
 
+  const [t, i18n] = useTranslation();
+
+  const [date, setDate] = useState('');
+
+  useEffect(() => {
+    setDate(
+      moment(featuredPost.date).locale(i18n.language).format('MMM DD, YYYY'),
+    );
+  }, [i18n.language]);
   const goToNextPage = () => {
     router
       .push(
@@ -61,7 +72,7 @@ const BlogPage = () => {
     <div>
       <ContentContainer className={styles.featuredPost}>
         <div className={styles.featuredInfo}>
-          <Typography variant="head6">FEATURED POST</Typography>
+          <Typography variant="head6">{t('posts.featuredPost')}</Typography>
           <Typography variant="head2">{featuredPost.title}</Typography>
           <Typography
             className={styles.postInfo}
@@ -72,7 +83,7 @@ const BlogPage = () => {
               variant="body2">
               {featuredPost.author.name}
             </Typography>{' '}
-            | {moment(featuredPost.date).format('MMM DD, YYYY')}
+            | {date}
           </Typography>
           <Typography
             className={styles.postText}
@@ -81,7 +92,9 @@ const BlogPage = () => {
           </Typography>
           <Link href={`${routes.Blog}/${featuredPost.id}`}>
             <Button>
-              <Typography variant="head5">Read more {'>'}</Typography>
+              <Typography variant="head5">
+                {t('posts.readMore')} {'>'}
+              </Typography>
             </Button>
           </Link>
         </div>
@@ -93,40 +106,35 @@ const BlogPage = () => {
         </div>
       </ContentContainer>
       <ContentContainer className={styles.allPosts}>
-        <Typography variant="head1">All posts</Typography>
+        <Typography variant="head1">{t('posts.allPosts')}</Typography>
         <hr className={styles.devider} />
         <div className={styles.postsContainer}>
-          {getPagePosts(Number.parseInt(router.query.page as string, 10)).map(
-            (post) => (
-              <PostCard
-                key={post.id}
-                large
-                post={post}
-              />
-            ),
-          )}
+          {getPagePosts(
+            Number.parseInt(router.query.page as string, 10) || 1,
+          ).map((post) => (
+            <PostCard
+              key={post.id}
+              variant="large"
+              post={post}
+            />
+          ))}
         </div>
         <div className={styles.pagination}>
           <Typography
             variant="head4"
             onClick={goToNextPage}>
-            {'< Prev'}
+            {`<  ${t('posts.prev')}`}
           </Typography>
           <Typography
             variant="head3"
             onClick={goToPrevPage}>
-            {'Next >'}
+            {`${t('posts.next')} >`}
           </Typography>
         </div>
       </ContentContainer>
-      <ContentContainer className={styles.categories}>
-        <Typography variant="head1">All Categories</Typography>
-        <div className={styles.categoriesContainer}>
-          <Category label="business" />
-          <Category label="startup" />
-          <Category label="economy" />
-          <Category label="technology" />
-        </div>
+      <ContentContainer>
+        <Typography variant="head1"> {t('posts.allCategories')}</Typography>
+        <CategoriesList />
       </ContentContainer>
       <JoinUs />
     </div>

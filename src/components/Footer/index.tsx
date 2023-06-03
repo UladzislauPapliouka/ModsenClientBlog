@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import { Formik } from 'formik';
+import { useRouter } from 'next/router';
 
 import Button from '@components/Button';
 import socialLink from '@components/Footer/footer.config';
@@ -17,84 +19,92 @@ import ContentContainer from '@containers/ContentContainer';
 
 import styles from './footer.module.scss';
 
-const Footer = () => (
-  <div className={styles.footer}>
-    <Header>
-      {Object.keys(Routes).map((key) => (
-        <Link
-          key={key}
-          href={Routes[key]}>
-          {key}
-        </Link>
-      ))}
-    </Header>
-    <ContentContainer>
-      <Formik
-        validateOnChange={false}
-        validateOnBlur={false}
-        validationSchema={subscribeFormSchema}
-        initialValues={{ email: '' }}
-        onSubmit={(values, formikHelpers) => {
-          emailjs
-            .send(
-              EnvVariables.NEXT_PUBLIC_SERVICE_ID,
-              EnvVariables.NEXT_PUBLIC_TEMPLATE_ID,
-              { email: values.email },
-              EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
-            )
-            .then(
-              () => {
-                formikHelpers.setSubmitting(false);
-                formikHelpers.resetForm();
-                toast.success(`Success`);
-              },
-              (err) => {
-                formikHelpers.resetForm();
-                formikHelpers.setSubmitting(false);
-                toast.error(err);
-              },
-            );
-        }}>
-        {({
-          values,
-          handleChange,
-          errors,
-          handleBlur,
-          isSubmitting,
-          handleSubmit,
-        }) => (
-          <form
-            className={styles.subscribeBlock}
-            onSubmit={handleSubmit}>
-            <Typography variant="head2">
-              Subscribe to our news letter to get latest updates and news
-            </Typography>
-            <Input
-              data-cy="FOOTER_INPUT"
-              name="email"
-              errorMessage={errors.email}
-              onBlur={handleBlur}
-              placeholder="Enter Your Email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            <Button
-              type="submit"
-              data-cy="SUBSCRIBE_BUTTON"
-              disabled={isSubmitting}>
-              <Typography variant="head4">Subscribe</Typography>
-            </Button>
-          </form>
-        )}
-      </Formik>
-    </ContentContainer>
-    <ContentContainer className={styles.socialBlock}>
-      <Typography variant="body1">
-        Finstreet 118 2561 Fintown Hello@finsweet.com 020 7993 2905
-      </Typography>
-      <SocialWrapper links={socialLink} />
-    </ContentContainer>
-  </div>
-);
+const Footer = () => {
+  const router = useRouter();
+
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    i18n.changeLanguage(router.locale === 'en' ? 'en' : 'ru').catch(() => null);
+  }, [router.locale]);
+
+  return (
+    <div className={styles.footer}>
+      <Header>
+        <Link href={Routes.Home}>{t('links.Home')}</Link>
+        <Link href={Routes.Blog}>{t('links.Blog')}</Link>
+        <Link href={Routes['About Us']}>{t('links.About Us')}</Link>
+        <Link href={Routes['Contact Us']}>{t('links.Contact Us')}</Link>
+        <Link href={Routes['Privacy Policy']}>{t('links.Privacy Policy')}</Link>
+      </Header>
+      <ContentContainer>
+        <Formik
+          validateOnChange={false}
+          validateOnBlur={false}
+          validationSchema={subscribeFormSchema}
+          initialValues={{ email: '' }}
+          onSubmit={(values, formikHelpers) => {
+            emailjs
+              .send(
+                EnvVariables.NEXT_PUBLIC_SERVICE_ID,
+                EnvVariables.NEXT_PUBLIC_TEMPLATE_ID,
+                { email: values.email },
+                EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
+              )
+              .then(
+                () => {
+                  formikHelpers.setSubmitting(false);
+                  formikHelpers.resetForm();
+                  toast.success(`Success`);
+                },
+                (err) => {
+                  formikHelpers.resetForm();
+                  formikHelpers.setSubmitting(false);
+                  toast.error(err);
+                },
+              );
+          }}>
+          {({
+            values,
+            handleChange,
+            errors,
+            handleBlur,
+            isSubmitting,
+            handleSubmit,
+          }) => (
+            <form
+              className={styles.subscribeBlock}
+              onSubmit={handleSubmit}>
+              <Typography variant="head2">
+                {t('footer.Subscribe message')}
+              </Typography>
+              <Input
+                data-cy="FOOTER_INPUT"
+                name="email"
+                errorMessage={errors.email}
+                onBlur={handleBlur}
+                placeholder={t('footer.Placeholder').toString()}
+                value={values.email}
+                onChange={handleChange}
+              />
+              <Button
+                type="submit"
+                data-cy="SUBSCRIBE_BUTTON"
+                disabled={isSubmitting}>
+                <Typography variant="head4">{t('footer.Subscribe')}</Typography>
+              </Button>
+            </form>
+          )}
+        </Formik>
+      </ContentContainer>
+      <ContentContainer className={styles.socialBlock}>
+        <Typography variant="body1">
+          Finstreet 118 2561 Fintown Hello@finsweet.com 020 7993 2905
+        </Typography>
+        <SocialWrapper links={socialLink} />
+      </ContentContainer>
+    </div>
+  );
+};
 
 export default Footer;
