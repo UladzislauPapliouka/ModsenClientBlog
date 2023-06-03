@@ -10,6 +10,9 @@
 }
 .postsBlock {
   @include flex(null, null, null, $gap128);
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(stretch,null,column-reverse,$gap32);
+  }
   .filter {
     max-width: $size350;
     @include flex(null, null, column, $gap64);
