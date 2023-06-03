@@ -1,0 +1,145 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+
+.authors {
+  @include flex(center, center, column, $gap48);
+}
+.description {
+  @include flex(null, null, column, $gap128);
+  .blockOne,
+  .blockTwo {
+    @include flex(space-between, center, null, $gap64);
+    .content {
+      @include flex(null, null, column, $gap16);
+      max-width: $size505;
+    }
+    & > figure {
+      max-width: $size615;
+      height: auto;
+      & > img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .blockTwo {
+    flex-direction: row-reverse;
+  }
+  .blockTwo,
+  .blockOne {
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(null, null, column, $gap16);
+    }
+  }
+}
+
+.whyWeStartedBlock {
+  position: relative;
+  .whyInfo {
+    position: absolute;
+    padding: $gap80 $gap64;
+    @include flex(null, null, column, $gap24);
+    max-width: $size615;
+    background-color: $light;
+    right: $gap80;
+    bottom: 0;
+  }
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(center, center, column-reverse, $gap32);
+    .whyInfo {
+      padding: 0;
+      right: auto;
+      position: relative;
+      @include flex(center, center, column, $gap24);
+      max-width: $size615;
+      background-color: $light;
+    }
+    .teamImage {
+      width: 100%;
+      & > img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.aboutUs {
+  background-color: $lightGrey;
+  @include flex(center, flex-start, row, $gap64);
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(flex-start, flex-start, column, $gap32);
+  }
+  padding-top: $gap96 !important;
+  padding-bottom: $gap96 !important;
+  & > div {
+    @include flex(flex-start, flex-start, column, $gap24);
+    max-width: $size615;
+  }
+}
+
+.mainBlock {
+  position: relative;
+  @include flex(center, center);
+  padding-top: calc($gap128 * 2) !important;
+  .header {
+    @include flex(space-between, center);
+    position: absolute;
+    top: 0;
+    left: $gap128;
+    width: $mobileBreakpoint;
+    .primaryInfo {
+      @include flex(null, null, column);
+      padding: $gap64;
+      max-width: $size615;
+      background-color: $light;
+      left: $gap128;
+    }
+    .secondaryInfo {
+      max-width: $size405;
+      @include flex(center, center);
+    }
+  }
+  & figure {
+    width: 100%;
+    & > img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .stats {
+    background-color: $yellow;
+    width: fit-content;
+    padding: $gap32 $gap48;
+    position: absolute;
+    bottom: $gap48;
+    left: $gap128;
+    @include flex(null, null, null, $gap64);
+    & div {
+      @include flex(center, center, column);
+    }
+  }
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(null, null, column, $gap32);
+    padding-top: $gap32 !important;
+    .stats,
+    .header {
+      position: relative;
+      left: 0;
+    }
+    .header {
+      width: 100%;
+      @include flex(center, center, column, $gap32);
+      .primaryInfo {
+        padding: 0;
+      }
+    }
+    .stats {
+      box-sizing: inherit;
+      @include flex(center, center, column, $gap32);
+      bottom: unset;
+    }
+  }
+}

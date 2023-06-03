@@ -8,11 +8,21 @@ import Typography from '@components/Typography';
 
 import styles from './category.module.scss';
 
-const Category: FC<ICategoryProps> = ({ label }) => {
+const Category: FC<ICategoryProps> = ({ label, small, active }) => {
   const [t] = useTranslation();
 
-  return (
-    <div className={styles.category}>
+  return small ? (
+    <div className={`${styles.smallCategory} ${active && styles.active}`}>
+      <div className={styles.iconContainer}>
+        <Image
+          src={LabelsIcons[label]}
+          alt="Category name"
+        />
+      </div>
+      <Typography variant="head3">{t(`categories.${label}.title`)}</Typography>
+    </div>
+  ) : (
+    <div className={`${styles.category} ${active && styles.active}`}>
       <div className={styles.iconContainer}>
         <Image
           src={LabelsIcons[label]}

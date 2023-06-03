@@ -132,36 +132,35 @@
 .authors {
   @include flex(flex-start, center, column, $gap48);
 }
-.testimonials{
+.testimonials {
   display: grid;
   grid-template-columns: 1fr 2fr;
   column-gap: $gap128;
   padding: $size128 !important;
   background-color: $lightYellow;
   .constant {
-    @include flex(null,nul,column)
+    @include flex(null, nul, column);
   }
-  .comment{
-    @include flex(space-between,null,column);
+  .comment {
+    @include flex(space-between, null, column);
     width: 100%;
-    .lowBlock{
-
-      @include flex(space-between,null,null);
-      .user{
-        @include flex(null,null,null, $gap16);
-        .userInfo{
-          @include flex(null,null,column);
+    .lowBlock {
+      @include flex(space-between, null, null);
+      .user {
+        @include flex(null, null, null, $gap16);
+        .userInfo {
+          @include flex(null, null, column);
         }
       }
-      .control{
-        @include flex(null,null);
-        .back{
-          & > img{
+      .control {
+        @include flex(null, null);
+        .back {
+          & > img {
             filter: invert(1);
             transform: rotateZ(180deg);
           }
         }
-        .next{
+        .next {
           background-color: $black;
         }
         & > div {
@@ -169,18 +168,17 @@
           width: $size64;
           aspect-ratio: 1;
           border-radius: $size128;
-          @include flex(center,center);
-          &>img{
+          @include flex(center, center);
+          & > img {
             transition: 0.2s all;
           }
-          &:hover{
+          &:hover {
             cursor: pointer;
             & > img {
               scale: 1.3;
             }
           }
         }
-
       }
     }
   }
