@@ -139,8 +139,9 @@
   column-gap: $gap128;
   padding: $size128 !important;
   background-color: $lightYellow;
+
   .constant {
-    @include flex(null, nul, column);
+    @include flex(null, null, column);
   }
   .comment {
     @include flex(space-between, null, column);
@@ -180,6 +181,19 @@
             }
           }
         }
+      }
+    }
+  }
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(null,null,column,$gap32);
+    padding: $gap16 !important;
+    .constant {
+      @include flex(null, center, column);
+    }
+    .comment{
+      gap: $gap32;
+      .lowBlock{
+        @include flex(null,center,column,$gap32);
       }
     }
   }

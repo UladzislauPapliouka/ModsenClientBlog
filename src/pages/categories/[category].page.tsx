@@ -74,7 +74,10 @@ const BlogPost = (): JSX.Element => {
           <Typography variant="head2">{t('category.allTags')}</Typography>
           <div className={styles.tagsContainer}>
             {Object.values(Tags).map((tag) => (
-              <Tag text={tag} />
+              <Tag
+                key={tag}
+                text={tag}
+              />
             ))}
           </div>
         </div>
