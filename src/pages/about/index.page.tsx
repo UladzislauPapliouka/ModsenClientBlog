@@ -100,6 +100,7 @@ const HomePage = (): JSX.Element => {
               src={hands}
               alt="Hands"
             />
+            <div className={styles.figurka} />
           </figure>
         </div>
         <div className={styles.blockTwo}>
@@ -119,6 +120,7 @@ const HomePage = (): JSX.Element => {
               src={people}
               alt="People"
             />
+            <div className={styles.circle} />
           </figure>
         </div>
       </ContentContainer>

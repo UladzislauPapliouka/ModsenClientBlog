@@ -36,18 +36,20 @@ const HomePage = (): JSX.Element => {
       <ContentContainer
         className={styles.authorBock}
         variant="variant2">
-        <figure>
-          <Image
-            src={author.avatar}
-            alt="Avatar"
-          />
-        </figure>
-        <div className={styles.authorInfo}>
-          <Typography variant="head2">
-            {t('author.hi', { name: author.name })}
-          </Typography>
-          <Typography variant="body1">{author.description}</Typography>
-          <SocialWrapper links={author.social} />
+        <div className={styles.info}>
+          <figure>
+            <Image
+              src={author.avatar}
+              alt="Avatar"
+            />
+          </figure>
+          <div className={styles.authorInfo}>
+            <Typography variant="head2">
+              {t('author.hi', { name: author.name })}
+            </Typography>
+            <Typography variant="body1">{author.description}</Typography>
+            <SocialWrapper links={author.social} />
+          </div>
         </div>
       </ContentContainer>
       <ContentContainer

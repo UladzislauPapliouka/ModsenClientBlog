@@ -75,14 +75,31 @@
   }
 }
 .aboutUs {
-  background-color: $lightGrey;
-  @include flex(center, flex-start, row, $gap64);
-  @media screen and (max-width: $mobileBreakpoint) {
-    @include flex(flex-start, flex-start, column, $gap32);
+  .blocks{
+    position: relative;
+    background-color: $lightGrey;
+    @include flex(center, flex-start, row, $gap64);
+    padding-top: $gap96 !important;
+    padding-bottom: $gap96 !important;
+
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(flex-start, flex-start, column, $gap32);
+      padding: $gap16 !important;
+     }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: $size24;
+      background: linear-gradient(90deg, $light 15%, $yellow 15%, $yellow 75%, $purple 75%);
+      top: 0;
+      @media screen and (max-width: $mobileBreakpoint) {
+        display: none;
+      }
+    }
   }
-  padding-top: $gap96 !important;
-  padding-bottom: $gap96 !important;
-  & > div {
+  .blocks > div {
     @include flex(flex-start, flex-start, column, $gap24);
     max-width: $size615;
     & > a {

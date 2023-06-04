@@ -164,28 +164,31 @@ const HomePage = (): JSX.Element => {
         </div>
       </ContentContainer>
       <ContentContainer className={styles.aboutUs}>
-        <div>
-          <Typography variant="head6">{t('home.aboutUs.title')}</Typography>
-          <Typography variant="head2">
-            {t('home.aboutUs.ourDescriptionTitle')}
-          </Typography>
-          <Typography variant="body1">
-            {t('home.aboutUs.ourDescriptionText')}
-          </Typography>
-          <Link href={routes['About Us']}>
-            <Typography variant="head6">
-              {t('posts.readMore')} {'>'}
+        <div className={styles.blocks}>
+          <div>
+            <Typography variant="head6">{t('home.aboutUs.title')}</Typography>
+            <Typography variant="head2">
+              {t('home.aboutUs.ourDescriptionTitle')}
             </Typography>
-          </Link>
-        </div>
-        <div>
-          <Typography variant="head6">{t('home.aboutUs.mission')}</Typography>
-          <Typography variant="head3">
-            {t('home.aboutUs.missionTitle')}
-          </Typography>
-          <Typography variant="body1">
-            {t('home.aboutUs.missionText')}
-          </Typography>
+            <Typography variant="body1">
+              {t('home.aboutUs.ourDescriptionText')}
+            </Typography>
+            <Link href={routes['About Us']}>
+              <Typography variant="head6">
+                {t('posts.readMore')} {'>'}
+              </Typography>
+            </Link>
+          </div>
+
+          <div>
+            <Typography variant="head6">{t('home.aboutUs.mission')}</Typography>
+            <Typography variant="head3">
+              {t('home.aboutUs.missionTitle')}
+            </Typography>
+            <Typography variant="body1">
+              {t('home.aboutUs.missionText')}
+            </Typography>
+          </div>
         </div>
       </ContentContainer>
       <ContentContainer className={styles.categories}>
