@@ -26,7 +26,7 @@ const HomePage = (): JSX.Element => {
 
   const [dateFeatured, setFeaturedDate] = useState('');
 
-  const lastPost = getLastPost(new Date());
+  const lastPost = getLastPost();
 
   const featuredPost = getFeaturedPost();
 
