@@ -2,9 +2,12 @@ import toast from 'react-hot-toast';
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
+import postsEn, { postsRu } from '@constants/posts';
+
 const resources = {
   en: {
     translation: {
+      postsAra: postsEn,
       categories: {
         business: {
           title: 'Business',
@@ -210,6 +213,7 @@ const resources = {
   },
   ru: {
     translation: {
+      postsAra: postsRu,
       categories: {
         business: {
           title: 'Бизнес',

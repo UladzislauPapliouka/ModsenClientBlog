@@ -1,4 +1,4 @@
-import posts from '@constants/posts';
+import postsEn from '@constants/posts';
 import {
   addPostId,
   getFeaturedPost,
@@ -9,14 +9,14 @@ import {
 
 describe('Posts services should work correct', () => {
   test('addPostId should work correct', () => {
-    const result = addPostId('1');
+    const result = addPostId('1', postsEn);
 
     expect(result.id).toBe('1');
   });
   test('getPostsWithId should work correct', () => {
     const result = getPostsWithId();
 
-    expect(result.length).toBe(Object.keys(posts).length);
+    expect(result.length).toBe(Object.keys(postsEn).length);
     expect(result[0].id).toBeDefined();
   });
   test('getFeaturedPost should work correct', () => {
@@ -25,12 +25,12 @@ describe('Posts services should work correct', () => {
     expect(result.id).toBe('3');
   });
   test('getWhatToReadNext should work correct', () => {
-    const result = getWhatToReadNext(posts['1']);
+    const result = getWhatToReadNext(postsEn['1']);
 
     expect(result.length).toBeLessThanOrEqual(3);
-    expect(result[0].category).toBe(posts[1].category);
-    expect(result[1].category).toBe(posts[1].category);
-    expect(result[2].category).toBe(posts[1].category);
+    expect(result[0].category).toBe(postsEn[1].category);
+    expect(result[1].category).toBe(postsEn[1].category);
+    expect(result[2].category).toBe(postsEn[1].category);
   });
   test('getPagePosts should work correct', () => {
     const result = getPagePosts(1);

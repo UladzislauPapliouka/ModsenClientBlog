@@ -49,7 +49,10 @@ const App = ({ Component, pageProps }: AppProps) => {
             className={styles.locale}
             variant="head5">
             <Link
-              href={router.pathname}
+              href={{
+                pathname: router.pathname,
+                query: router.query,
+              }}
               locale={router.locale === 'en' ? 'ru' : 'en'}>
               {router.locale?.toUpperCase()}
             </Link>

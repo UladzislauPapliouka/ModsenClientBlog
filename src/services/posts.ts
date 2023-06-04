@@ -1,14 +1,21 @@
+import i18n from 'i18next';
+
 import { type IPost, type IPostWithId } from '@/types';
 import authors from '@constants/authors';
-import posts from '@constants/posts';
 
-export const addPostId = (postId: string): IPostWithId => ({
+export const addPostId = (
+  postId: string,
+  object: Record<number | string, IPost>,
+): IPostWithId => ({
   id: postId,
-  ...posts[postId],
+  ...object[postId],
 });
 
-export const getPostsWithId = (): IPostWithId[] =>
-  Object.keys(posts).map(addPostId);
+export const getPostsWithId = (): IPostWithId[] => {
+  const posts = i18n.getResourceBundle(i18n.language, '').postsAra;
+
+  return Object.keys(posts).map((postId) => addPostId(postId, posts));
+};
 
 export const getWhatToReadNext = ({ category, title }: IPost): IPostWithId[] =>
   getPostsWithId().filter(
@@ -18,7 +25,7 @@ export const getWhatToReadNext = ({ category, title }: IPost): IPostWithId[] =>
 export const getFeaturedPost = (): IPostWithId =>
   getPostsWithId().reduce(
     (prev, curr) => (curr.views > prev.views ? curr : prev),
-    addPostId('1'),
+    addPostId('1', i18n.getResourceBundle(i18n.language, '').postsAra),
   );
 export const getPagePosts = (page = 1) => {
   const postsArray = getPostsWithId();
@@ -39,12 +46,12 @@ export const getPagePosts = (page = 1) => {
 
   return postsArray.slice(currPos, currPos + 4);
 };
-export const getLastPost = (date: Date) => {
+export const getLastPost = () => {
   const postsArray = getPostsWithId();
 
   return postsArray.reduce(
     (prev, curr) => (prev.date >= curr.date ? prev : curr),
-    addPostId('1'),
+    addPostId('1', i18n.getResourceBundle(i18n.language, '').postsAra),
   );
 };
 export const getAuthorsPosts = (authorId: string | number) =>

@@ -1,13 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import { type IPost } from '@/types';
 import BlogPostInfo from '@components/BlogPostInfo';
 import JoinUs from '@components/JoinUs';
 import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
-import posts from '@constants/posts';
+import postsEn from '@constants/posts';
 import ContentContainer from '@containers/ContentContainer';
 import { getWhatToReadNext } from '@services/posts';
 
@@ -22,7 +24,7 @@ const BlogPost = (): JSX.Element => {
     return <div />;
   }
 
-  if (!posts[router.query.postId as string]) {
+  if (!postsEn[router.query.postId as string]) {
     return (
       <ContentContainer>
         <Typography variant="head1">{`Post ${router.query.postId}  doesn't exist`}</Typography>
@@ -30,7 +32,9 @@ const BlogPost = (): JSX.Element => {
     );
   }
 
-  const currentPost = posts[router.query.postId as string];
+  const currentPost = i18n.getResourceBundle(i18n.language, '').postsAra[
+    router.query.postId as string
+  ] as IPost;
 
   const { title, date, image, author, category, text } = currentPost;
 

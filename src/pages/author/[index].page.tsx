@@ -7,7 +7,6 @@ import PostCard from '@components/PostCard';
 import SocialWrapper from '@components/SocialWrapper';
 import Typography from '@components/Typography';
 import authors from '@constants/authors';
-import posts from '@constants/posts';
 import ContentContainer from '@containers/ContentContainer';
 import { getAuthorsPosts } from '@services/posts';
 
