@@ -1,15 +1,16 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import Search from 'components/Search';
 import { useRouter } from 'next/router';
 
-import { Categories, Tags } from '@/types';
+import { Categories, type IPostWithId, Tags } from '@/types';
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
 import Tag from '@components/Tag';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
-import { getPagePosts } from '@services/posts';
+import { getPagePosts, getPostsWithId } from '@services/posts';
 
 import styles from './category.module.scss';
 
@@ -32,6 +33,74 @@ const BlogPost = (): JSX.Element => {
     );
   }
 
+  const addTagFilter = (tagName: `${Tags}`) => {
+    const { tags } = router.query;
+
+    if (!tags?.includes(tagName)) {
+      router
+        .push(
+          {
+            pathname: router.pathname,
+            query: {
+              category: router.query.category,
+              tags: !router.query.tags
+                ? tagName
+                : router.query.tags.concat('&', tagName),
+            },
+          },
+          undefined,
+          { shallow: true },
+        )
+        .catch(() => toast.error('Something went wrong...'));
+    } else if (typeof tags === 'string') {
+      const newTags = tags
+        ?.split('&')
+        .filter((tag) => tag !== tagName)
+        .join('&');
+
+      router
+        .push(
+          {
+            pathname: router.pathname,
+            query: {
+              category: router.query.category,
+              tags: newTags,
+            },
+          },
+          undefined,
+          { shallow: true },
+        )
+        .catch(() => toast.error('Something went wrong...'));
+    }
+  };
+
+  const { tags, category } = router.query;
+
+  function contains(where: string[], what: string[]) {
+    if (!what || !what.length || what[0] === '') return true;
+
+    if (!where || !what.length) return false;
+
+    for (let i = 0; i < what.length; i += 1) {
+      if (!where.includes(what[i])) return false;
+    }
+
+    return true;
+  }
+
+  const getPosts = (tags: string[]) => {
+    if (!tags.length || !tags) {
+      return getPagePosts(1).filter((post) => post.category === category);
+    }
+
+    return getPostsWithId().filter(
+      (post) =>
+        contains(post.tags as string[], tags) && post.category === category,
+    );
+  };
+
+  const posts = getPosts((tags as string)?.split('&') ?? []);
+
   return (
     <div>
       <div className={styles.pageHeader}>
@@ -49,20 +118,24 @@ const BlogPost = (): JSX.Element => {
       </div>
       <ContentContainer className={styles.postsBlock}>
         <div className={styles.postsContainer}>
-          {getPagePosts(1).map((post) => (
-            <PostCard
-              key={post.id}
-              variant="large"
-              post={post}
-            />
-          ))}
+          {posts.length ? (
+            posts.map((post) => (
+              <PostCard
+                key={post.id}
+                variant="large"
+                post={post}
+              />
+            ))
+          ) : (
+            <Typography variant="head5">test</Typography>
+          )}
         </div>
 
         <div className={styles.filter}>
           <Search
             placeholder={t('category.placeholder')}
             onChoose={(value) => {
-              console.log(value);
+              addTagFilter(value as `${Tags}`);
             }}
             variants={['business', 'tech', 'economy']}
           />
@@ -77,6 +150,8 @@ const BlogPost = (): JSX.Element => {
               <Tag
                 key={tag}
                 text={tag}
+                onClick={addTagFilter}
+                active={(tags as string)?.split('&').includes(tag)}
               />
             ))}
           </div>

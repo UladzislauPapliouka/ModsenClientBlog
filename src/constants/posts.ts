@@ -11,7 +11,7 @@ import { Categories, type IPost } from '@typing';
 const posts: Record<string | number, IPost> = {
   '1': {
     title: 'Step-by-step guide to choosing great font pairs',
-    category: Categories.STARTUP,
+    category: Categories.BUSINESS,
     author: Authors['1'],
     date: moment('20120620', 'YYYYMMDD').toDate(),
     image: postImage,
@@ -67,10 +67,11 @@ const posts: Record<string | number, IPost> = {
           '          gravida rutrum quisque non.',
       ],
     ],
+    tags: ['Business'],
   },
   '2': {
     title: 'A UX Case Study Creating a Studious Environment for Students: ',
-    category: Categories.STARTUP,
+    category: Categories.TECHNOLOGY,
     author: Authors['2'],
     date: moment('20130620', 'YYYYMMDD').toDate(),
     image: postImage1,

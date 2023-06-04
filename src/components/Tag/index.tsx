@@ -5,10 +5,18 @@ import Typography from '@components/Typography';
 
 import styles from './tag.module.scss';
 
-const Tag: FC<ITag> = ({ text, active }) => (
-  <div className={`${styles.container} ${active && styles.active}`}>
-    <Typography variant="label">{text}</Typography>
-  </div>
-);
+const Tag: FC<ITag> = ({ text, active, onClick }) => {
+  const handleClick = () => {
+    onClick?.(text);
+  };
+
+  return (
+    <div
+      onClick={handleClick}
+      className={`${styles.container} ${active && styles.active}`}>
+      <Typography variant="label">{text}</Typography>
+    </div>
+  );
+};
 
 export default Tag;

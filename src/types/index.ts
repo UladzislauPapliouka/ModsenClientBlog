@@ -35,6 +35,7 @@ export interface IPost {
   image: StaticImageData;
   views: number;
   text: Array<[`${typographyVariants}`, string]>;
+  tags?: Array<`${Tags}`>;
 }
 export interface IPostWithId extends IPost {
   id: string | number;

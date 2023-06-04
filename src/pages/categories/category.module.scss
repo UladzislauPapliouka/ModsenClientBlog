@@ -14,6 +14,7 @@
     @include flex(stretch, null, column-reverse, $gap32);
   }
   .postsContainer {
+    width: 100%;
     @include flex(flex-start, flex-start, column, $gap16);
     @media screen and (max-width: $mobileBreakpoint) {
       @include flex(flex-start, center, column, $gap16);
