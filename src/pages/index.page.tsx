@@ -14,6 +14,7 @@ import Link from '@components/Link';
 import PostCard from '@components/PostCard';
 import Typography from '@components/Typography';
 import routes from '@constants/routes';
+import testimonials from '@constants/testimonials';
 import ContentContainer from '@containers/ContentContainer';
 import { getFeaturedPost, getLastPost, getPagePosts } from '@services/posts';
 
@@ -26,6 +27,8 @@ const HomePage = (): JSX.Element => {
 
   const [dateFeatured, setFeaturedDate] = useState('');
 
+  const [testimonialIndex, setTestimonalIndex] = useState(0);
+
   const lastPost = getLastPost();
 
   const featuredPost = getFeaturedPost();
@@ -36,6 +39,29 @@ const HomePage = (): JSX.Element => {
       moment(featuredPost.date).locale(i18n.language).format('MMM DD, YYYY'),
     );
   }, [i18n.language]);
+  const nextTestimonal = () => {
+    const lenth = testimonials.length;
+
+    if (testimonialIndex + 1 > lenth - 1) {
+      setTestimonalIndex(0);
+
+      return;
+    }
+
+    setTestimonalIndex(testimonialIndex + 1);
+  };
+
+  const prevTestimonal = () => {
+    const lenth = testimonials.length;
+
+    if (testimonialIndex - 1 < 0) {
+      setTestimonalIndex(lenth - 1);
+
+      return;
+    }
+
+    setTestimonalIndex(testimonialIndex - 1);
+  };
 
   return (
     <div className={styles.page}>
@@ -195,39 +221,47 @@ const HomePage = (): JSX.Element => {
       <ContentContainer>
         <div className={styles.testimonials}>
           <div className={styles.constant}>
-            <Typography variant="head4">Testimonials</Typography>
+            <Typography variant="head4">
+              {t('home.testimonials.name')}
+            </Typography>
             <Typography variant="head2">
-              What people say about our blog
+              {t('home.testimonials.title')}
             </Typography>
             <Typography variant="body1">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor.
+              {t('home.testimonials.text')}
             </Typography>
           </div>
           <div className={styles.comment}>
             <Typography variant="head5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {testimonials[testimonialIndex].text}
             </Typography>
             <div className={styles.lowBlock}>
               <div className={styles.user}>
                 <Image
-                  src={image1}
+                  src={testimonials[testimonialIndex].image}
                   alt="Avatar"
                 />
                 <div className={styles.userInfo}>
-                  <Typography variant="head5">Jonathan Vallem</Typography>
-                  <Typography variant="body1">New york, USA</Typography>
+                  <Typography variant="head5">
+                    {testimonials[testimonialIndex].author}
+                  </Typography>
+                  <Typography variant="body1">
+                    {testimonials[testimonialIndex].place}
+                  </Typography>
                 </div>
               </div>
               <div className={styles.control}>
-                <div className={styles.back}>
+                <div
+                  className={styles.back}
+                  onClick={prevTestimonal}>
                   <Image
                     src={arrow}
                     alt="arrow"
                   />
                 </div>
-                <div className={styles.next}>
+                <div
+                  className={styles.next}
+                  onClick={nextTestimonal}>
                   <Image
                     src={arrow}
                     alt="arrow"

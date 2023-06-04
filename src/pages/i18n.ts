@@ -209,6 +209,11 @@ const resources = {
         search: 'Search',
         placeholder: 'Search for tags',
       },
+      testimonials: {
+        name: 'Testimonials',
+        title: 'What people say about our blog',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
+      },
     },
   },
   ru: {
@@ -327,6 +332,11 @@ const resources = {
           button: 'Наша история',
         },
         listOfAuthors: 'Наши авторы',
+        testimonials: {
+          name: 'Отзывы',
+          title: 'Что люди говорят',
+          text: 'Практический опыт показывает, что дальнейшее развитие различных форм деятельности способствуе',
+        },
       },
       author: {
         myPosts: 'Мои публикации',
