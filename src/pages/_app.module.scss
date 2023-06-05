@@ -1,4 +1,5 @@
 @import '@styles/_mixins.scss';
+@import '@styles/_variables.scss';
 .app {
   @include flex(space-between, null, column, 0px);
   min-height: 100vh;
@@ -8,4 +9,15 @@
 }
 .locale a:after {
   display: none;
+}
+.video {
+  @include flex(center, center);
+  position: relative;
+  & iframe {
+    min-width: $size405;
+    @media screen and (max-width: $mobileBreakpoint) {
+      min-width: 0;
+      max-width: 100%;
+    }
+  }
 }

@@ -75,7 +75,7 @@
   }
 }
 .aboutUs {
-  .blocks{
+  .blocks {
     position: relative;
     background-color: $lightGrey;
     @include flex(center, flex-start, row, $gap64);
@@ -85,14 +85,20 @@
     @media screen and (max-width: $mobileBreakpoint) {
       @include flex(flex-start, flex-start, column, $gap32);
       padding: $gap16 !important;
-     }
+    }
 
     &:before {
       content: '';
       position: absolute;
       width: 100%;
       height: $size24;
-      background: linear-gradient(90deg, $light 15%, $yellow 15%, $yellow 75%, $purple 75%);
+      background: linear-gradient(
+        90deg,
+        $light 15%,
+        $yellow 15%,
+        $yellow 75%,
+        $purple 75%
+      );
       top: 0;
       @media screen and (max-width: $mobileBreakpoint) {
         display: none;

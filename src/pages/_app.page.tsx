@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
+import YouTube from 'react-youtube';
 import { type AppProps } from 'next/app';
-import { log } from 'next/dist/server/typescript/utils';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -11,8 +11,10 @@ import ErrorBoundary from '@components/ErrorBoundaries';
 import Footer from '@components/Footer';
 import Header from '@components/Header';
 import Link from '@components/Link';
+import ModalFC from '@components/Modal';
 import Typography from '@components/Typography';
 import Routes from '@constants/routes';
+import ContentContainer from '@containers/ContentContainer';
 
 import './i18n';
 
@@ -29,6 +31,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     i18n.changeLanguage(router.locale === 'en' ? 'en' : 'ru').catch(() => null);
   }, [router.locale]);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
     <div className={styles.app}>
@@ -41,10 +44,30 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Link href={Routes.Blog}>{t('links.Blog')}</Link>
           <Link href={Routes['About Us']}>{t('links.About Us')}</Link>
           <Link href={Routes['Contact Us']}>{t('links.Contact Us')}</Link>
-          <Button variant="secondary">
+          <Button
+            onClick={() => {
+              setIsVideoOpen(true);
+            }}
+            variant="secondary">
             <Typography variant="head4">{t('links.Video')}</Typography>
           </Button>
-
+          {isVideoOpen && (
+            <ModalFC
+              handleClose={() => {
+                setIsVideoOpen(false);
+              }}>
+              <ContentContainer className={styles.video}>
+                <YouTube
+                  videoId="heYPCc8M3VI"
+                  opts={{
+                    playerVars: {
+                      autoplay: 1,
+                    },
+                  }}
+                />
+              </ContentContainer>
+            </ModalFC>
+          )}
           <Typography
             className={styles.locale}
             variant="head5">

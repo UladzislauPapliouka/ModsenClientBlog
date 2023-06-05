@@ -13,7 +13,6 @@
       position: relative;
       @include flex(null, null, column, $gap16);
       max-width: $size505;
-
     }
     & > figure {
       position: relative;
@@ -23,26 +22,26 @@
         width: 100%;
         object-fit: cover;
       }
-      .figurka{
+      .figurka {
         position: absolute;
         width: $size100;
         aspect-ratio: 8/9;
         background-color: $yellow;
         border-radius: 50px 0 0 0;
-        left: - calc($size100 / 2);
-        top:$gap128;
+        left: -calc($size100 / 2);
+        top: $gap128;
         @media screen and (max-width: $mobileBreakpoint) {
           display: none;
         }
       }
-      .circle{
+      .circle {
         position: absolute;
         width: $size64;
         aspect-ratio: 1;
         background-color: $purple;
         border-radius: $size64;
-        bottom: - calc($size64 / 2);
-        left:$gap128;
+        bottom: -calc($size64 / 2);
+        left: $gap128;
         @media screen and (max-width: $mobileBreakpoint) {
           display: none;
         }
@@ -109,16 +108,24 @@
 
 .mainBlock {
   &:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: $size24;
-  background: linear-gradient(90deg, rgb(0,0,0,0) $gap128, $purple $gap128, $purple 30%, $yellow 30%,$yellow 70%, rgba(0,0,0,0) 70%);
-  bottom:$size20;
-  @media screen and (max-width: $mobileBreakpoint) {
-    display: none;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: $size24;
+    background: linear-gradient(
+      90deg,
+      rgb(0, 0, 0, 0) $gap128,
+      $purple $gap128,
+      $purple 30%,
+      $yellow 30%,
+      $yellow 70%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    bottom: $size20;
+    @media screen and (max-width: $mobileBreakpoint) {
+      display: none;
+    }
   }
-}
 
   position: relative;
   @include flex(center, center);

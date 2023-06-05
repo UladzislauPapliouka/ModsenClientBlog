@@ -1,30 +1,29 @@
 @import '@styles/_mixins';
 @import '@styles/_variables';
 .authorBock {
-
   background-color: $lightGrey;
- .info{
-   padding-bottom: $gap128 !important;
-   @include flex(center, center, null, $gap32);
-   position: relative;
-   .authorInfo {
-     @include flex(null, flex-start, column, $gap24);
-   }
-   @media screen and (max-width: $mobileBreakpoint) {
-     @include flex(space-between, center, column, $gap32);
-   }
-   &:after {
-     content: '';
-     position: absolute;
-     width: 100%;
-     height: $size24;
-     background: linear-gradient(90deg, $yellow 15%, $yellow 75%, $purple 75%);
-     bottom: 0;
-     @media screen and (max-width: $mobileBreakpoint) {
-       display: none;
-     }
-   }
- }
+  .info {
+    padding-bottom: $gap128 !important;
+    @include flex(center, center, null, $gap32);
+    position: relative;
+    .authorInfo {
+      @include flex(null, flex-start, column, $gap24);
+    }
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(space-between, center, column, $gap32);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: $size24;
+      background: linear-gradient(90deg, $yellow 15%, $yellow 75%, $purple 75%);
+      bottom: 0;
+      @media screen and (max-width: $mobileBreakpoint) {
+        display: none;
+      }
+    }
+  }
 }
 .posts {
   margin-bottom: $gap128 !important;

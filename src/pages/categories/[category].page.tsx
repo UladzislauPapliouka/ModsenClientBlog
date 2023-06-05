@@ -2,10 +2,9 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import Search from 'components/Search';
-import i18n from 'i18next';
 import { useRouter } from 'next/router';
 
-import { Categories, type IPostWithId, Tags } from '@/types';
+import { Categories, Tags } from '@/types';
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
 import Tag from '@components/Tag';

@@ -4,7 +4,6 @@ import moment from 'moment/moment';
 import Image from 'next/image';
 
 import arrow from '@assets/Arrow 1.svg';
-import image1 from '@assets/images/avatars/AndrewJonson.png';
 import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
 import AuthorsList from '@components/AuthorsList';
 import Button from '@components/Button';
