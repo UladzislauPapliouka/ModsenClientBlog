@@ -114,6 +114,11 @@ const resources = {
         viewAll: 'View all',
       },
       home: {
+        testimonials: {
+          name: 'Testimonials',
+          title: 'What people say about our blog',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
+        },
         lastPost: {
           postType: 'Posted on',
         },
@@ -208,11 +213,6 @@ const resources = {
         allTags: 'All Tags',
         search: 'Search',
         placeholder: 'Search for tags',
-      },
-      testimonials: {
-        name: 'Testimonials',
-        title: 'What people say about our blog',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
       },
     },
   },

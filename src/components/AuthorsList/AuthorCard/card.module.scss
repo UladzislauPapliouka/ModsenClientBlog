@@ -1,5 +1,5 @@
-@import '@styles/_mixins';
-@import '@styles/_variables';
+@import '@styles/mixins';
+@import '@styles/variables';
 .card {
   background-color: $lightGrey;
   &:hover {

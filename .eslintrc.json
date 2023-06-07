@@ -20,7 +20,7 @@
       "jsx": true
     },
     "tsconfigRootDir": ".",
-    "project": "./src/tsconfig.json",
+    "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },

@@ -22,4 +22,4 @@ const Label: FC<ILabelProps> = ({ label }) => {
   );
 };
 
-export default Label;
+export default React.memo(Label);

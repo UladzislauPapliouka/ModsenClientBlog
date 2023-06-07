@@ -29,4 +29,4 @@ const AuthorCard = ({
   </div>
 );
 
-export default AuthorCard;
+export default React.memo(AuthorCard);

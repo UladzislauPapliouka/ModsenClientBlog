@@ -1,4 +1,4 @@
-import { type Categories } from '@typing';
+import { type Categories } from '@/types';
 
 export interface ICategoryProps {
   label: `${Categories}`;

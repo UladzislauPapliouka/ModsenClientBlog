@@ -32,6 +32,7 @@ const Search: FC<ISearch> = ({ onChoose, variants, placeholder }) => {
 
   const handleClick = () => {
     onChoose(field);
+    setField('');
   };
 
   const handleInputBlur = () => {
@@ -63,8 +64,11 @@ const Search: FC<ISearch> = ({ onChoose, variants, placeholder }) => {
         onKeyDown={handleEnterClick}
         onChange={onChangeHandler}
         placeholder={placeholder}
+        data-cy="SEARCH"
       />
-      <Button onClick={handleClick}>
+      <Button
+        data-cy="SEARCH_BTN"
+        onClick={handleClick}>
         <Typography variant="head6">{t('category.search')}</Typography>
       </Button>
       {isAutoComplete && autoCompleteVariants && (

@@ -12,6 +12,7 @@ const Tag: FC<ITag> = ({ text, active, onClick }) => {
 
   return (
     <div
+      data-cy={`TAG_${text}`}
       onClick={handleClick}
       className={`${styles.container} ${active && styles.active}`}>
       <Typography variant="label">{text}</Typography>
@@ -19,4 +20,4 @@ const Tag: FC<ITag> = ({ text, active, onClick }) => {
   );
 };
 
-export default Tag;
+export default React.memo(Tag);

@@ -41,4 +41,22 @@ describe('template spec', () => {
       'message must be at most 150 characters',
     );
   });
+  it('Category form', () => {
+    cy.visit('/categories/economy');
+    const search = cy.get('[data-cy="SEARCH"]');
+    search.type('Life');
+    cy.get('button[data-cy="SEARCH_BTN"]').click();
+    cy.get('[data-cy="TAG_Life"]').should(
+      'have.css',
+      'background-color',
+      'rgb(255, 208, 80)',
+    );
+    search.type('Screen');
+    cy.get('button[data-cy="SEARCH_BTN"]').click();
+    cy.get('[data-cy="TAG_Screen"]').should(
+      'have.css',
+      'background-color',
+      'rgb(255, 208, 80)',
+    );
+  });
 });

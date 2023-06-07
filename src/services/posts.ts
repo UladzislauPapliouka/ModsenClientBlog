@@ -35,11 +35,8 @@ export const getPagePosts = (page = 1) => {
 
   let firstPostPosition = (page - 1) * PAGE_SIZE;
 
-  while (firstPostPosition >= allPostsLength) {
-    firstPostPosition -= allPostsLength;
-  }
   firstPostPosition -=
-    allPostsLength * (Math.floor(allPostsLength / PAGE_SIZE) - 1);
+    allPostsLength * Math.floor(firstPostPosition / allPostsLength);
 
   if (allPostsLength - firstPostPosition < PAGE_SIZE) {
     const take = allPostsLength - firstPostPosition;
@@ -48,6 +45,8 @@ export const getPagePosts = (page = 1) => {
       .slice(-take)
       .concat(postsArray.slice(0, PAGE_SIZE - take));
   }
+
+  console.log(firstPostPosition);
 
   return postsArray.slice(firstPostPosition, firstPostPosition + PAGE_SIZE);
 };

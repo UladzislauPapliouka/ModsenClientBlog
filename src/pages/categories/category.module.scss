@@ -22,7 +22,10 @@
   }
   .filter {
     max-width: $size350;
-    @include flex(null, null, column, $gap64);
+    @include flex(null, stretch, column, $gap64);
+    @media screen and (max-width: $mobileBreakpoint) {
+      max-width: 100%;
+    }
     .tagsContainer {
       @include flex(null, null, row, $gap16);
       flex-wrap: wrap;

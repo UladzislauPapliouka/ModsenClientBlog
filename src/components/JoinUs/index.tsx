@@ -29,4 +29,4 @@ const JoinUs = () => {
   );
 };
 
-export default JoinUs;
+export default React.memo(JoinUs);

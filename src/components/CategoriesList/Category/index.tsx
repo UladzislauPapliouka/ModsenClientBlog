@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
 import LabelsIcons from '@assets/labels';
-import { type ICategoryProps } from '@components/Category/types';
+import { type ICategoryProps } from '@components/CategoriesList/Category/types';
 import Link from '@components/Link';
 import Typography from '@components/Typography';
 import routes from '@constants/routes';
@@ -45,4 +45,4 @@ const Category: FC<ICategoryProps> = ({ label, small, active }) => {
   );
 };
 
-export default Category;
+export default React.memo(Category);

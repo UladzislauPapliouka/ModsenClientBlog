@@ -39,4 +39,4 @@ const Header = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

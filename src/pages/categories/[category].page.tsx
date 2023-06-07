@@ -66,7 +66,7 @@ const BlogPost = (): JSX.Element => {
 
   const getPosts = (tags: string[]) => {
     if (!tags.length || !tags) {
-      return getPagePosts(1).filter((post) => post.category === category);
+      return getPostsWithId().filter((post) => post.category === category);
     }
 
     return getPostsWithId().filter(
@@ -113,7 +113,7 @@ const BlogPost = (): JSX.Element => {
             onChoose={(value) => {
               addTagFilter(value as `${Tags}`);
             }}
-            variants={['business', 'tech', 'economy']}
+            variants={Object.values(Tags)}
           />
           <Typography variant="head2">{t('category.categories')}</Typography>
           <CategoriesList

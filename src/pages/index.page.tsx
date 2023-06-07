@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment/moment';
 import Image from 'next/image';
@@ -106,62 +106,64 @@ const HomePage = (): JSX.Element => {
           <div className={styles.featuredImage} />
         </ContentContainer>
       </div>
-      <ContentContainer className={styles.postsBlock}>
-        <div className={styles.featuredBlock}>
-          <Typography variant="head2">{t('posts.featuredPost')}</Typography>
-          <div className={styles.featuredInfo}>
-            <figure className={styles.featuredImage}>
-              <Image
-                src={featuredPost.image}
-                alt="Featured"
-              />
-            </figure>
-            <Typography
-              className={styles.postInfo}
-              variant="body2">
-              By
-              <Link href={`${routes.author}/${featuredPost.author.id}`}>
-                <Typography
-                  className={styles.author}
-                  variant="body2">
-                  {featuredPost.author.name}
-                </Typography>
+      <Suspense fallback="fdfds">
+        <ContentContainer className={styles.postsBlock}>
+          <div className={styles.featuredBlock}>
+            <Typography variant="head2">{t('posts.featuredPost')}</Typography>
+            <div className={styles.featuredInfo}>
+              <figure className={styles.featuredImage}>
+                <Image
+                  src={featuredPost.image}
+                  alt="Featured"
+                />
+              </figure>
+              <Typography
+                className={styles.postInfo}
+                variant="body2">
+                By
+                <Link href={`${routes.author}/${featuredPost.author.id}`}>
+                  <Typography
+                    className={styles.author}
+                    variant="body2">
+                    {featuredPost.author.name}
+                  </Typography>
+                </Link>
+                | {date}
+              </Typography>
+              <Typography variant="head2">{featuredPost.title}</Typography>
+              <Typography
+                className={styles.postText}
+                variant="body1">
+                {featuredPost.text[0][1]}
+              </Typography>
+              <Link href={`${routes.Blog}/${featuredPost.id}`}>
+                <Button>
+                  <Typography variant="head5">
+                    {t('posts.readMore')} {'>'}
+                  </Typography>
+                </Button>
               </Link>
-              | {date}
-            </Typography>
-            <Typography variant="head2">{featuredPost.title}</Typography>
-            <Typography
-              className={styles.postText}
-              variant="body1">
-              {featuredPost.text[0][1]}
-            </Typography>
-            <Link href={`${routes.Blog}/${featuredPost.id}`}>
-              <Button>
-                <Typography variant="head5">
-                  {t('posts.readMore')} {'>'}
-                </Typography>
-              </Button>
-            </Link>
+            </div>
           </div>
-        </div>
-        <div className={styles.allPosts}>
-          <div className={styles.title}>
-            <Typography variant="head2">{t('posts.allPosts')}</Typography>
-            <Link href={routes.Blog}>
-              <Typography variant="body1">{t('posts.viewAll')}</Typography>
-            </Link>
+          <div className={styles.allPosts}>
+            <div className={styles.title}>
+              <Typography variant="head2">{t('posts.allPosts')}</Typography>
+              <Link href={routes.Blog}>
+                <Typography variant="body1">{t('posts.viewAll')}</Typography>
+              </Link>
+            </div>
+            <div className={styles.postsContainer}>
+              {getPagePosts(1).map((post) => (
+                <PostCard
+                  key={post.id}
+                  variant="small"
+                  post={post}
+                />
+              ))}
+            </div>
           </div>
-          <div className={styles.postsContainer}>
-            {getPagePosts(1).map((post) => (
-              <PostCard
-                key={post.id}
-                variant="small"
-                post={post}
-              />
-            ))}
-          </div>
-        </div>
-      </ContentContainer>
+        </ContentContainer>
+      </Suspense>
       <ContentContainer className={styles.aboutUs}>
         <div className={styles.blocks}>
           <div>

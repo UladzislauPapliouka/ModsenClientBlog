@@ -172,6 +172,11 @@
     .lowBlock {
       @include flex(space-between, null, null);
       .user {
+        & > img {
+          width: $size64;
+          height: $size64;
+          aspect-ratio: 1/1;
+        }
         @include flex(null, null, null, $gap16);
         .userInfo {
           @include flex(null, null, column);
