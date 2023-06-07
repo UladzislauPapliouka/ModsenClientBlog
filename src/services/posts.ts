@@ -46,8 +46,6 @@ export const getPagePosts = (page = 1) => {
       .concat(postsArray.slice(0, PAGE_SIZE - take));
   }
 
-  console.log(firstPostPosition);
-
   return postsArray.slice(firstPostPosition, firstPostPosition + PAGE_SIZE);
 };
 export const getLastPost = () => {

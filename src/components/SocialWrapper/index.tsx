@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { type ISocial } from '@/types';
 import {
   FacebookIcon,
   InstagramIcon,

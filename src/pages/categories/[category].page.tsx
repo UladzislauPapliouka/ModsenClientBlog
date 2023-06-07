@@ -1,20 +1,19 @@
 'use client';
 
-import React, { useEffect, useState, useTransition } from 'react';
-import toast from 'react-hot-toast';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Search from 'components/Search';
-import { type Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 import { Categories, type IPostWithId, Tags } from '@/types';
-import Button from '@components/Button';
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
 import Tag from '@components/Tag';
 import Typography from '@components/Typography';
 import PAGE_SIZE from '@constants/numbers';
 import ContentContainer from '@containers/ContentContainer';
-import { getPagePosts, getPosts, getPostsWithId } from '@services/posts';
+import { getPosts } from '@services/posts';
 import { changeTags, filterTagsValue } from '@services/tags';
 
 import styles from './category.module.scss';
@@ -25,8 +24,6 @@ const BlogPost = (): JSX.Element => {
   const [posts, setPosts] = useState<IPostWithId[]>([]);
 
   const [isAllPost, setIsAllPosts] = useState(false);
-
-  const [isLoading, setLoading] = useState(false);
 
   const [t] = useTranslation();
 
@@ -42,7 +39,6 @@ const BlogPost = (): JSX.Element => {
     setPosts(posts);
   }, [category, tags]);
   const loadMorePosts = () => {
-    setLoading(true);
     setTimeout(() => {
       const posts = getPosts(
         (tags as string)?.split('&') ?? [],
@@ -51,7 +47,6 @@ const BlogPost = (): JSX.Element => {
 
       setIsAllPosts(true);
       setPosts((prevState) => prevState.concat(posts));
-      setLoading(false);
     }, 1500);
   };
 
@@ -98,22 +93,23 @@ const BlogPost = (): JSX.Element => {
       </div>
       <ContentContainer className={styles.postsBlock}>
         <div className={styles.postsContainer}>
-          {posts.length ? (
-            posts.map((post) => (
-              <PostCard
-                key={post.id}
-                variant="large"
-                post={post}
-              />
-            ))
-          ) : (
-            <Typography variant="head5">There are no posts</Typography>
-          )}
-          {!isAllPost && (
-            <Button onClick={loadMorePosts}>
-              {isLoading ? 'Loading' : 'Load more'}
-            </Button>
-          )}
+          <InfiniteScroll
+            next={loadMorePosts}
+            hasMore={!isAllPost}
+            loader={<h4>Loading...</h4>}
+            dataLength={posts.length}>
+            {posts.length ? (
+              posts.map((post) => (
+                <PostCard
+                  key={post.id}
+                  variant="large"
+                  post={post}
+                />
+              ))
+            ) : (
+              <Typography variant="head5">There are no posts</Typography>
+            )}
+          </InfiniteScroll>
         </div>
 
         <div className={styles.filter}>
