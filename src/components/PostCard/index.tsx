@@ -10,7 +10,10 @@ import routes from '@constants/routes';
 
 import styles from './postCard.module.scss';
 
-const PostCard: FC<IPostcard> = ({ variant, post }) => {
+const PostCard: FC<IPostcard> = ({
+  variant,
+  post: { category, id, author, title, image, date, text },
+}) => {
   const [t] = useTranslation();
 
   switch (variant) {
@@ -20,18 +23,18 @@ const PostCard: FC<IPostcard> = ({ variant, post }) => {
           <Typography
             className={styles.postInfo}
             variant="body2">
-            By{' '}
-            <Link href={`${routes.author}/${post.author.id}`}>
+            By
+            <Link href={`${routes.author}/${author.id}`}>
               <Typography
                 className={styles.authorName}
                 variant="body2">
-                {post.author.name}
+                {author.name}
               </Typography>
-            </Link>{' '}
-            | {moment(post.date).format('MMM DD, YYYY')}
+            </Link>
+            | {moment(date).format('MMM DD, YYYY')}
           </Typography>
-          <Link href={`${routes.Blog}/${post.id}`}>
-            <Typography variant="head3">{post.title}</Typography>
+          <Link href={`${routes.Blog}/${id}`}>
+            <Typography variant="head3">{title}</Typography>
           </Link>
         </div>
       );
@@ -42,7 +45,7 @@ const PostCard: FC<IPostcard> = ({ variant, post }) => {
           <div className={styles.photoContainer}>
             <Image
               className={styles.postPhoto}
-              src={post.image}
+              src={image}
               alt="Post photo"
             />
           </div>
@@ -50,15 +53,15 @@ const PostCard: FC<IPostcard> = ({ variant, post }) => {
             <Typography
               className={styles.postCategory}
               variant="body1">
-              {t(`categories.${post.category}.title`).toUpperCase()}
+              {t(`categories.${category}.title`).toUpperCase()}
             </Typography>
-            <Link href={`${routes.Blog}/${post.id}`}>
-              <Typography variant="head3">{post.title}</Typography>
+            <Link href={`${routes.Blog}/${id}`}>
+              <Typography variant="head3">{title}</Typography>
             </Link>
             <Typography
               className={styles.postText}
               variant="body1">
-              {post.text[0][1]}
+              {text[0][1]}
             </Typography>
           </div>
         </div>
@@ -70,30 +73,30 @@ const PostCard: FC<IPostcard> = ({ variant, post }) => {
           <div className={styles.photoContainer}>
             <Image
               className={styles.postPhoto}
-              src={post.image}
+              src={image}
               alt="Post photo"
             />
           </div>
           <Typography
             className={styles.postInfo}
             variant="body2">
-            By{' '}
-            <Link href={`${routes.author}/${post.author.id}`}>
+            By
+            <Link href={`${routes.author}/${author.id}`}>
               <Typography
                 className={styles.authorName}
                 variant="body2">
-                {post.author.name}
+                {author.name}
               </Typography>
-            </Link>{' '}
-            | {moment(post.date).format('MMM DD, YYYY')}
+            </Link>
+            | {moment(date).format('MMM DD, YYYY')}
           </Typography>
-          <Link href={`${routes.Blog}/${post.id}`}>
-            <Typography variant="head3">{post.title}</Typography>
+          <Link href={`${routes.Blog}/${id}`}>
+            <Typography variant="head3">{title}</Typography>
           </Link>
           <Typography
             className={styles.postText}
             variant="body1">
-            {post.text[0][1]}
+            {text[0][1]}
           </Typography>
         </div>
       );

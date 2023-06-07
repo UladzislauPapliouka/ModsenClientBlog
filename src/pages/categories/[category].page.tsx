@@ -2,7 +2,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import Search from 'components/Search';
-import { useRouter } from 'next/router';
+import { type Router, useRouter } from 'next/router';
 
 import { Categories, Tags } from '@/types';
 import CategoriesList from '@components/CategoriesList';
@@ -11,6 +11,7 @@ import Tag from '@components/Tag';
 import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 import { getPagePosts, getPostsWithId } from '@services/posts';
+import { changeTags, filterTagsValue } from '@services/tags';
 
 import styles from './category.module.scss';
 
@@ -37,40 +38,15 @@ const BlogPost = (): JSX.Element => {
     const { tags } = router.query;
 
     if (!tags?.includes(tagName)) {
-      router
-        .push(
-          {
-            pathname: router.pathname,
-            query: {
-              category: router.query.category,
-              tags: !router.query.tags
-                ? tagName
-                : router.query.tags.concat('&', tagName),
-            },
-          },
-          undefined,
-          { shallow: true },
-        )
-        .catch(() => toast.error('Something went wrong...'));
+      changeTags(
+        'tags',
+        !router.query.tags
+          ? tagName
+          : (router.query.tags.concat('&', tagName) as string),
+        router,
+      );
     } else if (typeof tags === 'string') {
-      const newTags = tags
-        ?.split('&')
-        .filter((tag) => tag !== tagName)
-        .join('&');
-
-      router
-        .push(
-          {
-            pathname: router.pathname,
-            query: {
-              category: router.query.category,
-              tags: newTags,
-            },
-          },
-          undefined,
-          { shallow: true },
-        )
-        .catch(() => toast.error('Something went wrong...'));
+      changeTags('tags', filterTagsValue(tags, tagName), router);
     }
   };
 

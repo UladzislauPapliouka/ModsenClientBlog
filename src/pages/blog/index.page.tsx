@@ -76,12 +76,12 @@ const BlogPage = () => {
           <Typography
             className={styles.postInfo}
             variant="body2">
-            By{' '}
+            By
             <Typography
               className={styles.author}
               variant="body2">
               {featuredPost.author.name}
-            </Typography>{' '}
+            </Typography>
             | {date}
           </Typography>
           <Typography

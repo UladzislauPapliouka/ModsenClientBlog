@@ -21,8 +21,6 @@ const HomePage = (): JSX.Element => {
 
   const postsByAuthor = getAuthorsPosts(router.query.index as string);
 
-  if (!author) return <div />;
-
   if (!author) {
     return (
       <ContentContainer>

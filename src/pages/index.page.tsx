@@ -80,14 +80,14 @@ const HomePage = (): JSX.Element => {
             <Typography
               className={styles.postInfo}
               variant="body1">
-              By{' '}
+              By
               <Typography
                 className={styles.author}
                 variant="body1">
                 <Link href={`${routes.author}/${lastPost.author.id}`}>
                   {lastPost.author.name}
                 </Link>
-              </Typography>{' '}
+              </Typography>
               | {dateFeatured}
             </Typography>
             <Typography
@@ -119,14 +119,14 @@ const HomePage = (): JSX.Element => {
             <Typography
               className={styles.postInfo}
               variant="body2">
-              By{' '}
+              By
               <Link href={`${routes.author}/${featuredPost.author.id}`}>
                 <Typography
                   className={styles.author}
                   variant="body2">
                   {featuredPost.author.name}
                 </Typography>
-              </Link>{' '}
+              </Link>
               | {date}
             </Typography>
             <Typography variant="head2">{featuredPost.title}</Typography>

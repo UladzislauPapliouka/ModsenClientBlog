@@ -2,6 +2,7 @@ import i18n from 'i18next';
 
 import { type IPost, type IPostWithId } from '@/types';
 import authors from '@constants/authors';
+import PAGE_SIZE from '@constants/numbers';
 
 export const addPostId = (
   postId: string,
@@ -32,19 +33,23 @@ export const getPagePosts = (page = 1) => {
 
   const allPostsLength = postsArray.length;
 
-  let currPos = (page - 1) * 4;
+  let firstPostPosition = (page - 1) * PAGE_SIZE;
 
-  while (currPos >= allPostsLength) {
-    currPos -= allPostsLength;
+  while (firstPostPosition >= allPostsLength) {
+    firstPostPosition -= allPostsLength;
+  }
+  firstPostPosition -=
+    allPostsLength * (Math.floor(allPostsLength / PAGE_SIZE) - 1);
+
+  if (allPostsLength - firstPostPosition < PAGE_SIZE) {
+    const take = allPostsLength - firstPostPosition;
+
+    return postsArray
+      .slice(-take)
+      .concat(postsArray.slice(0, PAGE_SIZE - take));
   }
 
-  if (allPostsLength - currPos < 4) {
-    const take = allPostsLength - currPos;
-
-    return postsArray.slice(-take).concat(postsArray.slice(0, 4 - take));
-  }
-
-  return postsArray.slice(currPos, currPos + 4);
+  return postsArray.slice(firstPostPosition, firstPostPosition + PAGE_SIZE);
 };
 export const getLastPost = () => {
   const postsArray = getPostsWithId();

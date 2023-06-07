@@ -20,6 +20,12 @@ const BlogPost = (): JSX.Element => {
 
   const [t] = useTranslation();
 
+  const currentPost = i18n.getResourceBundle(i18n.language, '').postsAra[
+    router.query.postId as string
+  ] as IPost;
+
+  const { title, date, image, author, category, text } = currentPost;
+
   if (!router.query.postId) {
     return <div />;
   }
@@ -31,12 +37,6 @@ const BlogPost = (): JSX.Element => {
       </ContentContainer>
     );
   }
-
-  const currentPost = i18n.getResourceBundle(i18n.language, '').postsAra[
-    router.query.postId as string
-  ] as IPost;
-
-  const { title, date, image, author, category, text } = currentPost;
 
   return (
     <div>
