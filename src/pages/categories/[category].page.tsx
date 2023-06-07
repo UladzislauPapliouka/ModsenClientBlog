@@ -1,16 +1,20 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState, useTransition } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import Search from 'components/Search';
 import { type Router, useRouter } from 'next/router';
 
-import { Categories, Tags } from '@/types';
+import { Categories, type IPostWithId, Tags } from '@/types';
+import Button from '@components/Button';
 import CategoriesList from '@components/CategoriesList';
 import PostCard from '@components/PostCard';
 import Tag from '@components/Tag';
 import Typography from '@components/Typography';
+import PAGE_SIZE from '@constants/numbers';
 import ContentContainer from '@containers/ContentContainer';
-import { getPagePosts, getPostsWithId } from '@services/posts';
+import { getPagePosts, getPosts, getPostsWithId } from '@services/posts';
 import { changeTags, filterTagsValue } from '@services/tags';
 
 import styles from './category.module.scss';
@@ -18,11 +22,41 @@ import styles from './category.module.scss';
 const BlogPost = (): JSX.Element => {
   const router = useRouter();
 
+  const [posts, setPosts] = useState<IPostWithId[]>([]);
+
+  const [page, setPage] = useState(1);
+
+  const [isAllPost, setIsAllPosts] = useState(false);
+
+  const [isLoading, setLoading] = useState(false);
+
   const [t] = useTranslation();
 
-  if (!router.query.category) {
-    return <div />;
-  }
+  const { tags, category } = router.query;
+
+  useEffect(() => {
+    const posts = getPosts(
+      (tags as string)?.split('&') ?? [],
+      category as string,
+    ).slice(0, PAGE_SIZE);
+
+    setIsAllPosts(posts.length === 0);
+    setPosts(posts);
+  }, [category]);
+  const loadMorePosts = () => {
+    setLoading(true);
+    setTimeout(() => {
+      const posts = getPosts(
+        (tags as string)?.split('&') ?? [],
+        category as string,
+      ).slice(page * PAGE_SIZE, page + 1 * PAGE_SIZE);
+
+      setIsAllPosts(posts.length === 0);
+      setPosts((prevState) => prevState.concat(posts));
+      setPage(page + 1);
+      setLoading(false);
+    }, 1500);
+  };
 
   if (
     !Object.values(Categories).includes(router.query.category as Categories)
@@ -50,33 +84,6 @@ const BlogPost = (): JSX.Element => {
     }
   };
 
-  const { tags, category } = router.query;
-
-  function contains(where: string[], what: string[]) {
-    if (!what || !what.length || what[0] === '') return true;
-
-    if (!where || !what.length) return false;
-
-    for (let i = 0; i < what.length; i += 1) {
-      if (!where.includes(what[i])) return false;
-    }
-
-    return true;
-  }
-
-  const getPosts = (tags: string[]) => {
-    if (!tags.length || !tags) {
-      return getPostsWithId().filter((post) => post.category === category);
-    }
-
-    return getPostsWithId().filter(
-      (post) =>
-        contains(post.tags as string[], tags) && post.category === category,
-    );
-  };
-
-  const posts = getPosts((tags as string)?.split('&') ?? []);
-
   return (
     <div>
       <div className={styles.pageHeader}>
@@ -103,7 +110,12 @@ const BlogPost = (): JSX.Element => {
               />
             ))
           ) : (
-            <Typography variant="head5">test</Typography>
+            <Typography variant="head5">There are no posts</Typography>
+          )}
+          {!isAllPost && (
+            <Button onClick={loadMorePosts}>
+              {isLoading ? 'Loading' : 'Load more'}
+            </Button>
           )}
         </div>
 

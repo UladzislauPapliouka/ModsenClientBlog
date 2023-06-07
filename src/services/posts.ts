@@ -60,3 +60,26 @@ export const getLastPost = () => {
 };
 export const getAuthorsPosts = (authorId: string | number) =>
   getPostsWithId().filter((post) => post.author === authors[authorId]);
+
+function contains(where: string[], what: string[]) {
+  if (!what || !what.length || what[0] === '') return true;
+
+  if (!where || !what.length) return false;
+
+  for (let i = 0; i < what.length; i += 1) {
+    if (!where.includes(what[i])) return false;
+  }
+
+  return true;
+}
+
+export const getPosts = (tags: string[], category: string) => {
+  if (!tags.length || !tags) {
+    return getPostsWithId().filter((post) => post.category === category);
+  }
+
+  return getPostsWithId().filter(
+    (post) =>
+      contains(post.tags as string[], tags) && post.category === category,
+  );
+};
