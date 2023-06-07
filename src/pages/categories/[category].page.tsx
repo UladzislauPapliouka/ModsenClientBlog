@@ -24,8 +24,6 @@ const BlogPost = (): JSX.Element => {
 
   const [posts, setPosts] = useState<IPostWithId[]>([]);
 
-  const [page, setPage] = useState(1);
-
   const [isAllPost, setIsAllPosts] = useState(false);
 
   const [isLoading, setLoading] = useState(false);
@@ -42,18 +40,17 @@ const BlogPost = (): JSX.Element => {
 
     setIsAllPosts(posts.length === 0);
     setPosts(posts);
-  }, [category]);
+  }, [category, tags]);
   const loadMorePosts = () => {
     setLoading(true);
     setTimeout(() => {
       const posts = getPosts(
         (tags as string)?.split('&') ?? [],
         category as string,
-      ).slice(page * PAGE_SIZE, page + 1 * PAGE_SIZE);
+      ).slice(PAGE_SIZE);
 
-      setIsAllPosts(posts.length === 0);
+      setIsAllPosts(true);
       setPosts((prevState) => prevState.concat(posts));
-      setPage(page + 1);
       setLoading(false);
     }, 1500);
   };
