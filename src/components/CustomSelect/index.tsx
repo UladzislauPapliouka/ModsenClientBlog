@@ -31,7 +31,7 @@ const CustomSelect = <T extends { toString: () => string }>({
     };
   }, [selectRef]);
   const toggleSelect = () => {
-    setIsActive((prevState) => !prevState);
+    setIsActive((prevStatus) => !prevStatus);
   };
 
   const handleChangeSelected = (value: T) => {

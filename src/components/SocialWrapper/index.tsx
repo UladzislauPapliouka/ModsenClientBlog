@@ -20,15 +20,17 @@ const icons: Record<string, () => JSX.Element> = {
 
 const SocialWrapper = ({ links }: ISocialProps) => (
   <div className={styles.wrapper}>
-    {Object.entries(links).map(([key, value]) =>
-      key && value ? (
-        <Link
-          key={key}
-          target="_blank"
-          href={value}>
-          {icons[key]()}
-        </Link>
-      ) : null,
+    {Object.entries(links).map(
+      ([key, value]) =>
+        key &&
+        value && (
+          <Link
+            key={key}
+            target="_blank"
+            href={value}>
+            {icons[key]()}
+          </Link>
+        ),
     )}
   </div>
 );
