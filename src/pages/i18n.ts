@@ -44,6 +44,7 @@ const resources = {
           'Subscribe to our news letter to get latest updates and news',
         Subscribe: 'Subscribe',
         Placeholder: 'Enter Your Email',
+        address: 'Finstreet 118 2561 Fintown Hello@finsweet.com 020 7993 2905',
       },
       privacyPolicy: {
         pageTitle: 'Privacy Policy',
@@ -256,6 +257,7 @@ const resources = {
           'Подпишитесь на нашу новостную рассылку, чтобы получать последние обновления и новости',
         Subscribe: 'Подписаться',
         Placeholder: 'Введите вашу почту',
+        address: 'Финстрит 118 2561 Финтаун Hello@finsweet.com 020 7993 2905',
       },
       privacyPolicy: {
         pageTitle: 'Политика конфеденциальности',

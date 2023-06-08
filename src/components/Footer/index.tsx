@@ -108,9 +108,7 @@ const Footer = () => {
         </Formik>
       </ContentContainer>
       <ContentContainer className={styles.socialBlock}>
-        <Typography variant="body1">
-          Finstreet 118 2561 Fintown Hello@finsweet.com 020 7993 2905
-        </Typography>
+        <Typography variant="body1">{t('footer.address')}</Typography>
         <SocialWrapper links={socialLink} />
       </ContentContainer>
     </div>

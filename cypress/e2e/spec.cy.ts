@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-import { wait } from 'next/dist/build/output/log';
 
 describe('template spec', () => {
   it('Navigation', () => {

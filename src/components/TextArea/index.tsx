@@ -22,4 +22,4 @@ const TextArea = ({
   </div>
 );
 
-export default TextArea;
+export default React.memo(TextArea);

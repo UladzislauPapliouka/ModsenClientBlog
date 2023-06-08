@@ -22,4 +22,4 @@ const Link = ({
   );
 };
 
-export default Link;
+export default React.memo(Link);

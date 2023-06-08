@@ -17,4 +17,4 @@ const Typography = ({
   </span>
 );
 
-export default Typography;
+export default React.memo(Typography);

@@ -23,4 +23,4 @@ const CategoriesList: FC<ICategoryList> = ({ small, currentLabel }) => (
   </div>
 );
 
-export default CategoriesList;
+export default React.memo(CategoriesList);

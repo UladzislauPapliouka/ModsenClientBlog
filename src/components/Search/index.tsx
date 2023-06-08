@@ -81,4 +81,4 @@ const Search: FC<ISearch> = ({ onChoose, variants, placeholder }) => {
   );
 };
 
-export default Search;
+export default React.memo(Search);

@@ -13,22 +13,22 @@ import styles from './blogPostInfo.module.scss';
 const BlogPostInfo: FC<IBlogPostInfo> = ({
   postedDate,
   postTitle,
-  author,
   category,
+  author: { avatar, id, name },
 }) => (
   <div className={styles.blogPostInfo}>
     <div className={styles.authorAndTime}>
       <div className={styles.imageContainer}>
         <Image
-          src={author.avatar}
+          src={avatar}
           alt="Author image"
         />
       </div>
-      <Link href={`${routes.author}/${author.id}`}>
+      <Link href={`${routes.author}/${id}`}>
         <Typography
           className={styles.authorName}
           variant="head3">
-          {author.name}
+          {name}
         </Typography>
       </Link>
       <Typography
@@ -44,4 +44,4 @@ const BlogPostInfo: FC<IBlogPostInfo> = ({
   </div>
 );
 
-export default BlogPostInfo;
+export default React.memo(BlogPostInfo);

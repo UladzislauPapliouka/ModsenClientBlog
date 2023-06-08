@@ -103,4 +103,4 @@ const PostCard: FC<IPostcard> = ({
   }
 };
 
-export default PostCard;
+export default React.memo(PostCard);

@@ -19,4 +19,4 @@ const Input = ({
   </div>
 );
 
-export default Input;
+export default React.memo(Input);
