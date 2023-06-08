@@ -19,23 +19,33 @@ import ContentContainer from '@containers/ContentContainer';
 
 import styles from './footer.module.scss';
 
+const footerRouter = [
+  Routes.Home,
+  Routes.Blog,
+  Routes['About Us'],
+  Routes['Contact Us'],
+  Routes['Privacy Policy'],
+];
+
 const Footer = () => {
-  const router = useRouter();
+  const { locale } = useRouter();
 
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    i18n.changeLanguage(router.locale === 'en' ? 'en' : 'ru').catch(() => null);
-  }, [router.locale]);
+    i18n.changeLanguage(locale === 'en' ? 'en' : 'ru').catch(() => null);
+  }, [locale]);
 
   return (
     <div className={styles.footer}>
       <Header>
-        <Link href={Routes.Home}>{t('links.Home')}</Link>
-        <Link href={Routes.Blog}>{t('links.Blog')}</Link>
-        <Link href={Routes['About Us']}>{t('links.About Us')}</Link>
-        <Link href={Routes['Contact Us']}>{t('links.Contact Us')}</Link>
-        <Link href={Routes['Privacy Policy']}>{t('links.Privacy Policy')}</Link>
+        {footerRouter.map((route) => (
+          <Link
+            key={route}
+            href={route}>
+            {t(`links.${route}`)}
+          </Link>
+        ))}
       </Header>
       <ContentContainer>
         <Formik

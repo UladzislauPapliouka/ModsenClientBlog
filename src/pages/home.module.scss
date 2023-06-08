@@ -178,6 +178,8 @@
         & > img {
           width: $size64;
           height: $size64;
+          object-fit: cover;
+          border-radius: $size128;
           aspect-ratio: 1/1;
         }
         @include flex(null, null, null, $gap16);

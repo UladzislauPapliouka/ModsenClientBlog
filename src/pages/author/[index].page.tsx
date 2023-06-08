@@ -13,13 +13,13 @@ import { getAuthorsPosts } from '@services/posts';
 import styles from './author.module.scss';
 
 const HomePage = (): JSX.Element => {
-  const router = useRouter();
+  const { query } = useRouter();
 
   const [t] = useTranslation();
 
-  const author = authors[router.query.index as string];
+  const author = authors[query.index as string];
 
-  const postsByAuthor = getAuthorsPosts(router.query.index as string);
+  const postsByAuthor = getAuthorsPosts(query.index as string);
 
   if (!author) {
     return (

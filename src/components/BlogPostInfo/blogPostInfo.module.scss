@@ -15,6 +15,7 @@
         width: $size48;
         height: auto;
         aspect-ratio: 1;
+        object-fit: cover;
         border-radius: $size80;
       }
       grid-area: i;

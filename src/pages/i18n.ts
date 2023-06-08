@@ -32,11 +32,11 @@ const resources = {
         buttonText: 'Join Us',
       },
       links: {
-        Home: 'Home',
-        Blog: 'Blog',
-        'About Us': 'About Us',
-        'Contact Us': 'Contact us',
-        'Privacy Policy': 'Privacy Policy',
+        '/': 'Home',
+        '/blog': 'Blog',
+        '/about': 'About Us',
+        '/contact': 'Contact us',
+        '/privacy': 'Privacy Policy',
         Video: 'Video about us',
       },
       footer: {
@@ -244,11 +244,11 @@ const resources = {
         buttonText: 'Присоедениться',
       },
       links: {
-        Home: 'Главная',
-        Blog: 'Блог',
-        'About Us': 'О нас',
-        'Contact Us': 'Контакты',
-        'Privacy Policy': 'Политика конфеденциальности',
+        '/': 'Главная',
+        '/blog': 'Блог',
+        '/about': 'О Нас',
+        '/contact': 'Контакты',
+        '/privacy': 'Политика конфеденциальности',
         Video: 'Видео о нас',
       },
       footer: {

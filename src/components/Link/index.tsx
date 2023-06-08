@@ -9,13 +9,13 @@ const Link = ({
   children,
   ...restProps
 }: PropsWithChildren<LinkProps>) => {
-  const router = useRouter();
+  const { pathname } = useRouter();
 
   return (
     <NextLink
       data-cy={`LINK_TO_${href as string}`}
       href={href}
-      className={`${styles.link} ${router.pathname === href && styles.active}`}
+      className={`${styles.link} ${pathname === href && styles.active}`}
       {...restProps}>
       {children}
     </NextLink>

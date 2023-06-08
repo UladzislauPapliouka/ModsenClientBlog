@@ -16,24 +16,26 @@ import { getWhatToReadNext } from '@services/posts';
 import styles from './blogpost.module.scss';
 
 const BlogPost = (): JSX.Element => {
-  const router = useRouter();
+  const {
+    query: { postId },
+  } = useRouter();
 
   const [t] = useTranslation();
 
-  if (!router.query.postId) {
+  if (!postId) {
     return <div />;
   }
 
-  if (!postsEn[router.query.postId as string]) {
+  if (!postsEn[postId as string]) {
     return (
       <ContentContainer>
-        <Typography variant="head1">{`Post ${router.query.postId}  doesn't exist`}</Typography>
+        <Typography variant="head1">{`Post ${postId}  doesn't exist`}</Typography>
       </ContentContainer>
     );
   }
 
   const currentPost = i18n.getResourceBundle(i18n.language, '').postsAra[
-    router.query.postId as string
+    postId as string
   ] as IPost;
 
   const { title, date, image, author, category, text } = currentPost;

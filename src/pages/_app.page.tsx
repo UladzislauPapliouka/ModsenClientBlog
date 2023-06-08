@@ -13,6 +13,7 @@ import Header from '@components/Header';
 import Link from '@components/Link';
 import ModalFC from '@components/Modal';
 import Typography from '@components/Typography';
+import envVariables from '@constants/envVariables';
 import Routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
 
@@ -21,17 +22,28 @@ import './i18n';
 import '../styles/global.scss';
 import styles from './_app.module.scss';
 
+const headerRoutes = [
+  Routes.Home,
+  Routes.Blog,
+  Routes['About Us'],
+  Routes['Contact Us'],
+];
+
 const App = ({ Component, pageProps }: AppProps) => {
   if (!process.browser) React.useLayoutEffect = React.useEffect;
 
-  const router = useRouter();
+  const { locale, pathname, query } = useRouter();
 
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    i18n.changeLanguage(router.locale === 'en' ? 'en' : 'ru').catch(() => null);
-  }, [router.locale]);
+    i18n.changeLanguage(locale === 'en' ? 'en' : 'ru').catch(() => null);
+  }, [locale]);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  const toggleIsVideoOpen = () => {
+    setIsVideoOpen(!isVideoOpen);
+  };
 
   return (
     <div className={styles.app}>
@@ -40,25 +52,23 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <ErrorBoundary>
         <Header>
-          <Link href={Routes.Home}>{t('links.Home')}</Link>
-          <Link href={Routes.Blog}>{t('links.Blog')}</Link>
-          <Link href={Routes['About Us']}>{t('links.About Us')}</Link>
-          <Link href={Routes['Contact Us']}>{t('links.Contact Us')}</Link>
+          {headerRoutes.map((route) => (
+            <Link
+              key={route}
+              href={route}>
+              {t(`links.${route}`)}
+            </Link>
+          ))}
           <Button
-            onClick={() => {
-              setIsVideoOpen(true);
-            }}
+            onClick={toggleIsVideoOpen}
             variant="secondary">
             <Typography variant="head4">{t('links.Video')}</Typography>
           </Button>
           {isVideoOpen && (
-            <ModalFC
-              handleClose={() => {
-                setIsVideoOpen(false);
-              }}>
+            <ModalFC handleClose={toggleIsVideoOpen}>
               <ContentContainer className={styles.video}>
                 <YouTube
-                  videoId="heYPCc8M3VI"
+                  videoId={envVariables.NEXT_PUBLIC_VIDEO_ID}
                   opts={{
                     playerVars: {
                       autoplay: 1,
@@ -73,11 +83,11 @@ const App = ({ Component, pageProps }: AppProps) => {
             variant="head5">
             <Link
               href={{
-                pathname: router.pathname,
-                query: router.query,
+                pathname,
+                query,
               }}
-              locale={router.locale === 'en' ? 'ru' : 'en'}>
-              {router.locale?.toUpperCase()}
+              locale={locale === 'en' ? 'ru' : 'en'}>
+              {locale?.toUpperCase()}
             </Link>
           </Typography>
         </Header>
