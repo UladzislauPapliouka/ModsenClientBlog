@@ -42,7 +42,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const toggleIsVideoOpen = () => {
-    setIsVideoOpen(!isVideoOpen);
+    setIsVideoOpen((prevState) => !prevState);
   };
 
   return (

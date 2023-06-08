@@ -18,29 +18,38 @@ import { getFeaturedPost, getPagePosts } from '@services/posts';
 import styles from './blog.module.scss';
 
 const BlogPage = () => {
-  const featuredPost = getFeaturedPost();
+  const {
+    text,
+    author: { name },
+    date,
+    image,
+    id,
+    title,
+  } = getFeaturedPost();
 
   const router = useRouter();
 
+  const {
+    pathname,
+    query: { page },
+  } = router;
+
   const [t, i18n] = useTranslation();
 
-  const [date, setDate] = useState('');
+  const [parsedDate, setParsedDate] = useState('');
 
   useEffect(() => {
-    setDate(
-      moment(featuredPost.date).locale(i18n.language).format('MMM DD, YYYY'),
-    );
+    setParsedDate(moment(date).locale(i18n.language).format('MMM DD, YYYY'));
   }, [i18n.language]);
   const goToNextPage = () => {
     router
       .push(
         {
-          pathname: router.pathname,
+          pathname,
           query: {
             page:
-              router.query.page &&
-              Number.parseInt(router.query.page as string, 10) > 1
-                ? Number.parseInt(router.query.page as string, 10) - 1
+              page && Number.parseInt(page as string, 10) > 1
+                ? Number.parseInt(page as string, 10) - 1
                 : 1,
           },
         },
@@ -54,11 +63,9 @@ const BlogPage = () => {
     router
       .push(
         {
-          pathname: router.pathname,
+          pathname,
           query: {
-            page: router.query.page
-              ? Number.parseInt(router.query.page as string, 10) + 1
-              : 2,
+            page: page ? Number.parseInt(page as string, 10) + 1 : 2,
           },
         },
         undefined,
@@ -72,7 +79,7 @@ const BlogPage = () => {
       <ContentContainer className={styles.featuredPost}>
         <div className={styles.featuredInfo}>
           <Typography variant="head6">{t('posts.featuredPost')}</Typography>
-          <Typography variant="head2">{featuredPost.title}</Typography>
+          <Typography variant="head2">{title}</Typography>
           <Typography
             className={styles.postInfo}
             variant="body2">
@@ -80,16 +87,16 @@ const BlogPage = () => {
             <Typography
               className={styles.author}
               variant="body2">
-              {featuredPost.author.name}
+              {name}
             </Typography>
-            | {date}
+            | {parsedDate}
           </Typography>
           <Typography
             className={styles.postText}
             variant="body1">
-            {featuredPost.text[0][1]}
+            {text[0][1]}
           </Typography>
-          <Link href={`${routes.Blog}/${featuredPost.id}`}>
+          <Link href={`${routes.Blog}/${id}`}>
             <Button>
               <Typography variant="head5">
                 {t('posts.readMore')} {'>'}
@@ -99,7 +106,7 @@ const BlogPage = () => {
         </div>
         <div className={styles.featuredImage}>
           <Image
-            src={featuredPost.image}
+            src={image}
             alt="Featured"
           />
         </div>
@@ -108,15 +115,15 @@ const BlogPage = () => {
         <Typography variant="head1">{t('posts.allPosts')}</Typography>
         <hr className={styles.devider} />
         <div className={styles.postsContainer}>
-          {getPagePosts(
-            Number.parseInt(router.query.page as string, 10) || 1,
-          ).map((post) => (
-            <PostCard
-              key={post.id}
-              variant="large"
-              post={post}
-            />
-          ))}
+          {getPagePosts(Number.parseInt(page as string, 10) || 1).map(
+            (post) => (
+              <PostCard
+                key={post.id}
+                variant="large"
+                post={post}
+              />
+            ),
+          )}
         </div>
         <div className={styles.pagination}>
           <Typography

@@ -10,7 +10,7 @@ const Header = ({ children }: PropsWithChildren) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleIsActive = () => {
-    setIsActive(!isActive);
+    setIsActive((prevState) => !prevState);
   };
 
   return (

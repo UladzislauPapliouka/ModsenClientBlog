@@ -50,9 +50,7 @@ const BlogPost = (): JSX.Element => {
     }, 1500);
   };
 
-  if (
-    !Object.values(Categories).includes(router.query.category as Categories)
-  ) {
+  if (!Object.values(Categories).includes(category as Categories)) {
     return (
       <ContentContainer>
         <Typography variant="head1">{`We don't have such category`}</Typography>
@@ -61,14 +59,10 @@ const BlogPost = (): JSX.Element => {
   }
 
   const addTagFilter = (tagName: `${Tags}`) => {
-    const { tags } = router.query;
-
     if (!tags?.includes(tagName)) {
       changeTags(
         'tags',
-        !router.query.tags
-          ? tagName
-          : (router.query.tags.concat('&', tagName) as string),
+        !tags ? tagName : (tags.concat('&', tagName) as string),
         router,
       );
     } else if (typeof tags === 'string') {
@@ -81,13 +75,13 @@ const BlogPost = (): JSX.Element => {
       <div className={styles.pageHeader}>
         <ContentContainer variant="variant2">
           <Typography variant="head1">
-            {t(`categories.${router.query.category}.title`)}
+            {t(`categories.${category}.title`)}
           </Typography>
           <Typography variant="body1">
-            {t(`categories.${router.query.category}.text`)}
+            {t(`categories.${category}.text`)}
           </Typography>
           <Typography variant="head6">{`${t('category.blog')} > ${t(
-            `categories.${router.query.category}.title`,
+            `categories.${category}.title`,
           )}`}</Typography>
         </ContentContainer>
       </div>
@@ -122,7 +116,7 @@ const BlogPost = (): JSX.Element => {
           />
           <Typography variant="head2">{t('category.categories')}</Typography>
           <CategoriesList
-            currentLabel={router.query.category as `${Categories}`}
+            currentLabel={category as `${Categories}`}
             small
           />
           <Typography variant="head2">{t('category.allTags')}</Typography>

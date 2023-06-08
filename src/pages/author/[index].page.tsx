@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
@@ -13,21 +15,23 @@ import { getAuthorsPosts } from '@services/posts';
 import styles from './author.module.scss';
 
 const HomePage = (): JSX.Element => {
-  const { query } = useRouter();
+  const {
+    query: { index },
+  } = useRouter();
 
   const [t] = useTranslation();
 
-  const author = authors[query.index as string];
-
-  const postsByAuthor = getAuthorsPosts(query.index as string);
-
-  if (!author) {
+  if (!authors[index as string]) {
     return (
       <ContentContainer>
         <Typography variant="head1">{`We don't know him`}</Typography>
       </ContentContainer>
     );
   }
+
+  const { name, avatar, social, description } = authors[index as string];
+
+  const postsByAuthor = getAuthorsPosts(index as string);
 
   return (
     <div>
@@ -37,16 +41,14 @@ const HomePage = (): JSX.Element => {
         <div className={styles.info}>
           <figure>
             <Image
-              src={author.avatar}
+              src={avatar}
               alt="Avatar"
             />
           </figure>
           <div className={styles.authorInfo}>
-            <Typography variant="head2">
-              {t('author.hi', { name: author.name })}
-            </Typography>
-            <Typography variant="body1">{author.description}</Typography>
-            <SocialWrapper links={author.social} />
+            <Typography variant="head2">{t('author.hi', { name })}</Typography>
+            <Typography variant="body1">{description}</Typography>
+            <SocialWrapper links={social} />
           </div>
         </div>
       </ContentContainer>
