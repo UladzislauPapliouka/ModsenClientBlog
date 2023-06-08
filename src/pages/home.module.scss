@@ -48,9 +48,12 @@
     .featuredInfo {
       .featuredImage {
         width: 100%;
+        height: auto;
         & > img {
           width: 100%;
           object-fit: cover;
+          aspect-ratio: $aspectRatio1;
+          height: auto;
         }
       }
       padding: $gap32;

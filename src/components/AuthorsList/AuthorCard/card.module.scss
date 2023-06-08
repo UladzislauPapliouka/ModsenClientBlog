@@ -10,11 +10,11 @@
   .avatar {
     max-width: $size128;
     width: 100%;
-    border-radius: $size405;
-    aspect-ratio: 1;
     & > img {
       width: 100%;
+      border-radius: $size405;
       object-fit: cover;
+      aspect-ratio: 1;
       height: auto;
     }
   }
