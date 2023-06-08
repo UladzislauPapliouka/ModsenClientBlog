@@ -75,7 +75,6 @@ const HomePage = (): JSX.Element => {
         return;
       }
 
-      console.log('finish');
       pageLoader.next();
     };
 
