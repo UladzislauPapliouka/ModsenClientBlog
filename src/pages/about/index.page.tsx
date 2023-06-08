@@ -2,6 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 
+import aboutUsText from '@/pages/about/config';
+import { type typographyVariants } from '@/types';
 import hands from '@assets/images/ground-group-growth-hands-461049.png';
 import mainPhoto from '@assets/images/photo-of-woman-wearing-eyeglasses-31844054.png';
 import people from '@assets/images/three-persons-sitting-on-the-stairs-talking-with-each-other-1438072.png';
@@ -66,18 +68,22 @@ const HomePage = (): JSX.Element => {
       </ContentContainer>
       <ContentContainer className={styles.aboutUs}>
         <div>
-          <Typography variant="head6">{t('aboutUs.mission.title1')}</Typography>
-          <Typography variant="head2">
-            {t('aboutUs.mission.subtitle1')}
-          </Typography>
-          <Typography variant="body1">{t('aboutUs.mission.text1')}</Typography>
+          {aboutUsText.blockOne.map(([variant, text]) => (
+            <Typography
+              key={text}
+              variant={variant as `${typographyVariants}`}>
+              {t(`aboutUs.mission.${text}`)}
+            </Typography>
+          ))}
         </div>
         <div>
-          <Typography variant="head6">{t('aboutUs.mission.title2')}</Typography>
-          <Typography variant="head3">
-            {t('aboutUs.mission.subtitle2')}
-          </Typography>
-          <Typography variant="body1">{t('aboutUs.mission.text2')}</Typography>
+          {aboutUsText.blockTwo.map(([variant, text]) => (
+            <Typography
+              key={text}
+              variant={variant as `${typographyVariants}`}>
+              {t(`aboutUs.mission.${text}`)}
+            </Typography>
+          ))}
         </div>
       </ContentContainer>
       <ContentContainer className={styles.description}>
