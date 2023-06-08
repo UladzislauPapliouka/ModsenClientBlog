@@ -57,44 +57,6 @@ const HomePage = (): JSX.Element => {
       moment(featuredPost.date).locale(i18n.language).format('MMM DD, YYYY'),
     );
   }, [i18n.language]);
-  useEffect(() => {
-    postBlogRef.current?.hide();
-    aboutUsRef.current?.hide();
-    categoriesRef.current?.hide();
-    whyWeStartedRef.current?.hide();
-    authorsRef.current?.hide();
-    testimonialsRef.current?.hide();
-  }, []);
-  useEffect(() => {
-    const loadNextPart = () => {
-      if (
-        contentRef.current!.getBoundingClientRect().height -
-          (window.innerHeight + document.documentElement.scrollTop) >
-        200
-      ) {
-        return;
-      }
-
-      pageLoader.next();
-    };
-
-    window.addEventListener('scroll', loadNextPart);
-
-    return () => {
-      window.removeEventListener('scroll', loadNextPart);
-    };
-  }, []);
-  function* loadContent() {
-    yield postBlogRef.current?.show();
-    yield aboutUsRef.current?.show();
-    yield categoriesRef.current?.show();
-    yield whyWeStartedRef.current?.show();
-    yield authorsRef.current?.show();
-
-    return testimonialsRef.current?.show();
-  }
-
-  const pageLoader = loadContent();
 
   const nextTestimonal = () => {
     const lenth = testimonials.length;
