@@ -5,12 +5,15 @@ import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import Button from '@components/Button';
-import CategoriesList from '@components/CategoriesList';
-import JoinUs from '@components/JoinUs';
-import Link from '@components/Link';
-import PostCard from '@components/PostCard';
-import Typography from '@components/Typography';
+import {
+  Button,
+  CategoriesList,
+  JoinUs,
+  Link,
+  PostCard,
+  Typography,
+} from '@components';
+import { FIRST_PAGE_INDEX, SECOND_PAGE_INDEX } from '@constants/numbers';
 import routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
 import { getFeaturedPost, getPagePosts } from '@services/posts';
@@ -41,7 +44,7 @@ const BlogPage = () => {
   useEffect(() => {
     setParsedDate(moment(date).locale(i18n.language).format('MMM DD, YYYY'));
   }, [i18n.language]);
-  const goToNextPage = () => {
+  const goToPrevPage = () => {
     router
       .push(
         {
@@ -50,7 +53,7 @@ const BlogPage = () => {
             page:
               page && Number.parseInt(page as string, 10) > 1
                 ? Number.parseInt(page as string, 10) - 1
-                : 1,
+                : FIRST_PAGE_INDEX,
           },
         },
         undefined,
@@ -59,13 +62,15 @@ const BlogPage = () => {
       .catch(() => toast.error('Something went wrong...'));
   };
 
-  const goToPrevPage = () => {
+  const goToNextPage = () => {
     router
       .push(
         {
           pathname,
           query: {
-            page: page ? Number.parseInt(page as string, 10) + 1 : 2,
+            page: page
+              ? Number.parseInt(page as string, 10) + 1
+              : SECOND_PAGE_INDEX,
           },
         },
         undefined,
@@ -128,12 +133,12 @@ const BlogPage = () => {
         <div className={styles.pagination}>
           <Typography
             variant="head4"
-            onClick={goToNextPage}>
+            onClick={goToPrevPage}>
             {`<  ${t('posts.prev')}`}
           </Typography>
           <Typography
             variant="head3"
-            onClick={goToPrevPage}>
+            onClick={goToNextPage}>
             {`${t('posts.next')} >`}
           </Typography>
         </div>

@@ -7,11 +7,9 @@ import Search from 'components/Search';
 import { useRouter } from 'next/router';
 
 import { Categories, type IPostWithId, Tags } from '@/types';
-import CategoriesList from '@components/CategoriesList';
-import PostCard from '@components/PostCard';
+import { CategoriesList, PostCard, Typography } from '@components';
 import Tag from '@components/Tag';
-import Typography from '@components/Typography';
-import PAGE_SIZE from '@constants/numbers';
+import { LOAD_DATA_DELAY, PAGE_SIZE } from '@constants/numbers';
 import ContentContainer from '@containers/ContentContainer';
 import { getPosts } from '@services/posts';
 import { changeTags, filterTagsValue } from '@services/tags';
@@ -47,7 +45,7 @@ const BlogPost = (): JSX.Element => {
 
       setIsAllPosts(true);
       setPosts((prevState) => prevState.concat(posts));
-    }, 1500);
+    }, LOAD_DATA_DELAY);
   };
 
   if (!Object.values(Categories).includes(category as Categories)) {
@@ -101,7 +99,7 @@ const BlogPost = (): JSX.Element => {
                 />
               ))
             ) : (
-              <Typography variant="head5">There are no posts</Typography>
+              <Typography variant="head5">{t('category.no')}</Typography>
             )}
           </InfiniteScroll>
         </div>

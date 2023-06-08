@@ -6,13 +6,15 @@ import { type AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import Button from '@components/Button';
-import ErrorBoundary from '@components/ErrorBoundaries';
-import Footer from '@components/Footer';
-import Header from '@components/Header';
-import Link from '@components/Link';
-import ModalFC from '@components/Modal';
-import Typography from '@components/Typography';
+import {
+  Button,
+  ErrorBoundaries,
+  Footer,
+  Header,
+  Link,
+  Modal,
+  Typography,
+} from '@components';
 import envVariables from '@constants/envVariables';
 import Routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
@@ -50,7 +52,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Modsen client blog</title>
       </Head>
-      <ErrorBoundary>
+      <ErrorBoundaries>
         <Header>
           {headerRoutes.map((route) => (
             <Link
@@ -65,7 +67,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             <Typography variant="head4">{t('links.Video')}</Typography>
           </Button>
           {isVideoOpen && (
-            <ModalFC handleClose={toggleIsVideoOpen}>
+            <Modal handleClose={toggleIsVideoOpen}>
               <ContentContainer className={styles.video}>
                 <YouTube
                   videoId={envVariables.NEXT_PUBLIC_VIDEO_ID}
@@ -76,7 +78,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                   }}
                 />
               </ContentContainer>
-            </ModalFC>
+            </Modal>
           )}
           <Typography
             className={styles.locale}
@@ -94,7 +96,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} />
         <Toaster />
         <Footer />
-      </ErrorBoundary>
+      </ErrorBoundaries>
     </div>
   );
 };

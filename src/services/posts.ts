@@ -2,7 +2,7 @@ import i18n from 'i18next';
 
 import { type IPost, type IPostWithId } from '@/types';
 import authors from '@constants/authors';
-import PAGE_SIZE from '@constants/numbers';
+import { PAGE_SIZE } from '@constants/numbers';
 
 export const addPostId = (
   postId: string,

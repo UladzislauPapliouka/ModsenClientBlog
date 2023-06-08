@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import PostCard from '@components/PostCard';
-import SocialWrapper from '@components/SocialWrapper';
-import Typography from '@components/Typography';
+import { PostCard, SocialWrapper, Typography } from '@components';
 import authors from '@constants/authors';
 import ContentContainer from '@containers/ContentContainer';
 import { getAuthorsPosts } from '@services/posts';

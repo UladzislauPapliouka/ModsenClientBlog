@@ -1,18 +1,19 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment/moment';
 import Image from 'next/image';
 
 import arrow from '@assets/Arrow 1.svg';
 import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
-import AuthorsList from '@components/AuthorsList';
-import blogPostInfo from '@components/BlogPostInfo';
-import Button from '@components/Button';
-import CategoriesList from '@components/CategoriesList';
-import JoinUs from '@components/JoinUs';
-import Link from '@components/Link';
-import PostCard from '@components/PostCard';
-import Typography from '@components/Typography';
+import {
+  AuthorsList,
+  Button,
+  CategoriesList,
+  JoinUs,
+  Link,
+  PostCard,
+  Typography,
+} from '@components';
 import routes from '@constants/routes';
 import testimonials from '@constants/testimonials';
 import ContentContainer from '@containers/ContentContainer';

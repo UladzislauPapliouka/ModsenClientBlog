@@ -5,9 +5,7 @@ import Image from 'next/image';
 import hands from '@assets/images/ground-group-growth-hands-461049.png';
 import mainPhoto from '@assets/images/photo-of-woman-wearing-eyeglasses-31844054.png';
 import people from '@assets/images/three-persons-sitting-on-the-stairs-talking-with-each-other-1438072.png';
-import AuthorsList from '@components/AuthorsList';
-import JoinUs from '@components/JoinUs';
-import Typography from '@components/Typography';
+import { AuthorsList, JoinUs, Typography } from '@components';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './about.module.scss';

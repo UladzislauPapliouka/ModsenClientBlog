@@ -5,10 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { type IPost } from '@/types';
-import BlogPostInfo from '@components/BlogPostInfo';
-import JoinUs from '@components/JoinUs';
-import PostCard from '@components/PostCard';
-import Typography from '@components/Typography';
+import { BlogPostInfo, JoinUs, PostCard, Typography } from '@components';
 import postsEn from '@constants/posts';
 import ContentContainer from '@containers/ContentContainer';
 import { getWhatToReadNext } from '@services/posts';

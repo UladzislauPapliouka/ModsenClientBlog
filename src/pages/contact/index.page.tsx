@@ -5,11 +5,7 @@ import emailjs from '@emailjs/browser';
 import { Formik } from 'formik';
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 
-import Button from '@components/Button';
-import CustomSelect from '@components/CustomSelect';
-import Input from '@components/Input';
-import TextArea from '@components/TextArea';
-import Typography from '@components/Typography';
+import { Button, CustomSelect, Input, TextArea, Typography } from '@components';
 import EnvVariables from '@constants/envVariables';
 import { contactFormSchema } from '@constants/shemes';
 import Subjects from '@constants/subjects';
