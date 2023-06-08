@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment/moment';
 import Image from 'next/image';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import arrow from '@assets/Arrow 1.svg';
 import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
 import AuthorsList from '@components/AuthorsList';
+import blogPostInfo from '@components/BlogPostInfo';
 import Button from '@components/Button';
 import CategoriesList from '@components/CategoriesList';
 import JoinUs from '@components/JoinUs';
@@ -19,6 +20,10 @@ import { getFeaturedPost, getLastPost, getPagePosts } from '@services/posts';
 
 import styles from './home.module.scss';
 
+interface refType {
+  hide: () => void;
+  show: () => void;
+}
 const HomePage = (): JSX.Element => {
   const [t, i18n] = useTranslation();
 
@@ -32,12 +37,66 @@ const HomePage = (): JSX.Element => {
 
   const featuredPost = getFeaturedPost();
 
+  const postBlogRef = useRef<refType>(null);
+
+  const aboutUsRef = useRef<refType>(null);
+
+  const categoriesRef = useRef<refType>(null);
+
+  const whyWeStartedRef = useRef<refType>(null);
+
+  const authorsRef = useRef<refType>(null);
+
+  const testimonialsRef = useRef<refType>(null);
+
+  const contentRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setDate(moment(lastPost.date).locale(i18n.language).format('MMM DD, YYYY'));
     setFeaturedDate(
       moment(featuredPost.date).locale(i18n.language).format('MMM DD, YYYY'),
     );
   }, [i18n.language]);
+  useEffect(() => {
+    postBlogRef.current?.hide();
+    aboutUsRef.current?.hide();
+    categoriesRef.current?.hide();
+    whyWeStartedRef.current?.hide();
+    authorsRef.current?.hide();
+    testimonialsRef.current?.hide();
+  }, []);
+  useEffect(() => {
+    const loadNextPart = () => {
+      if (
+        contentRef.current!.getBoundingClientRect().height -
+          (window.innerHeight + document.documentElement.scrollTop) >
+        200
+      ) {
+        return;
+      }
+
+      console.log('finish');
+      pageLoader.next();
+    };
+
+    window.addEventListener('scroll', loadNextPart);
+
+    return () => {
+      window.removeEventListener('scroll', loadNextPart);
+    };
+  }, []);
+  function* loadContent() {
+    yield postBlogRef.current?.show();
+    yield aboutUsRef.current?.show();
+    yield categoriesRef.current?.show();
+    yield whyWeStartedRef.current?.show();
+    yield authorsRef.current?.show();
+
+    return testimonialsRef.current?.show();
+  }
+
+  const pageLoader = loadContent();
+
   const nextTestimonal = () => {
     const lenth = testimonials.length;
 
@@ -64,50 +123,52 @@ const HomePage = (): JSX.Element => {
 
   return (
     <div className={styles.page}>
-      <div className={styles.mainPost}>
-        <figure className={styles.mainPostImage}>
-          <Image
-            src={lastPost.image}
-            alt="Main"
-          />
-        </figure>
-        <ContentContainer className={styles.lastPost}>
-          <div className={styles.lastPostInfo}>
-            <Typography variant="body1">
-              {t('home.lastPost.postType')}
-            </Typography>
-            <Typography variant="head1">{lastPost.title}</Typography>
-            <Typography
-              className={styles.postInfo}
-              variant="body1">
-              By
-              <Typography
-                className={styles.author}
-                variant="body1">
-                <Link href={`${routes.author}/${lastPost.author.id}`}>
-                  {lastPost.author.name}
-                </Link>
+      <div ref={contentRef}>
+        <div className={styles.mainPost}>
+          <figure className={styles.mainPostImage}>
+            <Image
+              src={lastPost.image}
+              alt="Main"
+            />
+          </figure>
+          <ContentContainer className={styles.lastPost}>
+            <div className={styles.lastPostInfo}>
+              <Typography variant="body1">
+                {t('home.lastPost.postType')}
               </Typography>
-              | {dateFeatured}
-            </Typography>
-            <Typography
-              className={styles.postText}
-              variant="body1">
-              {lastPost.text[0][1]}
-            </Typography>
-            <Link href={`${routes.Blog}/${lastPost.id}`}>
-              <Button>
-                <Typography variant="head5">
-                  {t('posts.readMore')} {'>'}
+              <Typography variant="head1">{lastPost.title}</Typography>
+              <Typography
+                className={styles.postInfo}
+                variant="body1">
+                By
+                <Typography
+                  className={styles.author}
+                  variant="body1">
+                  <Link href={`${routes.author}/${lastPost.author.id}`}>
+                    {lastPost.author.name}
+                  </Link>
                 </Typography>
-              </Button>
-            </Link>
-          </div>
-          <div className={styles.featuredImage} />
-        </ContentContainer>
-      </div>
-      <Suspense fallback="fdfds">
-        <ContentContainer className={styles.postsBlock}>
+                | {dateFeatured}
+              </Typography>
+              <Typography
+                className={styles.postText}
+                variant="body1">
+                {lastPost.text[0][1]}
+              </Typography>
+              <Link href={`${routes.Blog}/${lastPost.id}`}>
+                <Button>
+                  <Typography variant="head5">
+                    {t('posts.readMore')} {'>'}
+                  </Typography>
+                </Button>
+              </Link>
+            </div>
+            <div className={styles.featuredImage} />
+          </ContentContainer>
+        </div>
+        <ContentContainer
+          ref={postBlogRef}
+          className={styles.postsBlock}>
           <div className={styles.featuredBlock}>
             <Typography variant="head2">{t('posts.featuredPost')}</Typography>
             <div className={styles.featuredInfo}>
@@ -163,119 +224,133 @@ const HomePage = (): JSX.Element => {
             </div>
           </div>
         </ContentContainer>
-      </Suspense>
-      <ContentContainer className={styles.aboutUs}>
-        <div className={styles.blocks}>
-          <div>
-            <Typography variant="head6">{t('home.aboutUs.title')}</Typography>
+        <ContentContainer
+          ref={aboutUsRef}
+          className={styles.aboutUs}>
+          <div className={styles.blocks}>
+            <div>
+              <Typography variant="head6">{t('home.aboutUs.title')}</Typography>
+              <Typography variant="head2">
+                {t('home.aboutUs.ourDescriptionTitle')}
+              </Typography>
+              <Typography variant="body1">
+                {t('home.aboutUs.ourDescriptionText')}
+              </Typography>
+              <Link href={routes['About Us']}>
+                <Typography variant="head6">
+                  {t('posts.readMore')} {'>'}
+                </Typography>
+              </Link>
+            </div>
+
+            <div>
+              <Typography variant="head6">
+                {t('home.aboutUs.mission')}
+              </Typography>
+              <Typography variant="head3">
+                {t('home.aboutUs.missionTitle')}
+              </Typography>
+              <Typography variant="body1">
+                {t('home.aboutUs.missionText')}
+              </Typography>
+            </div>
+          </div>
+        </ContentContainer>
+        <ContentContainer
+          ref={categoriesRef}
+          className={styles.categories}>
+          <Typography variant="head1"> {t('home.chooseCategory')}</Typography>
+          <CategoriesList />
+        </ContentContainer>
+        <ContentContainer
+          ref={whyWeStartedRef}
+          className={styles.whyWeStartedBlock}>
+          <div className={styles.whyInfo}>
+            <Typography variant="head6">
+              {t('home.whyWeStarted.why')}
+            </Typography>
             <Typography variant="head2">
-              {t('home.aboutUs.ourDescriptionTitle')}
+              {t('home.whyWeStarted.title')}
             </Typography>
             <Typography variant="body1">
-              {t('home.aboutUs.ourDescriptionText')}
+              {t('home.whyWeStarted.text')}
             </Typography>
-            <Link href={routes['About Us']}>
-              <Typography variant="head6">
-                {t('posts.readMore')} {'>'}
-              </Typography>
+            <Link href={`${routes['About Us']}`}>
+              <Button>
+                <Typography variant="head5">
+                  {t('home.whyWeStarted.button')} {'>'}
+                </Typography>
+              </Button>
             </Link>
           </div>
-
-          <div>
-            <Typography variant="head6">{t('home.aboutUs.mission')}</Typography>
-            <Typography variant="head3">
-              {t('home.aboutUs.missionTitle')}
-            </Typography>
-            <Typography variant="body1">
-              {t('home.aboutUs.missionText')}
-            </Typography>
-          </div>
-        </div>
-      </ContentContainer>
-      <ContentContainer className={styles.categories}>
-        <Typography variant="head1"> {t('home.chooseCategory')}</Typography>
-        <CategoriesList />
-      </ContentContainer>
-      <ContentContainer className={styles.whyWeStartedBlock}>
-        <div className={styles.whyInfo}>
-          <Typography variant="head6">{t('home.whyWeStarted.why')}</Typography>
-          <Typography variant="head2">
-            {t('home.whyWeStarted.title')}
-          </Typography>
-          <Typography variant="body1">{t('home.whyWeStarted.text')}</Typography>
-          <Link href={`${routes['About Us']}`}>
-            <Button>
-              <Typography variant="head5">
-                {t('home.whyWeStarted.button')} {'>'}
+          <figure className={styles.teamImage}>
+            <Image
+              src={image}
+              alt="Team"
+            />
+          </figure>
+        </ContentContainer>
+        <ContentContainer
+          ref={authorsRef}
+          className={styles.authors}>
+          <Typography variant="head2">{t('home.listOfAuthors')}</Typography>
+          <AuthorsList />
+        </ContentContainer>
+        <ContentContainer ref={testimonialsRef}>
+          <div className={styles.testimonials}>
+            <div className={styles.constant}>
+              <Typography variant="head4">
+                {t('home.testimonials.name')}
               </Typography>
-            </Button>
-          </Link>
-        </div>
-        <figure className={styles.teamImage}>
-          <Image
-            src={image}
-            alt="Team"
-          />
-        </figure>
-      </ContentContainer>
-      <ContentContainer className={styles.authors}>
-        <Typography variant="head2">{t('home.listOfAuthors')}</Typography>
-        <AuthorsList />
-      </ContentContainer>
-      <ContentContainer>
-        <div className={styles.testimonials}>
-          <div className={styles.constant}>
-            <Typography variant="head4">
-              {t('home.testimonials.name')}
-            </Typography>
-            <Typography variant="head2">
-              {t('home.testimonials.title')}
-            </Typography>
-            <Typography variant="body1">
-              {t('home.testimonials.text')}
-            </Typography>
-          </div>
-          <div className={styles.comment}>
-            <Typography variant="head5">
-              {testimonials[testimonialIndex].text}
-            </Typography>
-            <div className={styles.lowBlock}>
-              <div className={styles.user}>
-                <Image
-                  src={testimonials[testimonialIndex].image}
-                  alt="Avatar"
-                />
-                <div className={styles.userInfo}>
-                  <Typography variant="head5">
-                    {testimonials[testimonialIndex].author}
-                  </Typography>
-                  <Typography variant="body1">
-                    {testimonials[testimonialIndex].place}
-                  </Typography>
-                </div>
-              </div>
-              <div className={styles.control}>
-                <div
-                  className={styles.back}
-                  onClick={prevTestimonal}>
+              <Typography variant="head2">
+                {t('home.testimonials.title')}
+              </Typography>
+              <Typography variant="body1">
+                {t('home.testimonials.text')}
+              </Typography>
+            </div>
+            <div className={styles.comment}>
+              <Typography variant="head5">
+                {testimonials[testimonialIndex].text}
+              </Typography>
+              <div className={styles.lowBlock}>
+                <div className={styles.user}>
                   <Image
-                    src={arrow}
-                    alt="arrow"
+                    src={testimonials[testimonialIndex].image}
+                    alt="Avatar"
                   />
+                  <div className={styles.userInfo}>
+                    <Typography variant="head5">
+                      {testimonials[testimonialIndex].author}
+                    </Typography>
+                    <Typography variant="body1">
+                      {testimonials[testimonialIndex].place}
+                    </Typography>
+                  </div>
                 </div>
-                <div
-                  className={styles.next}
-                  onClick={nextTestimonal}>
-                  <Image
-                    src={arrow}
-                    alt="arrow"
-                  />
+                <div className={styles.control}>
+                  <div
+                    className={styles.back}
+                    onClick={prevTestimonal}>
+                    <Image
+                      src={arrow}
+                      alt="arrow"
+                    />
+                  </div>
+                  <div
+                    className={styles.next}
+                    onClick={nextTestimonal}>
+                    <Image
+                      src={arrow}
+                      alt="arrow"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </ContentContainer>
+        </ContentContainer>
+      </div>
       <JoinUs />
     </div>
   );
