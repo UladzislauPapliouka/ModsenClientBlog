@@ -7,10 +7,11 @@ import { type typographyVariants } from '@/types';
 import hands from '@assets/images/ground-group-growth-hands-461049.png';
 import mainPhoto from '@assets/images/photo-of-woman-wearing-eyeglasses-31844054.png';
 import people from '@assets/images/three-persons-sitting-on-the-stairs-talking-with-each-other-1438072.png';
-import { AuthorsList, JoinUs, Typography } from '@components';
+import { AuthorsList, JoinUs } from '@components';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './about.module.scss';
+import { Typography } from 'components-wil';
 
 const HomePage = (): JSX.Element => {
   const [t] = useTranslation();

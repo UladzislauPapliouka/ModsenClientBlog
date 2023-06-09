@@ -1,11 +1,11 @@
 import React, { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import Image from 'next/image';
 
 import LabelsIcons from '@assets/labels';
 import { type ICategoryProps } from '@components/CategoriesList/Category/types';
 import Link from '@components/Link';
-import Typography from '@components/Typography';
 import routes from '@constants/routes';
 
 import styles from './category.module.scss';

@@ -5,19 +5,17 @@ import emailjs from '@emailjs/browser';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
 
-import Button from '@components/Button';
 import socialLink from '@components/Footer/footer.config';
 import Header from '@components/Header';
-import Input from '@components/Input';
 import Link from '@components/Link';
 import SocialWrapper from '@components/SocialWrapper';
-import Typography from '@components/Typography';
 import EnvVariables from '@constants/envVariables';
 import Routes from '@constants/routes';
 import { subscribeFormSchema } from '@constants/shemes';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './footer.module.scss';
+import { Button, Input, Typography } from 'components-wil';
 
 const footerRouter = [
   Routes.Home,

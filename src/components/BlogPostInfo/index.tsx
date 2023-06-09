@@ -5,10 +5,10 @@ import Image from 'next/image';
 import type IBlogPostInfo from '@components/BlogPostInfo/types';
 import Label from '@components/Label';
 import Link from '@components/Link';
-import Typography from '@components/Typography';
 import routes from '@constants/routes';
 
 import styles from './blogPostInfo.module.scss';
+import { Typography } from 'components-wil';
 
 const BlogPostInfo: FC<IBlogPostInfo> = ({
   postedDate,

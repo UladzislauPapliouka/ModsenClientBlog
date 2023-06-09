@@ -1,9 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button, Typography } from 'components-wil';
 import Link from 'next/link';
 
-import Button from '@components/Button';
-import Typography from '@components/Typography';
 import routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
 

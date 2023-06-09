@@ -6,11 +6,10 @@ import React, {
   useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button, Typography } from 'components-wil';
 
-import Button from '@components/Button';
 import type ISearch from '@components/Search/types';
 import SelectItemsList from '@components/SelectItemsList';
-import Typography from '@components/Typography';
 
 import styles from './search.module.scss';
 

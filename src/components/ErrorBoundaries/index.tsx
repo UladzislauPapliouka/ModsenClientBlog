@@ -1,6 +1,5 @@
 import React, { Component, type ErrorInfo } from 'react';
-
-import Typography from '@components/Typography';
+import { Typography } from 'components-wil';
 
 import styles from './errorBoudaries.module.scss';
 

@@ -1,11 +1,11 @@
 import React, { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import moment from 'moment';
 import Image from 'next/image';
 
 import Link from '@components/Link';
 import type IPostcard from '@components/PostCard/types';
-import Typography from '@components/Typography';
 import routes from '@constants/routes';
 
 import styles from './postCard.module.scss';

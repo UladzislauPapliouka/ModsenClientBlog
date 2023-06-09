@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import moment from 'moment';
 
-import { Typography } from '@components';
 import ContentContainer from '@containers/ContentContainer';
 
 import 'moment/locale/ru';

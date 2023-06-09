@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { type IPost } from '@/types';
-import { BlogPostInfo, JoinUs, PostCard, Typography } from '@components';
+import { BlogPostInfo, JoinUs, PostCard } from '@components';
 import postsEn from '@constants/posts';
 import ContentContainer from '@containers/ContentContainer';
 import { getWhatToReadNext } from '@services/posts';
 
 import styles from './blogpost.module.scss';
+import { Typography } from 'components-wil';
 
 const BlogPost = (): JSX.Element => {
   const {

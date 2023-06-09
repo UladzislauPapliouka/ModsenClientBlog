@@ -6,15 +6,7 @@ import { type AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import {
-  Button,
-  ErrorBoundaries,
-  Footer,
-  Header,
-  Link,
-  Modal,
-  Typography,
-} from '@components';
+import { ErrorBoundaries, Footer, Header, Link, Modal } from '@components';
 import envVariables from '@constants/envVariables';
 import Routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
@@ -23,6 +15,7 @@ import './i18n';
 
 import '../styles/global.scss';
 import styles from './_app.module.scss';
+import { Button, Typography } from 'components-wil';
 
 const headerRoutes = [
   Routes.Home,

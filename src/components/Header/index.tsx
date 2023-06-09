@@ -1,7 +1,7 @@
 import React, { type PropsWithChildren, useState } from 'react';
+import { Typography } from 'components-wil';
 
 import ModalFC from '@components/Modal';
-import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './header.module.scss';

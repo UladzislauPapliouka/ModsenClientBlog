@@ -1,10 +1,10 @@
 import React, { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import Image from 'next/image';
 
 import LabelsIcons from '@assets/labels';
 import { type ILabelProps } from '@components/Label/types';
-import Typography from '@components/Typography';
 
 import styles from './label.module.scss';
 

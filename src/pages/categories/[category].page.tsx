@@ -3,18 +3,18 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Search from 'components/Search';
 import { useRouter } from 'next/router';
 
 import { Categories, type IPostWithId, Tags } from '@/types';
-import { CategoriesList, PostCard, Typography } from '@components';
-import Tag from '@components/Tag';
+import { CategoriesList, PostCard } from '@components';
 import { LOAD_DATA_DELAY, PAGE_SIZE } from '@constants/numbers';
 import ContentContainer from '@containers/ContentContainer';
 import { getPosts } from '@services/posts';
 import { changeTags, filterTagsValue } from '@services/tags';
 
 import styles from './category.module.scss';
+import { Tag, Typography } from 'components-wil';
+import Search from '@components/Search';
 
 const BlogPost = (): JSX.Element => {
   const router = useRouter();

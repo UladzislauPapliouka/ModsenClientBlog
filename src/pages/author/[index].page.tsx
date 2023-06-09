@@ -5,12 +5,13 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { PostCard, SocialWrapper, Typography } from '@components';
+import { PostCard, SocialWrapper } from '@components';
 import authors from '@constants/authors';
 import ContentContainer from '@containers/ContentContainer';
 import { getAuthorsPosts } from '@services/posts';
 
 import styles from './author.module.scss';
+import { Typography } from 'components-wil';
 
 const HomePage = (): JSX.Element => {
   const {

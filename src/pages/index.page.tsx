@@ -7,12 +7,10 @@ import arrow from '@assets/Arrow 1.svg';
 import image from '@assets/images/close-up-photography-of-man-wearing-sunglasses-1212984.png';
 import {
   AuthorsList,
-  Button,
   CategoriesList,
   JoinUs,
   Link,
   PostCard,
-  Typography,
 } from '@components';
 import routes from '@constants/routes';
 import testimonials from '@constants/testimonials';
@@ -20,6 +18,7 @@ import ContentContainer from '@containers/ContentContainer';
 import { getFeaturedPost, getLastPost, getPagePosts } from '@services/posts';
 
 import styles from './home.module.scss';
+import { Button, Typography } from 'components-wil';
 
 interface refType {
   hide: () => void;

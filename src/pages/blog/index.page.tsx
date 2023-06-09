@@ -5,20 +5,14 @@ import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import {
-  Button,
-  CategoriesList,
-  JoinUs,
-  Link,
-  PostCard,
-  Typography,
-} from '@components';
+import { CategoriesList, JoinUs, Link, PostCard } from '@components';
 import { FIRST_PAGE_INDEX, SECOND_PAGE_INDEX } from '@constants/numbers';
 import routes from '@constants/routes';
 import ContentContainer from '@containers/ContentContainer';
 import { getFeaturedPost, getPagePosts } from '@services/posts';
 
 import styles from './blog.module.scss';
+import { Button, Typography } from 'components-wil';
 
 const BlogPage = () => {
   const {
