@@ -4,7 +4,7 @@ describe('template spec', () => {
 
     cy.get('[data-cy="mobMenu"]').eq(0).click();
 
-    cy.get('[data-cy="LINK_TO_/blog"]').eq(3).click();
+    cy.get('[data-cy="LINK_TO_/blog"]').eq(2).click();
 
     cy.get('[data-cy="mobMenu"]').eq(0).click();
 

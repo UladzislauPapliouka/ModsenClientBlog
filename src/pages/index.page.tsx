@@ -13,6 +13,7 @@ import {
   Link,
   PostCard,
 } from '@components';
+import InfinityScroll from '@components/InfinityScroll';
 import routes from '@constants/routes';
 import testimonials from '@constants/testimonials';
 import ContentContainer from '@containers/ContentContainer';
@@ -21,10 +22,6 @@ import useElementOnScreen from '@services/useElementOnScreen';
 
 import styles from './home.module.scss';
 
-interface refType {
-  hide: () => void;
-  show: () => void;
-}
 const HomePage = (): JSX.Element => {
   const [t, i18n] = useTranslation();
 
@@ -77,7 +74,7 @@ const HomePage = (): JSX.Element => {
   };
 
   return (
-    <div className={styles.page}>
+    <InfinityScroll wrapper={<div className={styles.page} />}>
       <div className={styles.mainPost}>
         <figure className={styles.mainPostImage}>
           <Image
@@ -291,7 +288,7 @@ const HomePage = (): JSX.Element => {
         </div>
       </ContentContainer>
       <JoinUs />
-    </div>
+    </InfinityScroll>
   );
 };
 
