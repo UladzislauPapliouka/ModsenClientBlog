@@ -6,6 +6,17 @@
     padding-bottom: $gap128 !important;
     @include flex(center, center, null, $gap32);
     position: relative;
+    & > figure {
+      width: $size405;
+      height: auto;
+
+      & > img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
     .authorInfo {
       @include flex(null, flex-start, column, $gap24);
     }
