@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import YouTube from 'react-youtube';
+import { Button, Typography } from 'components-wil';
 import { type AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -15,7 +16,6 @@ import './i18n';
 
 import '../styles/global.scss';
 import styles from './_app.module.scss';
-import { Button, Typography } from 'components-wil';
 
 const headerRoutes = [
   Routes.Home,
@@ -34,6 +34,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     i18n.changeLanguage(locale === 'en' ? 'en' : 'ru').catch(() => null);
   }, [locale]);
+
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const toggleIsVideoOpen = () => {

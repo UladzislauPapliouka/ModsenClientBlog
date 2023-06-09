@@ -76,12 +76,16 @@ const HomePage = (): JSX.Element => {
               .then(
                 () => {
                   formikHelpers.setSubmitting(false);
+
                   formikHelpers.resetForm();
+
                   toast.success('Success');
                 },
                 (err) => {
                   formikHelpers.setSubmitting(false);
+
                   formikHelpers.resetForm();
+
                   toast.error(err);
                 },
               );

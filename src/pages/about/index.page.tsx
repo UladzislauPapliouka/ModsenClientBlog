@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import Image from 'next/image';
 
 import aboutUsText from '@/pages/about/config';
@@ -11,7 +12,6 @@ import { AuthorsList, JoinUs } from '@components';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './about.module.scss';
-import { Typography } from 'components-wil';
 
 const HomePage = (): JSX.Element => {
   const [t] = useTranslation();

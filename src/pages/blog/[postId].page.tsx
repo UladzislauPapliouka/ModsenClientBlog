@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import i18n from 'i18next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -11,7 +12,6 @@ import ContentContainer from '@containers/ContentContainer';
 import { getWhatToReadNext } from '@services/posts';
 
 import styles from './blogpost.module.scss';
-import { Typography } from 'components-wil';
 
 const BlogPost = (): JSX.Element => {
   const {

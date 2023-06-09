@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
+import { Button, Typography } from 'components-wil';
 import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -12,7 +13,6 @@ import ContentContainer from '@containers/ContentContainer';
 import { getFeaturedPost, getPagePosts } from '@services/posts';
 
 import styles from './blog.module.scss';
-import { Button, Typography } from 'components-wil';
 
 const BlogPage = () => {
   const {
@@ -38,6 +38,7 @@ const BlogPage = () => {
   useEffect(() => {
     setParsedDate(moment(date).locale(i18n.language).format('MMM DD, YYYY'));
   }, [i18n.language]);
+
   const goToPrevPage = () => {
     router
       .push(

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Typography } from 'components-wil';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -11,7 +12,6 @@ import ContentContainer from '@containers/ContentContainer';
 import { getAuthorsPosts } from '@services/posts';
 
 import styles from './author.module.scss';
-import { Typography } from 'components-wil';
 
 const HomePage = (): JSX.Element => {
   const {

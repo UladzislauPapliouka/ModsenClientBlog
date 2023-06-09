@@ -18,6 +18,7 @@ const HomePage = (): JSX.Element => {
     const localMoment = moment();
 
     localMoment.locale(i18n.language);
+
     setDate(localMoment.format('DD MMM YYYY'));
   }, [i18n.language]);
 

@@ -11,6 +11,7 @@ class ErrorBoundary extends Component<
 > {
   constructor(props: IErrorBoundaryProps) {
     super(props);
+
     this.state = {
       hasError: false,
       error: null,

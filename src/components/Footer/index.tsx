@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
+import { Button, Input, Typography } from 'components-wil';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
 
@@ -15,7 +16,6 @@ import { subscribeFormSchema } from '@constants/shemes';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './footer.module.scss';
-import { Button, Input, Typography } from 'components-wil';
 
 const footerRouter = [
   Routes.Home,
@@ -62,12 +62,16 @@ const Footer = () => {
               .then(
                 () => {
                   formikHelpers.setSubmitting(false);
+
                   formikHelpers.resetForm();
+
                   toast.success(`Success`);
                 },
                 (err) => {
                   formikHelpers.resetForm();
+
                   formikHelpers.setSubmitting(false);
+
                   toast.error(err);
                 },
               );

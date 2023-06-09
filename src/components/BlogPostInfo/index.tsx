@@ -1,4 +1,5 @@
 import React, { type FC } from 'react';
+import { Typography } from 'components-wil';
 import moment from 'moment';
 import Image from 'next/image';
 
@@ -8,7 +9,6 @@ import Link from '@components/Link';
 import routes from '@constants/routes';
 
 import styles from './blogPostInfo.module.scss';
-import { Typography } from 'components-wil';
 
 const BlogPostInfo: FC<IBlogPostInfo> = ({
   postedDate,

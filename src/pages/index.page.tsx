@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button, Typography } from 'components-wil';
 import moment from 'moment/moment';
 import Image from 'next/image';
 
@@ -18,7 +19,6 @@ import ContentContainer from '@containers/ContentContainer';
 import { getFeaturedPost, getLastPost, getPagePosts } from '@services/posts';
 
 import styles from './home.module.scss';
-import { Button, Typography } from 'components-wil';
 
 interface refType {
   hide: () => void;
@@ -53,6 +53,7 @@ const HomePage = (): JSX.Element => {
 
   useEffect(() => {
     setDate(moment(lastPost.date).locale(i18n.language).format('MMM DD, YYYY'));
+
     setFeaturedDate(
       moment(featuredPost.date).locale(i18n.language).format('MMM DD, YYYY'),
     );

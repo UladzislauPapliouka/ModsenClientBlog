@@ -24,13 +24,17 @@ const Search: FC<ISearch> = ({ onChoose, variants, placeholder }) => {
 
   const onChangeHandler = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
+
     setIsAutocomplete(true);
+
     setField(e.currentTarget.value);
+
     setAuto(variants?.filter((variant) => variant.includes(field)));
   };
 
   const handleClick = () => {
     onChoose(field);
+
     setField('');
   };
 
@@ -49,7 +53,9 @@ const Search: FC<ISearch> = ({ onChoose, variants, placeholder }) => {
   const handleAutocomplete = useCallback(
     (tagName: string) => {
       onChoose(tagName);
+
       setField('');
+
       setIsAutocomplete(false);
     },
     [onChoose],

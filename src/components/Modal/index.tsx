@@ -28,6 +28,7 @@ const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
         window.onresize = () => null;
       };
     }, [closeModalWithResize]);
+
     const onBackgroundClickHandler = ({
       target,
     }: SyntheticEvent<HTMLDivElement>) => {

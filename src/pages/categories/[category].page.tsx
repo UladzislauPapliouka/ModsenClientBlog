@@ -3,18 +3,18 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Tag, Typography } from 'components-wil';
 import { useRouter } from 'next/router';
 
 import { Categories, type IPostWithId, Tags } from '@/types';
 import { CategoriesList, PostCard } from '@components';
+import Search from '@components/Search';
 import { LOAD_DATA_DELAY, PAGE_SIZE } from '@constants/numbers';
 import ContentContainer from '@containers/ContentContainer';
 import { getPosts } from '@services/posts';
 import { changeTags, filterTagsValue } from '@services/tags';
 
 import styles from './category.module.scss';
-import { Tag, Typography } from 'components-wil';
-import Search from '@components/Search';
 
 const BlogPost = (): JSX.Element => {
   const router = useRouter();
@@ -34,8 +34,10 @@ const BlogPost = (): JSX.Element => {
     ).slice(0, PAGE_SIZE);
 
     setIsAllPosts(posts.length === 0);
+
     setPosts(posts);
   }, [category, tags]);
+
   const loadMorePosts = () => {
     setTimeout(() => {
       const posts = getPosts(
@@ -44,6 +46,7 @@ const BlogPost = (): JSX.Element => {
       ).slice(PAGE_SIZE);
 
       setIsAllPosts(true);
+
       setPosts((prevState) => prevState.concat(posts));
     }, LOAD_DATA_DELAY);
   };
