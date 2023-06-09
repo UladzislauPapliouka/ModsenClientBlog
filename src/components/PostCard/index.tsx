@@ -19,7 +19,7 @@ const PostCard: FC<IPostcard> = ({
   switch (variant) {
     case 'small':
       return (
-        <div className={styles.smallPostCard}>
+        <article className={styles.smallPostCard}>
           <Typography
             className={styles.postInfo}
             variant="body2">
@@ -36,20 +36,20 @@ const PostCard: FC<IPostcard> = ({
           <Link href={`${routes.Blog}/${id}`}>
             <Typography variant="head3">{title}</Typography>
           </Link>
-        </div>
+        </article>
       );
 
     case 'large':
       return (
-        <div className={styles.largePostCard}>
-          <div className={styles.photoContainer}>
+        <article className={styles.largePostCard}>
+          <figure className={styles.photoContainer}>
             <Image
               className={styles.postPhoto}
               src={image}
               alt="Post photo"
             />
-          </div>
-          <div className={styles.infoContainer}>
+          </figure>
+          <summary className={styles.infoContainer}>
             <Typography
               className={styles.postCategory}
               variant="body1">
@@ -63,20 +63,20 @@ const PostCard: FC<IPostcard> = ({
               variant="body1">
               {text[0][1]}
             </Typography>
-          </div>
-        </div>
+          </summary>
+        </article>
       );
 
     default:
       return (
-        <div className={styles.postCard}>
-          <div className={styles.photoContainer}>
+        <article className={styles.postCard}>
+          <figure className={styles.photoContainer}>
             <Image
               className={styles.postPhoto}
               src={image}
               alt="Post photo"
             />
-          </div>
+          </figure>
           <Typography
             className={styles.postInfo}
             variant="body2">
@@ -98,7 +98,7 @@ const PostCard: FC<IPostcard> = ({
             variant="body1">
             {text[0][1]}
           </Typography>
-        </div>
+        </article>
       );
   }
 };

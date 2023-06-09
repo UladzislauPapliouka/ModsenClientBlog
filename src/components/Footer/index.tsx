@@ -35,7 +35,7 @@ const Footer = () => {
   }, [locale]);
 
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <Header>
         {footerRouter.map((route) => (
           <Link
@@ -113,7 +113,7 @@ const Footer = () => {
         <Typography variant="body1">{t('footer.address')}</Typography>
         <SocialWrapper links={socialLink} />
       </ContentContainer>
-    </div>
+    </footer>
   );
 };
 

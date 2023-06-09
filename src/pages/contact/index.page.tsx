@@ -25,7 +25,7 @@ const HomePage = (): JSX.Element => {
   const [t, i18n] = useTranslation();
 
   return (
-    <div className={styles.page}>
+    <main className={styles.page}>
       <ContentContainer
         variant="variant2"
         className={styles.pageTitle}>
@@ -36,7 +36,7 @@ const HomePage = (): JSX.Element => {
         <Typography variant="body1">{t('contacts.lowerText')}</Typography>
       </ContentContainer>
       <ContentContainer variant="variant2">
-        <div className={styles.scheduleBlock}>
+        <section className={styles.scheduleBlock}>
           <div>
             <Typography variant="body2">
               {t('contacts.workingHours')}
@@ -52,7 +52,7 @@ const HomePage = (): JSX.Element => {
             <Typography variant="head5">020 7993 2905</Typography>
             <Typography variant="body1">hello@finsweet.com</Typography>
           </div>
-        </div>
+        </section>
         <Formik
           initialValues={{
             email: '',
@@ -155,7 +155,7 @@ const HomePage = (): JSX.Element => {
           anchor={[54.68916, 25.2798]}
         />
       </Map>
-    </div>
+    </main>
   );
 };
 

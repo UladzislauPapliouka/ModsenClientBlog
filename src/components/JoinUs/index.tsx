@@ -15,7 +15,7 @@ const JoinUs = () => {
     <ContentContainer
       className={styles.joinBlock}
       variant="variant2">
-      <div className={styles.wrapper}>
+      <article className={styles.wrapper}>
         <Typography variant="head3">{t('joinUs.title')}</Typography>
         <Typography variant="body1">{t('joinUs.text')}</Typography>
         <Link href={routes['Contact Us']}>
@@ -23,7 +23,7 @@ const JoinUs = () => {
             <Typography variant="head5">{t('joinUs.buttonText')}</Typography>
           </Button>
         </Link>
-      </div>
+      </article>
     </ContentContainer>
   );
 };

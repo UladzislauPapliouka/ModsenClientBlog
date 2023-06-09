@@ -17,32 +17,32 @@ const HomePage = (): JSX.Element => {
   const [t] = useTranslation();
 
   return (
-    <div>
+    <main>
       <ContentContainer className={styles.mainBlock}>
-        <div className={styles.header}>
-          <div className={styles.primaryInfo}>
+        <article className={styles.header}>
+          <section className={styles.primaryInfo}>
             <Typography variant="head6">
               {t('aboutUs.mainBlock.primaryInfo.subtitle')}
             </Typography>
             <Typography variant="head2">
               {t('aboutUs.mainBlock.primaryInfo.title')}
             </Typography>
-          </div>
+          </section>
           <div className={styles.secondaryInfo}>
             <Typography variant="body2">
               {t('aboutUs.mainBlock.secondaryInfo')}
             </Typography>
           </div>
-        </div>
-        <div className={styles.stats}>
-          <div>
+        </article>
+        <article className={styles.stats}>
+          <section>
             <Typography variant="head1">
               {t('aboutUs.mainBlock.stats1.value')}
             </Typography>
             <Typography variant="head6">
               {t('aboutUs.mainBlock.stats1.title')}
             </Typography>
-          </div>
+          </section>
           <div>
             <Typography variant="head1">
               {t('aboutUs.mainBlock.stats2.value')}
@@ -59,7 +59,7 @@ const HomePage = (): JSX.Element => {
               {t('aboutUs.mainBlock.stats3.title')}
             </Typography>
           </div>
-        </div>
+        </article>
         <figure>
           <Image
             src={mainPhoto}
@@ -68,7 +68,7 @@ const HomePage = (): JSX.Element => {
         </figure>
       </ContentContainer>
       <ContentContainer className={styles.aboutUs}>
-        <div>
+        <section>
           {aboutUsText.blockOne.map(([variant, text]) => (
             <Typography
               key={text}
@@ -76,8 +76,8 @@ const HomePage = (): JSX.Element => {
               {t(`aboutUs.mission.${text}`)}
             </Typography>
           ))}
-        </div>
-        <div>
+        </section>
+        <section>
           {aboutUsText.blockTwo.map(([variant, text]) => (
             <Typography
               key={text}
@@ -85,11 +85,11 @@ const HomePage = (): JSX.Element => {
               {t(`aboutUs.mission.${text}`)}
             </Typography>
           ))}
-        </div>
+        </section>
       </ContentContainer>
       <ContentContainer className={styles.description}>
-        <div className={styles.blockOne}>
-          <div className={styles.content}>
+        <section className={styles.blockOne}>
+          <summary className={styles.content}>
             <Typography variant="head6">
               {t('aboutUs.description.title1')}
             </Typography>
@@ -99,7 +99,7 @@ const HomePage = (): JSX.Element => {
             <Typography variant="body1">
               {t('aboutUs.description.text1')}
             </Typography>
-          </div>
+          </summary>
           <figure>
             <Image
               src={hands}
@@ -107,8 +107,8 @@ const HomePage = (): JSX.Element => {
             />
             <div className={styles.figurka} />
           </figure>
-        </div>
-        <div className={styles.blockTwo}>
+        </section>
+        <section className={styles.blockTwo}>
           <div className={styles.content}>
             <Typography variant="head2">
               {t('aboutUs.description.title2')}
@@ -127,14 +127,14 @@ const HomePage = (): JSX.Element => {
             />
             <div className={styles.circle} />
           </figure>
-        </div>
+        </section>
       </ContentContainer>
       <ContentContainer className={styles.authors}>
         <Typography variant="head2">{t('home.listOfAuthors')}</Typography>
         <AuthorsList />
       </ContentContainer>
       <JoinUs />
-    </div>
+    </main>
   );
 };
 

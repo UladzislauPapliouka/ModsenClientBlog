@@ -23,7 +23,7 @@ const HomePage = (): JSX.Element => {
   }, [i18n.language]);
 
   return (
-    <div>
+    <main>
       <ContentContainer className={styles.pageHead}>
         <Typography variant="head1">{t('privacyPolicy.pageTitle')}</Typography>
         <Typography variant="body1">
@@ -36,7 +36,7 @@ const HomePage = (): JSX.Element => {
         <Typography variant="head2">{t('privacyPolicy.head2')}</Typography>
         <Typography variant="body1">{t('privacyPolicy.body2')}</Typography>
       </ContentContainer>
-    </div>
+    </main>
   );
 };
 

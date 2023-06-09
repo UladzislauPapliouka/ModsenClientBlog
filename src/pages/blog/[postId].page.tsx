@@ -39,7 +39,7 @@ const BlogPost = (): JSX.Element => {
   const { title, date, image, author, category, text } = currentPost;
 
   return (
-    <div>
+    <main>
       <ContentContainer variant="variant2">
         <BlogPostInfo
           postedDate={date}
@@ -80,7 +80,7 @@ const BlogPost = (): JSX.Element => {
         <hr className={styles.devider} />
       </ContentContainer>
       <JoinUs />
-    </div>
+    </main>
   );
 };
 

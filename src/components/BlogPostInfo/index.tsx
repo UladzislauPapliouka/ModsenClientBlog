@@ -16,14 +16,14 @@ const BlogPostInfo: FC<IBlogPostInfo> = ({
   category,
   author: { avatar, id, name },
 }) => (
-  <div className={styles.blogPostInfo}>
-    <div className={styles.authorAndTime}>
-      <div className={styles.imageContainer}>
+  <section className={styles.blogPostInfo}>
+    <summary className={styles.authorAndTime}>
+      <figure className={styles.imageContainer}>
         <Image
           src={avatar}
           alt="Author image"
         />
-      </div>
+      </figure>
       <Link href={`${routes.author}/${id}`}>
         <Typography
           className={styles.authorName}
@@ -36,12 +36,12 @@ const BlogPostInfo: FC<IBlogPostInfo> = ({
         variant="body1">
         Posted on {`${moment(postedDate).format('Do MMMM YYYY')}`}
       </Typography>
-    </div>
+    </summary>
     <Typography variant="head1">{postTitle}</Typography>
-    <div className={styles.labels}>
+    <summary className={styles.labels}>
       <Label label={category} />
-    </div>
-  </div>
+    </summary>
+  </section>
 );
 
 export default React.memo(BlogPostInfo);

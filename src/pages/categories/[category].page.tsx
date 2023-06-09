@@ -72,8 +72,8 @@ const BlogPost = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <div className={styles.pageHeader}>
+    <main>
+      <section className={styles.pageHeader}>
         <ContentContainer variant="variant2">
           <Typography variant="head1">
             {t(`categories.${category}.title`)}
@@ -85,7 +85,7 @@ const BlogPost = (): JSX.Element => {
             `categories.${category}.title`,
           )}`}</Typography>
         </ContentContainer>
-      </div>
+      </section>
       <ContentContainer className={styles.postsBlock}>
         <div className={styles.postsContainer}>
           <InfiniteScroll
@@ -107,7 +107,7 @@ const BlogPost = (): JSX.Element => {
           </InfiniteScroll>
         </div>
 
-        <div className={styles.filter}>
+        <aside className={styles.filter}>
           <Search
             placeholder={t('category.placeholder')}
             onChoose={(value) => {
@@ -131,9 +131,9 @@ const BlogPost = (): JSX.Element => {
               />
             ))}
           </div>
-        </div>
+        </aside>
       </ContentContainer>
-    </div>
+    </main>
   );
 };
 

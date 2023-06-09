@@ -42,7 +42,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   };
 
   return (
-    <div className={styles.app}>
+    <main className={styles.app}>
       <Head>
         <title>Modsen client blog</title>
       </Head>
@@ -91,7 +91,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Toaster />
         <Footer />
       </ErrorBoundaries>
-    </div>
+    </main>
   );
 };
 

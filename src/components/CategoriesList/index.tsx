@@ -8,7 +8,7 @@ import styles from './categoryList.module.scss';
 import Category from './Category';
 
 const CategoriesList: FC<ICategoryList> = ({ small, currentLabel }) => (
-  <div
+  <article
     className={
       small ? styles.smallCategoriesContainer : styles.categoriesContainer
     }>
@@ -20,7 +20,7 @@ const CategoriesList: FC<ICategoryList> = ({ small, currentLabel }) => (
         active={category === currentLabel}
       />
     ))}
-  </div>
+  </article>
 );
 
 export default React.memo(CategoriesList);

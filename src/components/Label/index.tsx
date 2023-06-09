@@ -12,13 +12,13 @@ const Label: FC<ILabelProps> = ({ label }) => {
   const [t] = useTranslation();
 
   return (
-    <div className={styles.label}>
+    <summary className={styles.label}>
       <Image
         src={LabelsIcons[label]}
         alt="Category icon"
       />
       <Typography variant="head4">{t(`categories.${label}.title`)}</Typography>
-    </div>
+    </summary>
   );
 };
 

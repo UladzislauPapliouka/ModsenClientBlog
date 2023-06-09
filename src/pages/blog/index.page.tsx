@@ -75,9 +75,9 @@ const BlogPage = () => {
   };
 
   return (
-    <div>
+    <main>
       <ContentContainer className={styles.featuredPost}>
-        <div className={styles.featuredInfo}>
+        <article className={styles.featuredInfo}>
           <Typography variant="head6">{t('posts.featuredPost')}</Typography>
           <Typography variant="head2">{title}</Typography>
           <Typography
@@ -103,18 +103,18 @@ const BlogPage = () => {
               </Typography>
             </Button>
           </Link>
-        </div>
-        <div className={styles.featuredImage}>
+        </article>
+        <figure className={styles.featuredImage}>
           <Image
             src={image}
             alt="Featured"
           />
-        </div>
+        </figure>
       </ContentContainer>
       <ContentContainer className={styles.allPosts}>
         <Typography variant="head1">{t('posts.allPosts')}</Typography>
         <hr className={styles.devider} />
-        <div className={styles.postsContainer}>
+        <article className={styles.postsContainer}>
           {getPagePosts(Number.parseInt(page as string, 10) || 1).map(
             (post) => (
               <PostCard
@@ -124,7 +124,7 @@ const BlogPage = () => {
               />
             ),
           )}
-        </div>
+        </article>
         <div className={styles.pagination}>
           <Typography
             variant="head4"
@@ -143,7 +143,7 @@ const BlogPage = () => {
         <CategoriesList />
       </ContentContainer>
       <JoinUs />
-    </div>
+    </main>
   );
 };
 

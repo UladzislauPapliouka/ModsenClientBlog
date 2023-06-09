@@ -15,32 +15,32 @@ const Category: FC<ICategoryProps> = ({ label, small, active }) => {
 
   return small ? (
     <Link href={`${routes.categories}/${label}`}>
-      <div className={`${styles.smallCategory} ${active && styles.active}`}>
-        <div className={styles.iconContainer}>
+      <summary className={`${styles.smallCategory} ${active && styles.active}`}>
+        <figure className={styles.iconContainer}>
           <Image
             src={LabelsIcons[label]}
             alt="Category name"
           />
-        </div>
+        </figure>
         <Typography variant="head3">
           {t(`categories.${label}.title`)}
         </Typography>
-      </div>
+      </summary>
     </Link>
   ) : (
     <Link href={`${routes.categories}/${label}`}>
-      <div className={`${styles.category} ${active && styles.active}`}>
-        <div className={styles.iconContainer}>
+      <summary className={`${styles.category} ${active && styles.active}`}>
+        <figure className={styles.iconContainer}>
           <Image
             src={LabelsIcons[label]}
             alt="Category name"
           />
-        </div>
+        </figure>
         <Typography variant="head3">
           {t(`categories.${label}.title`)}
         </Typography>
         <Typography variant="body2">{t(`categories.${label}.text`)}</Typography>
-      </div>
+      </summary>
     </Link>
   );
 };

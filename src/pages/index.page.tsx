@@ -74,8 +74,8 @@ const HomePage = (): JSX.Element => {
   };
 
   return (
-    <InfinityScroll wrapper={<div className={styles.page} />}>
-      <div className={styles.mainPost}>
+    <InfinityScroll wrapper={<main className={styles.page} />}>
+      <article className={styles.mainPost}>
         <figure className={styles.mainPostImage}>
           <Image
             src={lastPost.image}
@@ -116,11 +116,11 @@ const HomePage = (): JSX.Element => {
           </div>
           <div className={styles.featuredImage} />
         </ContentContainer>
-      </div>
+      </article>
       <ContentContainer className={styles.postsBlock}>
         <div className={styles.featuredBlock}>
           <Typography variant="head2">{t('posts.featuredPost')}</Typography>
-          <div className={styles.featuredInfo}>
+          <summary className={styles.featuredInfo}>
             <figure className={styles.featuredImage}>
               <Image
                 src={featuredPost.image}
@@ -153,7 +153,7 @@ const HomePage = (): JSX.Element => {
                 </Typography>
               </Button>
             </Link>
-          </div>
+          </summary>
         </div>
         <div className={styles.allPosts}>
           <div className={styles.title}>
@@ -174,8 +174,8 @@ const HomePage = (): JSX.Element => {
         </div>
       </ContentContainer>
       <ContentContainer className={styles.aboutUs}>
-        <div className={styles.blocks}>
-          <div>
+        <article className={styles.blocks}>
+          <section>
             <Typography variant="head6">{t('home.aboutUs.title')}</Typography>
             <Typography variant="head2">
               {t('home.aboutUs.ourDescriptionTitle')}
@@ -188,9 +188,9 @@ const HomePage = (): JSX.Element => {
                 {t('posts.readMore')} {'>'}
               </Typography>
             </Link>
-          </div>
+          </section>
 
-          <div>
+          <section>
             <Typography variant="head6">{t('home.aboutUs.mission')}</Typography>
             <Typography variant="head3">
               {t('home.aboutUs.missionTitle')}
@@ -198,15 +198,15 @@ const HomePage = (): JSX.Element => {
             <Typography variant="body1">
               {t('home.aboutUs.missionText')}
             </Typography>
-          </div>
-        </div>
+          </section>
+        </article>
       </ContentContainer>
       <ContentContainer className={styles.categories}>
         <Typography variant="head1"> {t('home.chooseCategory')}</Typography>
         <CategoriesList />
       </ContentContainer>
       <ContentContainer className={styles.whyWeStartedBlock}>
-        <div className={styles.whyInfo}>
+        <article className={styles.whyInfo}>
           <Typography variant="head6">{t('home.whyWeStarted.why')}</Typography>
           <Typography variant="head2">
             {t('home.whyWeStarted.title')}
@@ -219,7 +219,7 @@ const HomePage = (): JSX.Element => {
               </Typography>
             </Button>
           </Link>
-        </div>
+        </article>
         <figure className={styles.teamImage}>
           <Image
             src={image}
@@ -232,10 +232,10 @@ const HomePage = (): JSX.Element => {
         <AuthorsList />
       </ContentContainer>
       <ContentContainer>
-        <div
+        <article
           className={styles.testimonials}
           ref={elementRef}>
-          <div className={styles.constant}>
+          <summary className={styles.constant}>
             <Typography variant="head4">
               {t('home.testimonials.name')}
             </Typography>
@@ -245,7 +245,7 @@ const HomePage = (): JSX.Element => {
             <Typography variant="body1">
               {t('home.testimonials.text')}
             </Typography>
-          </div>
+          </summary>
           <div className={styles.comment}>
             <Typography variant="head5">
               {testimonials[testimonialIndex].text}
@@ -256,14 +256,14 @@ const HomePage = (): JSX.Element => {
                   src={testimonials[testimonialIndex].image}
                   alt="Avatar"
                 />
-                <div className={styles.userInfo}>
+                <summary className={styles.userInfo}>
                   <Typography variant="head5">
                     {testimonials[testimonialIndex].author}
                   </Typography>
                   <Typography variant="body1">
                     {testimonials[testimonialIndex].place}
                   </Typography>
-                </div>
+                </summary>
               </div>
               <div className={styles.control}>
                 <div
@@ -285,7 +285,7 @@ const HomePage = (): JSX.Element => {
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </ContentContainer>
       <JoinUs />
     </InfinityScroll>

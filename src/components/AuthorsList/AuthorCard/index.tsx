@@ -14,7 +14,7 @@ const AuthorCard = ({
 }: {
   author: IAuthor;
 }) => (
-  <div className={styles.card}>
+  <article className={styles.card}>
     <figure className={styles.avatar}>
       <Image
         src={avatar}
@@ -26,7 +26,7 @@ const AuthorCard = ({
     </Link>
     <Typography variant="body2">{`${position} @${company}`}</Typography>
     <SocialWrapper links={social} />
-  </div>
+  </article>
 );
 
 export default React.memo(AuthorCard);

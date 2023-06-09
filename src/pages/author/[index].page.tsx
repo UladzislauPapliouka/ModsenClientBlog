@@ -33,29 +33,29 @@ const HomePage = (): JSX.Element => {
   const postsByAuthor = getAuthorsPosts(index as string);
 
   return (
-    <div>
+    <main>
       <ContentContainer
         className={styles.authorBock}
         variant="variant2">
-        <div className={styles.info}>
+        <article className={styles.info}>
           <figure>
             <Image
               src={avatar}
               alt="Avatar"
             />
           </figure>
-          <div className={styles.authorInfo}>
+          <summary className={styles.authorInfo}>
             <Typography variant="head2">{t('author.hi', { name })}</Typography>
             <Typography variant="body1">{description}</Typography>
             <SocialWrapper links={social} />
-          </div>
-        </div>
+          </summary>
+        </article>
       </ContentContainer>
       <ContentContainer
         className={styles.posts}
         variant="variant2">
         <Typography variant="head2">{t('author.myPosts')}</Typography>
-        <div className={styles.list}>
+        <section className={styles.list}>
           {postsByAuthor.map((post) => (
             <PostCard
               key={post.id}
@@ -63,9 +63,9 @@ const HomePage = (): JSX.Element => {
               post={post}
             />
           ))}
-        </div>
+        </section>
       </ContentContainer>
-    </div>
+    </main>
   );
 };
 
