@@ -4,6 +4,8 @@ const Routes: Record<string, string> = {
   'About Us': '/about',
   'Contact Us': '/contact',
   'Privacy Policy': '/privacy',
+  categories: '/categories',
+  author: '/author',
 };
 
 export default Routes;

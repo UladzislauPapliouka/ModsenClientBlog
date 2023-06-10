@@ -11,12 +11,13 @@
   .subscribeBlock {
     background-color: rgba($light, 0.05);
     padding: $gap80 $gap64;
-    @include flex(space-between, center, null, 20px);
+    @include flex(space-between, center, null, $gap20);
     & > span {
-      flex-grow: 2;
+      flex-grow: 1;
+      max-width: $size680;
     }
     @media screen and (max-width: $mobileBreakpoint) {
-      @include flex(space-between, center, column, 20px);
+      @include flex(space-between, center, column, $gap20);
       padding: $gap16;
       & > span {
         text-align: center;
@@ -26,13 +27,13 @@
   .socialBlock {
     @include flex(space-between, center, null);
     @media screen and (max-width: $mobileBreakpoint) {
-      @include flex(space-between, center, column, 20px);
+      @include flex(space-between, center, column, $gap20);
     }
     & > div > a > svg > path {
       fill: $greyText;
     }
     & > span {
-      max-width: 300px;
+      max-width: $size350;
     }
   }
 }

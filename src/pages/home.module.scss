@@ -1,0 +1,238 @@
+@import '@styles/_variables';
+@import '@styles/_mixins';
+
+.mainPost {
+  position: relative;
+  max-height: $size680;
+  min-height: $size680;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5));
+
+  @include flex(flex-start, center);
+  .mainPostImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: $size680;
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .lastPost {
+    top: 0;
+    color: $light;
+    position: relative;
+    .lastPostInfo {
+      max-width: $size815;
+      @include flex(flex-start, flex-start, column, $gap24);
+      .postInfo {
+        .author {
+          color: $yellow;
+        }
+      }
+    }
+  }
+}
+.postsBlock {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 2fr;
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(flex-start, flex-start, column, $gap32);
+  }
+  .featuredBlock {
+    @include flex(flex-start, flex-start, column, $gap32);
+    .featuredInfo {
+      .featuredImage {
+        width: 100%;
+        height: auto;
+        & > img {
+          width: 100%;
+          object-fit: cover;
+          aspect-ratio: $aspectRatio1;
+          height: auto;
+        }
+      }
+      padding: $gap32;
+      border: $borderSize1 solid $mediumGrey;
+      @include flex(flex-start, flex-start, column, $gap16);
+      .postInfo {
+        .author {
+          color: $purple;
+        }
+      }
+    }
+  }
+  .allPosts {
+    .title {
+      @include flex(space-between, center, row);
+      width: 100%;
+      & span:last-child {
+        color: $purple;
+      }
+    }
+    @include flex(flex-start, flex-start, column, $gap32);
+  }
+}
+.aboutUs {
+  .blocks {
+    position: relative;
+    background-color: $lightGrey;
+    @include flex(center, flex-start, row, $gap64);
+    padding-top: $gap96 !important;
+    padding-bottom: $gap96 !important;
+
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(flex-start, flex-start, column, $gap32);
+      padding: $gap16 !important;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: $size24;
+      background: linear-gradient(
+        90deg,
+        $light 15%,
+        $yellow 15%,
+        $yellow 75%,
+        $purple 75%
+      );
+      top: 0;
+      @media screen and (max-width: $mobileBreakpoint) {
+        display: none;
+      }
+    }
+  }
+  .blocks > section {
+    @include flex(flex-start, flex-start, column, $gap24);
+    max-width: $size615;
+    & > a {
+      color: $purple;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+.categories {
+  @include flex(center, center, column);
+}
+
+.whyWeStartedBlock {
+  position: relative;
+  .whyInfo {
+    position: absolute;
+    padding: $gap80 $gap64;
+    @include flex(null, null, column, $gap24);
+    max-width: $size615;
+    background-color: $light;
+    right: $gap80;
+    bottom: 0;
+  }
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(center, center, column-reverse, $gap32);
+    .whyInfo {
+      padding: 0;
+      right: auto;
+      position: relative;
+      @include flex(center, center, column, $gap24);
+      max-width: $size615;
+      background-color: $light;
+    }
+    .teamImage {
+      width: 100%;
+      & > img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.authors {
+  @include flex(flex-start, center, column, $gap48);
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: $gap128;
+  padding: $size128 !important;
+  background-color: $lightYellow;
+
+  .constant {
+    @include flex(null, null, column);
+  }
+  .comment {
+    @include flex(space-between, null, column);
+    width: 100%;
+    .lowBlock {
+      @include flex(space-between, null, null);
+      .user {
+        & > img {
+          width: $size64;
+          height: $size64;
+          object-fit: cover;
+          border-radius: $size128;
+          aspect-ratio: 1/1;
+        }
+        @include flex(null, null, null, $gap16);
+        .userInfo {
+          @include flex(null, null, column);
+        }
+      }
+      .control {
+        @include flex(null, null);
+        .back {
+          & > img {
+            filter: invert(1);
+            transform: rotateZ(180deg);
+          }
+        }
+        .next {
+          background-color: $black;
+        }
+        & > div {
+          position: relative;
+          width: $size64;
+          aspect-ratio: 1;
+          border-radius: $size128;
+          @include flex(center, center);
+          & > img {
+            transition: 0.2s all;
+          }
+          &:hover {
+            cursor: pointer;
+            & > img {
+              scale: 1.3;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(null, null, column, $gap32);
+    padding: $gap16 !important;
+    .constant {
+      @include flex(null, center, column);
+    }
+    .comment {
+      gap: $gap32;
+      .lowBlock {
+        @include flex(null, center, column, $gap32);
+      }
+    }
+  }
+}
+.page {
+  & a:after {
+    display: none;
+  }
+}

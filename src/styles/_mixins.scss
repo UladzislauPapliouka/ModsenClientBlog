@@ -1,7 +1,12 @@
-@mixin font($fontSize, $lineHeight, $fontFamily: Sen) {
+@mixin font(
+  $fontSize,
+  $lineHeight,
+  $fontFamily1: Sen,
+  $fontFamily2: OpenRegular
+) {
   font-size: $fontSize;
   line-height: $lineHeight;
-  font-family: $fontFamily;
+  font-family: $fontFamily1, $fontFamily2;
 }
 @mixin flex(
   $justifyContent: flex-start,

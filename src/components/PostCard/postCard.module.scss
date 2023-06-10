@@ -1,0 +1,79 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+
+.postCard {
+  @include flex(center, flex-start, column, $gap16);
+  max-width: $size405;
+  position: relative;
+  .photoContainer {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    .postPhoto {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .postInfo,
+  .postText {
+    color: $mediumGrey;
+  }
+  .postInfo > .authorName {
+    color: $purple;
+  }
+}
+
+.largePostCard {
+  @include flex(null, center, null, $gap32);
+  .photoContainer {
+    max-width: $size405;
+    width: 100%;
+    aspect-ratio: $aspectRatio2;
+    position: relative;
+    .postPhoto {
+      object-fit: cover;
+      object-position: center;
+      aspect-ratio: inherit;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+  .infoContainer {
+    max-width: $size615;
+    @include flex(space-between, flex-start, column, $gap16);
+    .postCategory {
+      color: $purple;
+    }
+    .postText {
+      color: $mediumGrey;
+    }
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(null, center, column, $gap32);
+      & > span {
+        text-align: center;
+      }
+    }
+  }
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(null, center, column, $gap32);
+  }
+}
+
+.smallPostCard {
+  padding: $gap32;
+  @include flex(flex-start, flex-start, column, $gap8);
+  .postInfo {
+    .authorName {
+      color: $purple;
+    }
+  }
+
+  & > a:after {
+    display: none;
+  }
+  &:hover {
+    background-color: $lightYellow;
+  }
+}

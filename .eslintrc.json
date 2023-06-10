@@ -20,7 +20,7 @@
       "jsx": true
     },
     "tsconfigRootDir": ".",
-    "project": "./src/tsconfig.json",
+    "project": "./tsconfig.json",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -51,6 +51,16 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react/button-has-type": "off",
+    "@typescript-eslint/prefer-optional-chain": "off",
+    "import/no-extraneous-dependencies":[
+      "error",
+      {
+        "devDependencies":[
+          "**/*.test.ts",
+          "**/*.test.tsx"
+        ]
+      }
+    ],
     "padding-line-between-statements": [
       "error",
       {
@@ -63,6 +73,7 @@
           "if",
           "case",
           "function",
+          "expression",
           "switch"
         ],
         "next": "*"
@@ -99,6 +110,8 @@
           ["@constants", "./src/constants"],
           ["@assets", "./src/assets"],
           ["@components", "./src/components"],
+          ["@helpers", "./src/helpers"],
+          ["@hooks", "./src/hooks"],
           ["@containers", "./src/containers"],
           ["@services", "./src/services"],
           ["@typing", "./src/types"],

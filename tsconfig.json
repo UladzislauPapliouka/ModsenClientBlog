@@ -15,9 +15,13 @@
       "@containers/*": ["containers/*"],
       "@containers": ["containers/"],
       "@services/*": ["services/*"],
-      "@services/": ["services/"],
+      "@services": ["services/"],
+      "@hooks/*": ["hooks/*"],
+      "@hooks": ["hooks/"],
+      "@helpers/*": ["helpers/*"],
+      "@helpers": ["helpers/"],
       "@typing/*": ["types/*"],
-      "@typing/": ["types/"],
+      "@typing": ["types/"],
       "@store/*": ["store/*"],
       "@store": ["store/"],
       "@styles/*": ["styles/*"],
@@ -37,6 +41,6 @@
     "noEmit": true,
     "incremental": true
   },
-  "include": ["src"],
+  "include": ["src", "cypress"],
   "exclude": ["node_modules"]
 }

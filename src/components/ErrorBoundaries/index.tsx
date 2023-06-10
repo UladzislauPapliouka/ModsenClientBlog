@@ -1,6 +1,5 @@
 import React, { Component, type ErrorInfo } from 'react';
-
-import Typography from '@components/Typography';
+import { Typography } from 'components-wil';
 
 import styles from './errorBoudaries.module.scss';
 
@@ -12,6 +11,7 @@ class ErrorBoundary extends Component<
 > {
   constructor(props: IErrorBoundaryProps) {
     super(props);
+
     this.state = {
       hasError: false,
       error: null,
@@ -38,4 +38,4 @@ class ErrorBoundary extends Component<
     );
   }
 }
-export default ErrorBoundary;
+export default React.memo(ErrorBoundary);

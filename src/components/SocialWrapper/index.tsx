@@ -11,39 +11,28 @@ import type ISocialProps from '@components/SocialWrapper/types';
 
 import styles from './social.module.scss';
 
-const SocialWrapper = ({
-  links: { twitter, facebook, linkedin, instagram },
-}: ISocialProps) => (
+const icons: Record<string, () => JSX.Element> = {
+  twitter: TwitterIcon,
+  linkedin: LinkedInIcon,
+  instagram: InstagramIcon,
+  facebook: FacebookIcon,
+};
+
+const SocialWrapper = ({ links }: ISocialProps) => (
   <div className={styles.wrapper}>
-    {facebook && (
-      <Link
-        target="_blank"
-        href={facebook}>
-        <FacebookIcon />
-      </Link>
-    )}
-    {twitter && (
-      <Link
-        target="_blank"
-        href={twitter}>
-        <TwitterIcon />
-      </Link>
-    )}
-    {instagram && (
-      <Link
-        target="_blank"
-        href={instagram}>
-        <InstagramIcon />
-      </Link>
-    )}
-    {linkedin && (
-      <Link
-        target="_blank"
-        href={linkedin}>
-        <LinkedInIcon />
-      </Link>
+    {Object.entries(links).map(
+      ([key, value]) =>
+        key &&
+        value && (
+          <Link
+            key={key}
+            target="_blank"
+            href={value}>
+            {icons[key]()}
+          </Link>
+        ),
     )}
   </div>
 );
 
-export default SocialWrapper;
+export default React.memo(SocialWrapper);

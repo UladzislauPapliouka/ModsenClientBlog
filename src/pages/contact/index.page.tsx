@@ -1,61 +1,56 @@
-import React, { type SyntheticEvent, useState } from 'react';
-import { Simulate } from 'react-dom/test-utils';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
+import {
+  Button,
+  CustomSelect,
+  Input,
+  TextArea,
+  Typography,
+} from 'components-wil';
 import { Formik } from 'formik';
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 
-import Button from '@components/Button';
-import CustomSelect from '@components/CustomSelect';
-import Input from '@components/Input';
-import TextArea from '@components/TextArea';
-import Typography from '@components/Typography';
-import EnvVariables from '@constants/envVariables';
-import emailSchema, {
-  contactFormSchema,
-  messageSchema,
-  nameSchema,
-} from '@constants/shemes';
-import Subjects from '@constants/subjects';
+import { contactFormSchema, envVariables, subjects } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './contacts.module.scss';
-import submit = Simulate.submit;
 
 const HomePage = (): JSX.Element => {
-  const [subject, setSubject] = useState(Subjects.query);
+  const [subject, setSubject] = useState(subjects.query);
+
+  const [t, i18n] = useTranslation();
 
   return (
-    <div className={styles.page}>
+    <main className={styles.page}>
       <ContentContainer
         variant="variant2"
         className={styles.pageTitle}>
-        <Typography variant="head6">CONTACT US</Typography>
-        <Typography variant="head1">Let’s Start a Conversation</Typography>
-        <Typography variant="body1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim.
+        <Typography variant="head6">{t('contacts.contactsUs')}</Typography>
+        <Typography variant="head1">
+          {t('contacts.letsConversation')}
         </Typography>
+        <Typography variant="body1">{t('contacts.lowerText')}</Typography>
       </ContentContainer>
       <ContentContainer variant="variant2">
-        <div className={styles.scheduleBlock}>
+        <section className={styles.scheduleBlock}>
           <div>
-            <Typography variant="body2">Working hours</Typography>
-            <hr />
-            <Typography variant="head5">Monday to Friday</Typography>
-            <Typography variant="head5">9:00 AM to 8:00 PM</Typography>
-            <Typography variant="body1">
-              Our Support Team is available 24/7
+            <Typography variant="body2">
+              {t('contacts.workingHours')}
             </Typography>
+            <hr />
+            <Typography variant="head5">{t('contacts.workingDays')}</Typography>
+            <Typography variant="head5">9:00 AM to 8:00 PM</Typography>
+            <Typography variant="body1">{t('contacts.workingText')}</Typography>
           </div>
           <div>
-            <Typography variant="body2">Contact Us</Typography>
+            <Typography variant="body2">{t('contacts.contactsUs')}</Typography>
             <hr />
             <Typography variant="head5">020 7993 2905</Typography>
             <Typography variant="body1">hello@finsweet.com</Typography>
           </div>
-        </div>
+        </section>
         <Formik
           initialValues={{
             email: '',
@@ -66,38 +61,34 @@ const HomePage = (): JSX.Element => {
           onSubmit={(values, formikHelpers) => {
             emailjs
               .send(
-                EnvVariables.NEXT_PUBLIC_SERVICE_ID,
-                EnvVariables.NEXT_PUBLIC_TEMPLATE_ID2,
+                envVariables.NEXT_PUBLIC_SERVICE_ID,
+                envVariables.NEXT_PUBLIC_TEMPLATE_ID2,
                 {
                   email: values.email,
                   name: values.name,
                   message: values.message,
                   subject,
                 },
-                EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
+                envVariables.NEXT_PUBLIC_PUBLIC_KEY,
               )
               .then(
                 () => {
                   formikHelpers.setSubmitting(false);
+
                   formikHelpers.resetForm();
+
                   toast.success('Success');
                 },
                 (err) => {
                   formikHelpers.setSubmitting(false);
+
                   formikHelpers.resetForm();
+
                   toast.error(err);
                 },
               );
           }}>
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-          }) => (
+          {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
             <form
               onSubmit={handleSubmit}
               className={styles.contactForm}>
@@ -107,7 +98,7 @@ const HomePage = (): JSX.Element => {
                 errorMessage={errors.name}
                 onChange={handleChange}
                 value={values.name}
-                placeholder="Full Name"
+                placeholder={t('contacts.placeholderName').toString()}
               />
               <Input
                 name="email"
@@ -115,11 +106,11 @@ const HomePage = (): JSX.Element => {
                 errorMessage={errors.email}
                 onChange={handleChange}
                 value={values.email}
-                placeholder="Your Email"
+                placeholder={t('contacts.placeholderEmail').toString()}
               />
               <CustomSelect
                 selected={subject}
-                options={Object.values(Subjects)}
+                options={Object.values(subjects)}
                 onChangeSelected={setSubject}
                 name="subject"
               />
@@ -128,14 +119,16 @@ const HomePage = (): JSX.Element => {
                 errorMessage={errors.message}
                 onChange={handleChange}
                 value={values.message}
-                placeholder="Message"
+                placeholder={t('contacts.placeholderMessage').toString()}
                 name="message"
               />
               <Button
                 type="submit"
                 data-cy="CONTACT_BUTTON"
                 disabled={isSubmitting}>
-                <Typography variant="head4">Send Message</Typography>
+                <Typography variant="head4">
+                  {t('contacts.buttonText').toString()}
+                </Typography>
               </Button>
             </form>
           )}
@@ -160,7 +153,7 @@ const HomePage = (): JSX.Element => {
           anchor={[54.68916, 25.2798]}
         />
       </Map>
-    </div>
+    </main>
   );
 };
 

@@ -1,0 +1,36 @@
+@import '@styles/_variables';
+@import '@styles/_mixins';
+.blogPostInfo {
+  @include flex(center, flex-start, column, $gap24);
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(center, center, column, $gap24);
+  }
+  .authorAndTime {
+    display: grid;
+    grid-template-areas: 'i t1' 'i t2';
+    align-items: center;
+    column-gap: $gap16;
+    & > .imageContainer {
+      & > img {
+        width: $size48;
+        height: auto;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: $size80;
+      }
+      grid-area: i;
+    }
+    .authorName {
+      color: $purple;
+      grid-area: t1;
+    }
+    .postedTime {
+      color: $mediumGrey;
+      grid-area: t2;
+    }
+  }
+  .labels {
+    @include flex(center, center, row, $gap8);
+    flex-wrap: wrap;
+  }
+}

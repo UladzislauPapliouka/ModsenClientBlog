@@ -1,0 +1,34 @@
+@import '@styles/_mixins';
+@import '@styles/_variables';
+
+.pageHeader {
+  background-color: $lightGrey;
+  padding-bottom: $gap80;
+  & > div {
+    @include flex(center, center, column, $gap32);
+  }
+}
+.postsBlock {
+  @include flex(null, null, null, $gap128);
+  @media screen and (max-width: $mobileBreakpoint) {
+    @include flex(stretch, null, column-reverse, $gap32);
+  }
+  .postsContainer {
+    width: 100%;
+    @include flex(flex-start, flex-start, column, $gap16);
+    @media screen and (max-width: $mobileBreakpoint) {
+      @include flex(flex-start, center, column, $gap16);
+    }
+  }
+  .filter {
+    max-width: $size350;
+    @include flex(null, stretch, column, $gap64);
+    @media screen and (max-width: $mobileBreakpoint) {
+      max-width: 100%;
+    }
+    .tagsContainer {
+      @include flex(null, null, row, $gap16);
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom';
 
-import mobileBreakpoint from '@constants/breackpoints';
+import { mobileBreakpoint } from '@constants';
 
 import styles from './modal.module.scss';
 
@@ -28,6 +28,7 @@ const ModalFC = React.memo<PropsWithChildren & { handleClose: () => void }>(
         window.onresize = () => null;
       };
     }, [closeModalWithResize]);
+
     const onBackgroundClickHandler = ({
       target,
     }: SyntheticEvent<HTMLDivElement>) => {

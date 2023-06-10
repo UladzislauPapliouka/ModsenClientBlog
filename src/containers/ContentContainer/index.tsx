@@ -5,9 +5,9 @@ import styles from './contentContainer.module.scss';
 import type IContainerProps from './types';
 
 const ContentContainer = ({
-  children,
   className,
   variant = 'variant1',
+  children,
   ...restProps
 }: IContainerProps) => (
   <div

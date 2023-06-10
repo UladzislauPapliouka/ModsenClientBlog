@@ -1,0 +1,19 @@
+@import '@styles/_variables.scss';
+.wrapper {
+  position: relative;
+  & > * {
+    position: relative;
+    animation-name: show;
+    animation-duration: 1.5s;
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+    top: $size128;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}

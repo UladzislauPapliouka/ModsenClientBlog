@@ -1,7 +1,7 @@
 import React, { type PropsWithChildren, useState } from 'react';
+import { Typography } from 'components-wil';
 
 import ModalFC from '@components/Modal';
-import Typography from '@components/Typography';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './header.module.scss';
@@ -10,7 +10,7 @@ const Header = ({ children }: PropsWithChildren) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleIsActive = () => {
-    setIsActive(!isActive);
+    setIsActive((prevState) => !prevState);
   };
 
   return (
@@ -39,4 +39,4 @@ const Header = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
