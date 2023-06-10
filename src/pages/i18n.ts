@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 
-import postsEn, { postsRu } from '@constants/posts';
+import { postsEn, postsRu } from '@constants';
 
 const resources = {
   en: {

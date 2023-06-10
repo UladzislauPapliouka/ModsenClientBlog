@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom';
 
-import mobileBreakpoint from '@constants/breackpoints';
+import { mobileBreakpoint } from '@constants';
 
 import styles from './modal.module.scss';
 

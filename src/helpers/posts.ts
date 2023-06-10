@@ -1,8 +1,7 @@
-import i18n from 'i18next';
-
 import { type IPost, type IPostWithId } from '@/types';
-import authors from '@constants/authors';
-import { PAGE_SIZE } from '@constants/numbers';
+import { authors, PAGE_SIZE, postsEn } from '@constants';
+
+import i18n from '../pages/i18n';
 
 export const addPostId = (
   postId: string,
@@ -13,20 +12,26 @@ export const addPostId = (
 });
 
 export const getPostsWithId = (): IPostWithId[] => {
-  const posts = i18n.getResourceBundle(i18n.language, '').postsAra;
+  let posts: Record<string | number, IPost>;
+
+  if (i18n.getResourceBundle) {
+    posts = i18n.getResourceBundle(i18n.language, '').postsAra;
+  } else {
+    posts = postsEn;
+  }
 
   return Object.keys(posts).map((postId) => addPostId(postId, posts));
 };
 
 export const getWhatToReadNext = ({ category, title }: IPost): IPostWithId[] =>
-  getPostsWithId().filter(
-    (post) => post.category === category && post.title !== title,
-  );
+  getPostsWithId()
+    .filter((post) => post.category === category && post.title !== title)
+    .slice(0, 3);
 
 export const getFeaturedPost = (): IPostWithId =>
   getPostsWithId().reduce(
     (prev, curr) => (curr.views > prev.views ? curr : prev),
-    addPostId('1', i18n.getResourceBundle(i18n.language, '').postsAra),
+    getPostsWithId()['1'],
   );
 export const getPagePosts = (page = 1) => {
   const postsArray = getPostsWithId();

@@ -3,16 +3,16 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { getPosts } from '@helpers/posts';
+import { changeTags, filterTagsValue } from '@helpers/tags';
 import { Tag, Typography } from 'components-wil';
 import { useRouter } from 'next/router';
 
 import { Categories, type IPostWithId, Tags } from '@/types';
 import { CategoriesList, PostCard } from '@components';
 import Search from '@components/Search';
-import { LOAD_DATA_DELAY, PAGE_SIZE } from '@constants/numbers';
+import { LOAD_DATA_DELAY, PAGE_SIZE } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
-import { getPosts } from '@services/posts';
-import { changeTags, filterTagsValue } from '@services/tags';
 
 import styles from './category.module.scss';
 

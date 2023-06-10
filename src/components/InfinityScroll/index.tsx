@@ -6,8 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-
-import useElementOnScreen from '@services/useElementOnScreen';
+import useElementOnScreen from '@hooks/useElementOnScreen';
 
 import styles from './index.module.scss';
 

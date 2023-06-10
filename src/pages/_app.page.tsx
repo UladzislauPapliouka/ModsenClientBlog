@@ -8,8 +8,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { ErrorBoundaries, Footer, Header, Link, Modal } from '@components';
-import envVariables from '@constants/envVariables';
-import Routes from '@constants/routes';
+import { envVariables, routes } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
 
 import './i18n';
@@ -18,10 +17,10 @@ import '../styles/global.scss';
 import styles from './_app.module.scss';
 
 const headerRoutes = [
-  Routes.Home,
-  Routes.Blog,
-  Routes['About Us'],
-  Routes['Contact Us'],
+  routes.Home,
+  routes.Blog,
+  routes['About Us'],
+  routes['Contact Us'],
 ];
 
 const App = ({ Component, pageProps }: AppProps) => {

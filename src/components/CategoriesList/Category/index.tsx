@@ -6,7 +6,7 @@ import Image from 'next/image';
 import LabelsIcons from '@assets/labels';
 import { type ICategoryProps } from '@components/CategoriesList/Category/types';
 import Link from '@components/Link';
-import routes from '@constants/routes';
+import { routes } from '@constants';
 
 import styles from './category.module.scss';
 

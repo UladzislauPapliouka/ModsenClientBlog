@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import Link from '@components/Link';
 import type IPostcard from '@components/PostCard/types';
-import routes from '@constants/routes';
+import { routes } from '@constants';
 
 import styles from './postCard.module.scss';
 

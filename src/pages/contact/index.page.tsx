@@ -12,15 +12,13 @@ import {
 import { Formik } from 'formik';
 import { Map, Marker, ZoomControl } from 'pigeon-maps';
 
-import EnvVariables from '@constants/envVariables';
-import { contactFormSchema } from '@constants/shemes';
-import Subjects from '@constants/subjects';
+import { contactFormSchema, envVariables, subjects } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './contacts.module.scss';
 
 const HomePage = (): JSX.Element => {
-  const [subject, setSubject] = useState(Subjects.query);
+  const [subject, setSubject] = useState(subjects.query);
 
   const [t, i18n] = useTranslation();
 
@@ -63,15 +61,15 @@ const HomePage = (): JSX.Element => {
           onSubmit={(values, formikHelpers) => {
             emailjs
               .send(
-                EnvVariables.NEXT_PUBLIC_SERVICE_ID,
-                EnvVariables.NEXT_PUBLIC_TEMPLATE_ID2,
+                envVariables.NEXT_PUBLIC_SERVICE_ID,
+                envVariables.NEXT_PUBLIC_TEMPLATE_ID2,
                 {
                   email: values.email,
                   name: values.name,
                   message: values.message,
                   subject,
                 },
-                EnvVariables.NEXT_PUBLIC_PUBLIC_KEY,
+                envVariables.NEXT_PUBLIC_PUBLIC_KEY,
               )
               .then(
                 () => {
@@ -112,7 +110,7 @@ const HomePage = (): JSX.Element => {
               />
               <CustomSelect
                 selected={subject}
-                options={Object.values(Subjects)}
+                options={Object.values(subjects)}
                 onChangeSelected={setSubject}
                 name="subject"
               />

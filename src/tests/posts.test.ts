@@ -1,11 +1,13 @@
-import postsEn from '@constants/posts';
 import {
   addPostId,
   getFeaturedPost,
   getPagePosts,
   getPostsWithId,
   getWhatToReadNext,
-} from '@services/posts';
+} from '@helpers/posts';
+import { expect, test } from '@jest/globals';
+
+import { postsEn } from '@constants';
 
 describe('Posts services should work correct', () => {
   test('addPostId should work correct', () => {

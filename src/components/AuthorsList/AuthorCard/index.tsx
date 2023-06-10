@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { type IAuthor } from '@/types';
 import Link from '@components/Link';
 import SocialWrapper from '@components/SocialWrapper';
-import routes from '@constants/routes';
+import { routes } from '@constants';
 
 import styles from './card.module.scss';
 

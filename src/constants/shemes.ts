@@ -1,6 +1,6 @@
 import { object, string } from 'yup';
 
-const emailSchema = string()
+export const emailSchema = string()
   .required('Please enter your email')
   .test(
     'is-email',
@@ -27,5 +27,3 @@ export const contactFormSchema = object({
   email: emailSchema,
   message: messageSchema,
 });
-
-export default emailSchema;

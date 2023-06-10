@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
+import { getFeaturedPost, getPagePosts } from '@helpers/posts';
 import { Button, Typography } from 'components-wil';
 import moment from 'moment';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { CategoriesList, JoinUs, Link, PostCard } from '@components';
-import { FIRST_PAGE_INDEX, SECOND_PAGE_INDEX } from '@constants/numbers';
-import routes from '@constants/routes';
+import { FIRST_PAGE_INDEX, routes, SECOND_PAGE_INDEX } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
-import { getFeaturedPost, getPagePosts } from '@services/posts';
 
 import styles from './blog.module.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import authors from '@constants/authors';
+import { authors } from '@constants';
 
 import styles from './list.module.scss';
 

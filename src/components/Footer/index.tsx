@@ -10,19 +10,18 @@ import socialLink from '@components/Footer/footer.config';
 import Header from '@components/Header';
 import Link from '@components/Link';
 import SocialWrapper from '@components/SocialWrapper';
+import { routes, subscribeFormSchema } from '@constants';
 import EnvVariables from '@constants/envVariables';
-import Routes from '@constants/routes';
-import { subscribeFormSchema } from '@constants/shemes';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './footer.module.scss';
 
 const footerRouter = [
-  Routes.Home,
-  Routes.Blog,
-  Routes['About Us'],
-  Routes['Contact Us'],
-  Routes['Privacy Policy'],
+  routes.Home,
+  routes.Blog,
+  routes['About Us'],
+  routes['Contact Us'],
+  routes['Privacy Policy'],
 ];
 
 const Footer = () => {

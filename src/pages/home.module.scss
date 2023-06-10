@@ -108,7 +108,7 @@
       }
     }
   }
-  .blocks > div {
+  .blocks > section {
     @include flex(flex-start, flex-start, column, $gap24);
     max-width: $size615;
     & > a {

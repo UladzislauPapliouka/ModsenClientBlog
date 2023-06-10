@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { getWhatToReadNext } from '@helpers/posts';
 import { Typography } from 'components-wil';
 import i18n from 'i18next';
 import Image from 'next/image';
@@ -7,9 +8,8 @@ import { useRouter } from 'next/router';
 
 import { type IPost } from '@/types';
 import { BlogPostInfo, JoinUs, PostCard } from '@components';
-import postsEn from '@constants/posts';
+import { postsEn } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
-import { getWhatToReadNext } from '@services/posts';
 
 import styles from './blogpost.module.scss';
 

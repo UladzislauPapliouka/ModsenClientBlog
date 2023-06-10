@@ -4,11 +4,12 @@ import moment from 'moment';
 import Image from 'next/image';
 
 import type IBlogPostInfo from '@components/BlogPostInfo/types';
-import Label from '@components/Label';
-import Link from '@components/Link';
-import routes from '@constants/routes';
+import { routes } from '@constants';
 
 import styles from './blogPostInfo.module.scss';
+
+import Label from '../Label';
+import Link from '../Link';
 
 const BlogPostInfo: FC<IBlogPostInfo> = ({
   postedDate,

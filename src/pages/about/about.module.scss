@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '@styles/_mixins';
 @import '@styles/_variables';
 
@@ -28,7 +29,7 @@
         aspect-ratio: 8/9;
         background-color: $yellow;
         border-radius: 50px 0 0 0;
-        left: -calc($size100 / 2);
+        left: math.div(-$size100,2);
         top: $gap128;
         @media screen and (max-width: $mobileBreakpoint) {
           display: none;
@@ -40,7 +41,7 @@
         aspect-ratio: 1;
         background-color: $purple;
         border-radius: $size64;
-        bottom: -calc($size64 / 2);
+        bottom: math.div(-$size64,2);
         left: $gap128;
         @media screen and (max-width: $mobileBreakpoint) {
           display: none;
@@ -100,7 +101,7 @@
   }
   padding-top: $gap96 !important;
   padding-bottom: $gap96 !important;
-  & > div {
+  & > section {
     @include flex(flex-start, flex-start, column, $gap24);
     max-width: $size615;
   }
@@ -164,8 +165,9 @@
     bottom: $gap44;
     left: $gap128;
     @include flex(null, null, null, $gap64);
-    & div {
+    & section {
       @include flex(center, center, column);
+      width: fit-content;
     }
   }
   @media screen and (max-width: $mobileBreakpoint) {

@@ -43,22 +43,22 @@ const HomePage = (): JSX.Element => {
               {t('aboutUs.mainBlock.stats1.title')}
             </Typography>
           </section>
-          <div>
+          <section>
             <Typography variant="head1">
               {t('aboutUs.mainBlock.stats2.value')}
             </Typography>
             <Typography variant="head6">
               {t('aboutUs.mainBlock.stats2.title')}
             </Typography>
-          </div>
-          <div>
+          </section>
+          <section>
             <Typography variant="head1">
               {t('aboutUs.mainBlock.stats3.value')}
             </Typography>
             <Typography variant="head6">
               {t('aboutUs.mainBlock.stats3.title')}
             </Typography>
-          </div>
+          </section>
         </article>
         <figure>
           <Image

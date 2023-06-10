@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { getAuthorsPosts } from '@helpers/posts';
 import { Typography } from 'components-wil';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { PostCard, SocialWrapper } from '@components';
-import authors from '@constants/authors';
+import { authors } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
-import { getAuthorsPosts } from '@services/posts';
 
 import styles from './author.module.scss';
 

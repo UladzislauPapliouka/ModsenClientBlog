@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Typography } from 'components-wil';
 import Link from 'next/link';
 
-import routes from '@constants/routes';
+import { routes } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
 
 import styles from './joinUs.module.scss';

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getFeaturedPost, getLastPost, getPagePosts } from '@helpers/posts';
 import { Button, Typography } from 'components-wil';
 import moment from 'moment/moment';
 import Image from 'next/image';
@@ -14,11 +15,8 @@ import {
   PostCard,
 } from '@components';
 import InfinityScroll from '@components/InfinityScroll';
-import routes from '@constants/routes';
-import testimonials from '@constants/testimonials';
+import { routes, testimonials } from '@constants';
 import ContentContainer from '@containers/ContentContainer';
-import { getFeaturedPost, getLastPost, getPagePosts } from '@services/posts';
-import useElementOnScreen from '@services/useElementOnScreen';
 
 import styles from './home.module.scss';
 
@@ -31,15 +29,9 @@ const HomePage = (): JSX.Element => {
 
   const [testimonialIndex, setTestimonalIndex] = useState(0);
 
-  const [elementRef, isOnScreen] = useElementOnScreen();
-
   const lastPost = getLastPost();
 
   const featuredPost = getFeaturedPost();
-
-  useEffect(() => {
-    console.log('on screen');
-  }, [isOnScreen]);
 
   useEffect(() => {
     setDate(moment(lastPost.date).locale(i18n.language).format('MMM DD, YYYY'));
@@ -80,6 +72,7 @@ const HomePage = (): JSX.Element => {
           <Image
             src={lastPost.image}
             alt="Main"
+            priority
           />
         </figure>
         <ContentContainer className={styles.lastPost}>
@@ -232,9 +225,7 @@ const HomePage = (): JSX.Element => {
         <AuthorsList />
       </ContentContainer>
       <ContentContainer>
-        <article
-          className={styles.testimonials}
-          ref={elementRef}>
+        <article className={styles.testimonials}>
           <summary className={styles.constant}>
             <Typography variant="head4">
               {t('home.testimonials.name')}

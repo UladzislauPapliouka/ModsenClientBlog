@@ -8,7 +8,7 @@ import postImage3 from '@assets/images/two-women-in-front-of-dry-erase-board-118
 import Authors from '@constants/authors';
 import { Categories, type IPost } from '@typing';
 
-const postsEn: Record<string | number, IPost> = {
+export const postsEn: Record<string | number, IPost> = {
   '1': {
     title: 'Step-by-step guide to choosing great font pairs',
     category: Categories.BUSINESS,
@@ -2434,5 +2434,3 @@ export const postsRu: Record<string | number, IPost> = {
     ],
   },
 };
-
-export default postsEn;
